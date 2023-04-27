@@ -1,0 +1,10 @@
+.contact-banner {
+    background-image: url('../images//SecureVerified/membership-banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+}
+
+.contact-banner-menu {
+    color: #d0dbf8;
+}

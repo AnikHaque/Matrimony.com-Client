@@ -1,0 +1,138 @@
+.LawyerUserProfileBox {
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 10px 5px 0px rgb(119 123 146 / 2%);
+  transition: all ease 0.3s;
+}
+.LawyerUserProfileBoxTopBG {
+  height: 160px;
+  background-image: linear-gradient(166deg, #f22876 0%, #942dd9 100%);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+}
+.LawyerUserProfileContent {
+  position: relative;
+  padding: 90px 30px 30px;
+  text-align: center;
+}
+.profileImg {
+  background: #fff;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: -60px;
+  z-index: 9;
+}
+
+.profileImg::before {
+  position: absolute;
+  content: "";
+  width: 140px;
+  height: 140px;
+  background: #fff3;
+  top: -10px;
+  z-index: -1;
+  left: -10px;
+  border-radius: 50%;
+}
+.profileImg::after {
+  position: absolute;
+  content: "";
+  width: 160px;
+  height: 160px;
+  background: #fff3;
+  top: -20px;
+  z-index: -1;
+  left: -20px;
+  border-radius: 50%;
+}
+
+.profileImg img {
+  border-radius: 50%;
+}
+.profileImg .activeOnline {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #1ce36f;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  bottom: 9px;
+  right: 9px;
+}
+.LawyerUserProfileBox ul li {
+  list-style: none;
+  padding: 5px 0;
+}
+.LawyerProfileList::before {
+  position: absolute;
+  content: "|";
+  left: -18px;
+  top: 2px;
+}
+.LawyerProfileList span i {
+  color: #942dd9;
+  margin-right: 5px;
+}
+.pBMetaTwo {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.pBMetaTwo .left {
+  font-weight: 600;
+}
+
+.pBMetaTwo .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f7e9f8;
+  text-align: center;
+  line-height: 40px;
+  display: inline-block;
+}
+.pBMetaTwo .left .icon i {
+  color: #f22876;
+}
+
+.pBMetaTwo .right a.customButton {
+  display: inline-block;
+  font-weight: normal;
+  padding: 5px 15px;
+  box-shadow: 0px 5px 20px 0px rgb(139 122 132 / 50%);
+  background-image: linear-gradient(166deg, #f22876 0%, #942dd9 100%);
+  color: #fff;
+  border-radius: 50px;
+  border: 0px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+.pBMetaTwo .right i:before {
+  content: "\f385";
+}
+.details::before {
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 12px;
+
+  right: -5px;
+  top: 0px;
+
+  background: #ffffff;
+  border: 2px solid #ff7300;
+  border-radius: 6px;
+}

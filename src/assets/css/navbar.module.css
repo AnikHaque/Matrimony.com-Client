@@ -1,0 +1,20 @@
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+}
+
+.hasTooltip:hover .tooltip {
+  visibility: visible;
+}
+
+.engMenu {
+  display: none;
+  transition: all ease-in-out 0.5s;
+}
+
+.engDropdown:hover .engMenu {
+  display: block;
+}
+.navbar img {
+  margin-bottom: 30px;
+}

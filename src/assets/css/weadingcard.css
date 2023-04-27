@@ -1,0 +1,44 @@
+.main-weading-container {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.card-hober {
+    background-color: rgb(253, 251, 252);
+}
+
+.card-hober:hover .card-img {
+    transform: scaleX(1.2);
+    transition: 2s;
+}
+
+.card-hober:hover {
+    margin-top: -10px;
+    transition: 1s;
+}
+
+.card-overflow-hober {
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: 2s;
+}
+
+.people img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: none;
+}
+
+.world img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: none;
+}

@@ -1,0 +1,45 @@
+.main-container {
+    font-family: "George", "sans-serif";
+}
+
+.section-img-container {
+    min-height: 500px;
+    background: linear-gradient(0deg, rgba(230, 5, 218, 0.548), rgba(232, 15, 240, 0.096)), url("../images/executiveimg.jpeg");
+    background-size: cover;
+    filter: brightness(80%);
+    border-radius: 10px;
+}
+
+.rounded-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: rgb(224, 207, 214);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rounded-img:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+.rounded-img img {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.free-btn {
+    background-image: linear-gradient(166deg, rgb(242, 40, 118) 0%, rgb(148, 45, 217) 100%);
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 7px solid rgb(255, 35, 164);
+    color: white;
+}

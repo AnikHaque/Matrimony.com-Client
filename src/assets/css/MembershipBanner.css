@@ -1,0 +1,12 @@
+.membership-banner {
+  background-image: url("../images/SecureVerified/membership-banner.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+
+}
+
+.membership-banner-menu {
+    color: #d0dbf8;
+}
+/* background-image: linear-gradient(166deg, #f22876 0%, #942dd9 100%); */

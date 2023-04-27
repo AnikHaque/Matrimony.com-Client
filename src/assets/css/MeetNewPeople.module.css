@@ -1,0 +1,189 @@
+@-webkit-keyframes scaleAni {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleAni {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes upDown {
+  0% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+
+  50% {
+    -webkit-transform: translateY(15px);
+    transform: translateY(15px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+@keyframes upDown {
+  0% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+
+  50% {
+    -webkit-transform: translateY(15px);
+    transform: translateY(15px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+.howItWorkSection {
+  background: url("https://shonshari.vercel.app/static/media/bg-img.4d23ed284eb8c883ddeb.jpg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  padding: 140px 0 80px;
+  position: relative;
+}
+.howItWorkSection .shape1 {
+  animation: scaleAni 4s linear infinite;
+  position: absolute;
+  right: 0;
+  top: 100px;
+}
+.howItWorkSection .shape2 {
+  animation: upDown 3s linear infinite;
+  position: absolute;
+  right: 7%;
+  top: 10%;
+}
+.MeetNewPeopleContainer {
+  margin: auto;
+  padding: 0 15px;
+  width: 1140px;
+}
+
+.singleWorkBox {
+  width: 340px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0.872px 9.962px 20px 0 rgb(12 78 165 / 30%);
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.singleWorkBox .icon {
+  display: inline-block;
+  margin-bottom: 34px;
+  position: relative;
+}
+.singleWorkBox .icon .number {
+  background: linear-gradient(150deg, #511be7, #e41272);
+  border-radius: 50%;
+  bottom: 0;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  height: 60px;
+  line-height: 60px;
+  position: absolute;
+  right: 20px;
+  width: 60px;
+}
+.MeetNewPeopleContainer .title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+  line-height: 34px;
+  margin-bottom: 25px;
+}
+.MeetNewPeopleContainer .title:before {
+  background: linear-gradient(155deg, #e41272, #4844a5);
+  border-radius: 5px;
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 30px;
+}
+.customButton {
+  background-image: linear-gradient(166deg, #f22876, #942dd9);
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0.872px 9.962px 20px 0 rgb(12 78 165 / 30%);
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Font Awesome\5 Brands";
+  font-size: 20px;
+  font-weight: 600;
+
+  height: auto;
+  letter-spacing: 4px;
+  padding: 10px 35px;
+
+  width: auto;
+}
+
+@media (max-width: 1200px) {
+  .MeetNewPeopleContainer {
+    max-width: 1170px;
+  }
+}
+@media (max-width: 992px) {
+  .MeetNewPeopleContainer {
+    max-width: 960px;
+  }
+}
+@media (max-width: 768px) {
+  .MeetNewPeopleContainer {
+    max-width: 720px;
+  }
+}
+@media (max-width: 576px) {
+  .MeetNewPeopleContainer {
+    max-width: 100%;
+  }
+  .singleWorkBox {
+    width: 370px;
+  }
+}
+
+@media (max-width: 500px) {
+  .MeetNewPeopleContainer {
+    max-width: 100%;
+  }
+  .singleWorkBox {
+    width: 280px;
+  }
+}

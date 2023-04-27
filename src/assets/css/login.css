@@ -1,0 +1,36 @@
+.login-btn {
+    background-image: linear-gradient(166deg, rgb(242, 40, 118) 0%, rgb(148, 45, 217) 100%);
+    -webkit-box-shadow: 0.872px 9.962px 20px 0px rgb(12 78 165 / 30%);
+    box-shadow: 0.872px 9.962px 20px 0px rgb(12 78 165 / 30%);
+    padding: 11px 35px;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 50px;
+    display: inline-block;
+    border: 0px;
+    cursor: pointer;
+}
+
+.google-login-btn {
+    margin-top: 9px;
+    border: 1px solid rgba(59, 54, 140, 0.1);
+    background-color: rgb(234, 242, 252);
+    -webkit-box-shadow: 1.948px 13.864px 6px 0px rgb(220 234 251 / 30%);
+    box-shadow: 1.948px 13.864px 6px 0px rgb(220 234 251 / 30%);
+    padding: 10px 30px;
+    border-radius: 50px;
+    margin-bottom: 19px;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+    color: blue;
+}
+
+.login-title {
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: 700;
+    margin-bottom: 11px;
+    display: block;
+    color: #3b368c;
+}

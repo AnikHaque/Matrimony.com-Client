@@ -1,0 +1,99 @@
+.searchFind {
+  position: relative;
+  font-size: 18px;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 0;
+  margin-right: 15px;
+}
+.searchFind:before {
+  background: linear-gradient(145deg, #5d38b1f7, #951f1f);
+  border-radius: 5px;
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 30px;
+}
+.option input {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: -9;
+  text-align: center;
+}
+.option label {
+  display: inline-block;
+  margin: 0;
+  width: calc(100% - 14px);
+  padding-left: 10px;
+  position: relative;
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+  word-spacing: 0.2rem;
+}
+.option label:before {
+  content: "";
+  cursor: pointer;
+  position: absolute;
+  border: 1px solid #5650ce;
+  border-radius: 50%;
+  height: 14px;
+  left: -14px;
+  text-align: center;
+  top: 7px;
+  width: 14px;
+}
+.option input:checked ~ label:before {
+  color: #5650ce;
+  content: "";
+  /* font-family: " Font Awesome\6 Free"; */
+  font-family: "Font Awesome 5 Brands";
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 13px;
+  text-align: center;
+}
+.selectBar {
+  background-color: #fff;
+  border: 1px solid #2d4186;
+  border-radius: 4px;
+  outline: none;
+  width: 110px;
+  color: #000;
+  margin-top: 7px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px;
+  text-align: center;
+}
+.partnerButton {
+  background: linear-gradient(155deg, #e41272, #4844a5);
+  box-shadow: 0.872px 9.962px 20px 0px rgb(12 78 165 / 30%);
+  padding: 10px 35px;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 5px;
+  letter-spacing: 4px;
+  display: inline-block;
+  border: 0px;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  font-family: "Font Awesome 5 Brands";
+  padding: 10px 33px;
+  font-weight: 600t;
+}
+
+@media (max-width: 320px) {
+  .partnerFilterBox {
+    width: 300px;
+    margin: 0 auto;
+  }
+}

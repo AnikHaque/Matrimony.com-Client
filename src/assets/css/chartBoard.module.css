@@ -1,0 +1,8 @@
+.showViewButton {
+    visibility: hidden;
+    position: absolute;
+}
+
+.hasViewButton:hover .showViewButton {
+    visibility: visible;
+}

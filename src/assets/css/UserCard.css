@@ -1,0 +1,8 @@
+.user-card{
+    background: linear-gradient(180deg, #8A52D1 0%, #101440 100%);
+
+}
+.not-search{
+    background-color: white;
+    box-shadow: 2px 2px 2px gray;
+}

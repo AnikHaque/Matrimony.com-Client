@@ -1,0 +1,73 @@
+.account-details {
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.from-text-size {
+    font-size: 20px;
+}
+
+.title-color {
+    color: #3b368c;
+}
+
+.input-field {
+    height: 60px;
+    border: 1px solid rgba(59, 54, 140, 0.1);
+    background-color: rgb(234, 242, 252);
+    -webkit-box-shadow: 1.948px 13.864px 6px 0px rgb(220 234 251 / 30%);
+    box-shadow: 1.948px 13.864px 6px 0px rgb(220 234 251 / 30%);
+    font-size: 16px;
+    color: #3b368c;
+    padding: 0px 30px;
+}
+
+.img-container {
+    height: 100vh;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-btn {
+    background-image: linear-gradient(166deg, rgb(242, 40, 118) 0%, rgb(148, 45, 217) 100%);
+    -webkit-box-shadow: 0.872px 9.962px 20px 0px rgb(12 78 165 / 30%);
+    box-shadow: 0.872px 9.962px 20px 0px rgb(12 78 165 / 30%);
+    padding: 11px 35px;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 50px;
+    display: inline-block;
+    border: 0px;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+}
+
+.signup-bg-img {
+    background-image: url("../images/auth//reg.jpg");
+    height: 100vh;
+    background-size: cover;
+}
+
+.account-details::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.account-details::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+.account-details::-webkit-scrollbar-thumb {
+    background: #00acea;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.account-details::-webkit-scrollbar-thumb:hover {
+    background: #00acea;
+}

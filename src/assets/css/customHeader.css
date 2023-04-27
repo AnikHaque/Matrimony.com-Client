@@ -1,0 +1,6 @@
+.custom_header_Container {
+    background-image: linear-gradient(145deg, rgba(81, 27, 231, 1) 0%, rgba(228, 18, 114, 1)100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 344px;
+}

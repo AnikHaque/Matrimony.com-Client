@@ -1,0 +1,34 @@
+.premium-membership {
+    background-image: url("https://pixner.net/peyamba/peyamba/assets/images/join/heartshape.png");
+    background-color: #6041ce;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 80px;
+}
+.card-img-membership {
+    margin-left: -130px;
+}
+.hhh {
+    margin-top: -560px;
+    margin-left: -70px;
+}
+.hhhh {
+    margin-top: -530px;
+    margin-left: 180px;
+}
+.bg-member-premium-btn {
+    background-image: linear-gradient(166deg, #f22876 0%, #942dd9 100%);
+    padding: 10px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    margin: 20px auto;
+    display: inline-block;
+}
+.membership-card {
+    margin-top: -120px;
+}
+.member-sub {
+    background-image: url("https://pixner.net/peyamba/peyamba/assets/images/membership/plan-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,148 @@
+
+.card5 {
+    position: relative;
+    width: 380px;
+    height: min-content;
+    padding: 25px;
+    background: #ffffff;
+    border: 2px solid #e1e3e6;
+    border-radius: 20px;
+    transition: .4s;
+}
+
+.card5:hover {
+    border-color: #ffffff;
+    transform: translateY(-10px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, .08);
+}
+
+.card5 .card-header5 h3 {
+    color: #404d61;
+    font-size: 28px;
+}
+
+.card5 .card-header5 p {
+    color: #757d8a;
+    font-size: 20px;
+}
+
+.card5 .card-header5 span {
+    position: absolute;
+    color: #f43c3c;
+    background: #fef0f0;
+    right: 25px;
+    top: 25px;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 18px;
+}
+
+.card5 .card-img5 {
+    position: relative;
+    height: 220px;
+    border-radius: 12px;
+    margin: 22px 0;
+    overflow: hidden;
+}
+
+.card5 .card-img5 img {
+    width: 100%;
+    height: 100%;
+    transition: .4s;
+}
+
+.card5:hover .card-img5 img {
+    transform: scale(1.06);
+}
+
+.card5 .card-img5 i {
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: #757d8a;
+    background: #ffffff;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.card5 .card-details5 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card5 .card-details5 .price5 p {
+    color: #757d8a;
+    font-size: 20px;
+}
+
+.card5 .card-details5 .price5 strong {
+    color: #545d6d;
+    font-size: 22px;
+}
+
+.card5 .card-details5 .colors5 {
+    display: flex;
+}
+
+.card5 .card-details5 .colors5 div {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+.card5 .card-details5 .colors5 div:nth-child(1) {
+    background: linear-gradient(90deg, #b72c31, #efb9b0);
+}
+
+.card5 .card-details5 .colors5 div:nth-child(2) {
+    background: linear-gradient(90deg, #25476d, #a8bed2);
+}
+
+.card5 .card-details5 .colors5 div:nth-child(3) {
+    background: linear-gradient(90deg, #10505b, #a4beb2);
+}
+
+.card5 .card-details5 .colors5 div i {
+    color: #ffffff;
+    margin: 5px;
+    font-size: 25px;
+    opacity: 0;
+}
+
+.card5 .card-details5 .colors5 div.selected5 i {
+    opacity: 1;
+}
+
+.card5 .card-sizes5 {
+    display: flex;
+    justify-content: space-between;
+    margin: 22px 0;
+}
+
+.card5.card-sizes5 span {
+    cursor: pointer;
+    color: #757d8a;
+    background: #f1f2f3;
+    border-radius: 3px;
+    padding: 6px 12px;
+}
+
+.card5 .card-sizes5 span.selected5 {
+    color: #4e73f8;
+    background: #d5defe;
+}
+
+.card5 .card-footer5 button {
+    cursor: pointer;
+    width: 100%;
+    height: 46px;
+    border-radius: 12px;
+    background: linear-gradient(#6787fd, #3f66f5);
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: .5px;
+}
