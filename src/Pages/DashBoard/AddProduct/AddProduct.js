@@ -47,7 +47,7 @@ const AddProduct = () => {
           </label>
           <select
             {...register("id")}
-            className="select select-bordered w-full max-w-xs defa"
+            className="select select-bordered w-full max-w-lg defa"
           >
             <option disabled>Select Brand Name</option>
             {brandnames.map((brandname) => (
@@ -65,7 +65,7 @@ const AddProduct = () => {
             {...register("name")}
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-lg"
           />
         </div>
         <div className="form-control">
@@ -76,7 +76,7 @@ const AddProduct = () => {
             {...register("resalePrice")}
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-lg"
           />
         </div>
         <div className="form-control">
@@ -87,7 +87,7 @@ const AddProduct = () => {
             {...register("originalPrice")}
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-lg"
           />
         </div>
         <div className="form-control">
@@ -96,7 +96,7 @@ const AddProduct = () => {
           </label>
           <select
             {...register("condition")}
-            className="select select-bordered w-full max-w-xs"
+            className="select select-bordered w-full max-w-lg"
           >
             <option disabled>Select Condition</option>
             <option>Excellent</option>
@@ -112,7 +112,7 @@ const AddProduct = () => {
             {...register("phone")}
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-lg"
           />
         </div>
         <div className="form-control">
@@ -123,7 +123,7 @@ const AddProduct = () => {
             {...register("location")}
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-lg"
           />
         </div>
         <div className="form-control">
@@ -134,7 +134,7 @@ const AddProduct = () => {
             {...register("purchaseYear")}
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-lg"
           />
         </div>
         <div className="form-control">
@@ -145,7 +145,7 @@ const AddProduct = () => {
             {...register("img")}
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-lg"
           />
         </div>
         <div className="form-control">
@@ -154,7 +154,7 @@ const AddProduct = () => {
           </label>
           <textarea
             {...register("description")}
-            className="textarea  md:w-[320px] lg:w-[320px] textarea-bordered"
+            className="textarea  md:w-[320px] lg:w-[360px] textarea-bordered"
             placeholder="Bio"
           ></textarea>
         </div>
