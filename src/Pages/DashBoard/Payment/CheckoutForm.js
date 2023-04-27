@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
+import hug from '../../../assets/images/gif/hug-gif.gif'
 const CheckoutForm = ({ bookedData }) => {
   const { resalePrice, userName, email, _id } = bookedData;
   //   console.log(_id);
@@ -122,11 +123,13 @@ const CheckoutForm = ({ bookedData }) => {
         <p className="text-red-400">{cardError}</p>
         {paymentSuccess && (
           <div>
-            <p className="text-blue-700 font-bold">{paymentSuccess}</p>
+            <p className="text-green-700 font-bold mb-4 mt-4 text-center ">{paymentSuccess}</p>
+            <img src={hug} className="lg:max-w-sm ml-20 rounded-md"></img>
+            {/* <p className="text-blue-700 font-bold">{paymentSuccess}</p>
             <p className="text-blue-700">
               Your transaction Id:{" "}
               <span className="font-bold">{transactionId}</span>
-            </p>
+            </p> */}
           </div>
         )}
       </form>

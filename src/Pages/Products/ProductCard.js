@@ -83,14 +83,14 @@ const ProductCard = ({ product, setBookProduct }) => {
              >
               Appointment
              </label>
-             <Link to={`profile/${_id}`}
-              // onClick={() => setBookProduct(product)}
+      <label
+              onClick={() => setBookProduct(product)}
                htmlFor="view-modal"
                className="btn btn-primary"
-               product ={product}
              >
               View More
-             </Link>
+             </label>
+     
       
     </div>
   </div>

@@ -16,6 +16,7 @@ const Products = () => {
           product={product}
         ></ProductCard>
       ))}
+      
       {bookProduct && (
         <BookNowModal
           setBookProduct={setBookProduct}

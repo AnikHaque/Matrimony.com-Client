@@ -6,19 +6,21 @@ import KaziCard from "./KaziCard";
 import './Kazi.css'
 import { useGetKaziQuery } from "../../features/kazi/kaziApi";
 import KaziLoader from "../../ui/KaziLoader";
+import Loader from "../../ui/Loader";
+import { Error } from "../../ui/Error";
 const Kazi = () => {
   // const kazi = useLoaderData();
   const {data:kazi, isLoading,isError, isSuccess} = useGetKaziQuery();
   
   let content = null;
   if(isLoading){
-    content = <p>Loading</p>
+    content = <div className="ml-[450px] w-72"><Loader></Loader></div>
   }
   if(!isLoading && isError){
     content = <p>There is an error occured</p>
   }
   if(!isLoading && !isError && kazi?.length === 0){
-   content = <p>No Kazi Found !!!</p>
+    content = <div className="lg:max-w-lg ml-[310px]"><Error></Error></div>
   }
   if(!isLoading && !isError && kazi?.length > 0){
    content = <div className=" grid lg:grid-cols-3 md:grid-cols-2 gap-3 ml-8  p-10">
@@ -60,6 +62,7 @@ const Kazi = () => {
  </div>
  ))} 
 </div>
+
   }
   return content;
 {/* <div className=" grid lg:grid-cols-3 md:grid-cols-2 gap-3 ml-8  p-10">
