@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 import hug from '../../../assets/images/gif/hug-gif.gif'
+import { Link } from "react-router-dom";
 const CheckoutForm = ({ bookedData }) => {
   const { resalePrice, userName, email, _id } = bookedData;
   //   console.log(_id);
@@ -87,6 +88,7 @@ const CheckoutForm = ({ bookedData }) => {
             setPaymentSuccess("Your payment is completed");
             setTransactionId(paymentIntent.id);
             toast.success("Payment Successful");
+           
           }
           console.log(data);
         });
@@ -96,40 +98,58 @@ const CheckoutForm = ({ bookedData }) => {
   return (
     <>
       {" "}
-      <form onSubmit={handleSubmit}>
-        <CardElement
-          options={{
-            style: {
-              base: {
-                fontSize: "16px",
-                color: "#424770",
-                "::placeholder": {
-                  color: "#aab7c4",
-                },
-              },
-              invalid: {
-                color: "#9e2146",
+      <form onSubmit={handleSubmit} className="">
+       {
+        !paymentSuccess && !cardError &&  <CardElement
+        options={{
+          style: {
+            base: {
+              fontSize: "16px",
+              color: "#424770",
+              "::placeholder": {
+                color: "#aab7c4",
+               
               },
             },
-          }}
-        />
-        <button
-          className="btn btn-primary btn-sm mt-2"
+            invalid: {
+              color: "#9e2146",
+            },
+          },
+        }}
+      />
+       }
+
+        {
+          paymentProcessing || !paymentSuccess && 
+        
+<button
+          className="btn btn-shared text-white text-lg mt-8 mt-2"
           type="submit"
-          disabled={!stripe || !clientSecret || paymentProcessing}
+          disabled={!stripe || !clientSecret}
         >
-          Pay
+          Please Pay 
         </button>
+        }
+        
         <p className="text-red-400">{cardError}</p>
         {paymentSuccess && (
-          <div>
-            <p className="text-green-700 font-bold mb-4 mt-4 text-center ">{paymentSuccess}</p>
-            <img src={hug} className="lg:max-w-sm ml-20 rounded-md"></img>
-            {/* <p className="text-blue-700 font-bold">{paymentSuccess}</p>
+          <div >
+            <div>  <p className="text-green-700 font-bold mb-4  ml-20 text-center ">{paymentSuccess}<i class="fa-solid fa-heart ml-2 text-red-400"></i></p></div>
+          
+            <img src={hug} className="lg:max-w-md  mt-[-300px] rounded-md"></img>
+            
+            {/* <p className="text-blue-700 font-bold">{paymentSuccess} <i class="fa-solid fa-heart ml-2 text-red-400"></i></p>
             <p className="text-blue-700">
               Your transaction Id:{" "}
               <span className="font-bold">{transactionId}</span>
             </p> */}
+             
+          </div>
+         
+        )}
+        {paymentProcessing && (
+          <div>
+            <img src="https://cutewallpaper.org/21/loading-gif-transparent-background/Tag-For-Transparent-Spinner-Icon-Pehliseedhi-Suitable-.gif" className="ml-32 w-28"></img>
           </div>
         )}
       </form>

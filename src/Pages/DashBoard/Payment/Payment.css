@@ -1,0 +1,47 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+.container3 {
+  display: flex;
+  gap: 12px;
+  max-width: 400px;
+  width: 100%;
+  background-image: linear-gradient(166deg, #f22876, #942dd9);
+  margin-top: 50px;
+  border-radius: 10px;
+}
+.container3 .card3 {
+  display: flex;
+  flex: 0 0 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+ 
+}
+.card3 .image3 {
+  height: 70px;
+  width: 70px;
+  padding: 4px;
+  background: #4070f4;
+  border-radius: 50%;
+}
+.image3 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+}
+.card3 h2 {
+  margin-top: 25px;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+}
+.card3 p {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+}
