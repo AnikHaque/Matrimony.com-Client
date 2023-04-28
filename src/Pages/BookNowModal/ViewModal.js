@@ -325,12 +325,10 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
       <b className="mb-2">Nationality:</b>
       <p>Bangladeshi</p>
       
-    </div>
-   
+    </div> 
   </div>
 </div>
 </div>
-
         </div>
       </div>
     </div>
