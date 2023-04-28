@@ -20,7 +20,7 @@ const AddKazi = () => {
     queryKey: ["productbrandname"],
     queryFn: async () => {
       const res = await fetch(
-        " http://localhost:5000/productbrandname"
+        " https://matrimony-com.onrender.com/productbrandname"
       );
       const data = await res.json();
       return data;
@@ -30,7 +30,7 @@ const AddKazi = () => {
   const handleProductData = (data) => {
    
     // console.log(dataInfo);
-    // fetch(" http://localhost:5000/kazi", {
+    // fetch(" https://matrimony-com.onrender.com/kazi", {
     //   method: "POST",
     //   headers: {
     //     "content-type": "application/json",

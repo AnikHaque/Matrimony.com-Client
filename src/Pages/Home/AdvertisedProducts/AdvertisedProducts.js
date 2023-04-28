@@ -7,7 +7,7 @@ const AdvertisedProducts = () => {
     queryKey: ["advertised"],
     queryFn: async () => {
       const res = await fetch(
-        " http://localhost:5000/advertised"
+        " https://matrimony-com.onrender.com/advertised"
       );
       const data = await res.json();
       return data;

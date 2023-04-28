@@ -20,7 +20,7 @@ const AddProduct = () => {
     queryKey: ["productbrandname"],
     queryFn: async () => {
       const res = await fetch(
-        " http://localhost:5000/productbrandname"
+        " https://matrimony-com.onrender.com/productbrandname"
       );
       const data = await res.json();
       return data;

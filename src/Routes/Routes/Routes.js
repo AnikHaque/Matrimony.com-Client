@@ -70,7 +70,7 @@ export const router = createBrowserRouter([
           
         ),
         loader: ({ params }) =>
-          fetch(` http://localhost:5000/products/${params.id}`),
+          fetch(` https://matrimony-com.onrender.com/products/${params.id}`),
       },
     
       
@@ -167,7 +167,7 @@ export const router = createBrowserRouter([
           </BuyerRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/bookings/${params.id}`),
+          fetch(`https://matrimony-com.onrender.com/bookings/${params.id}`),
       },
     ],
   },

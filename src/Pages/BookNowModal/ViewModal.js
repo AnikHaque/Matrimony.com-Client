@@ -31,7 +31,7 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
     };
 
     console.log(modalInfo);
-    fetch(" http://localhost:5000/bookeditems", {
+    fetch(" https://matrimony-com.onrender.com/bookeditems", {
       method: "POST",
       headers: {
         "content-type": "application/json",
