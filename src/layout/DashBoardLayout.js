@@ -28,14 +28,14 @@ const DashBoardLayout = () => {
         <input type="checkbox" id="menu-toggle6" />
     <div class="sidebar6">
         <div class="side-header6">
-            <h3>M<span>odern</span></h3>
+            <h3>M<span>arriage.com</span></h3>
         </div>
         
         <div class="side-content6">
 <div class="profile6">
                 <div class="profile-img6 bg-img6"></div>
-                <h4>David Green</h4>
-                <small>Art Director</small>
+                <h4>Anik Haque</h4>
+                <small>Software Engineer</small>
             </div>
             <div class="side-menu6">
                 {

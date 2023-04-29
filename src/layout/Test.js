@@ -50,11 +50,11 @@ const Test = () => {
         
                     <div class="card6">
                         <div class="card-head6">
-                            <h2>107,200</h2>
+                            <h2>200 +</h2>
                             <span class="las la-user-friends"></span>
                         </div>
                         <div class="card-progress6">
-                            <small>User activity this month</small>
+                            <small>Total User's in website</small>
                             <div class="card-indicator6">
                                 <div class="indicator one6"></div>
                             </div>
@@ -63,11 +63,11 @@ const Test = () => {
         
                     <div class="card6">
                         <div class="card-head6">
-                            <h2>340,230</h2>
+                            <h2>192 +</h2>
                             <span class="las la-eye"></span>
                         </div>
                         <div class="card-progress6">
-                            <small>Page views</small>
+                            <small>Total Profile's</small>
                             <div class="card-indicator6">
                                 <div class="indicator6 two"></div>
                             </div>
@@ -76,11 +76,11 @@ const Test = () => {
         
                     <div class="card6">
                         <div class="card-head6">
-                            <h2>$653,200</h2>
+                            <h2>250 +</h2>
                             <span class="las la-shopping-cart"></span>
                         </div>
                         <div class="card-progress6">
-                            <small>Monthly revenue growth</small>
+                            <small>Total Product's in Shop</small>
                             <div class="card-indicator6">
                                 <div class="indicator6 three"></div>
                             </div>
@@ -89,11 +89,11 @@ const Test = () => {
         
                     <div class="card6">
                         <div class="card-head6">
-                            <h2>47,500</h2>
+                            <h2> 19 +</h2>
                             <span class="las la-envelope"></span>
                         </div>
                         <div class="card-progress6">
-                            <small>New E-mails received</small>
+                            <small>Total Category's</small>
                             <div class="card-indicator6">
                                 <div class="indicator6 four"></div>
                             </div>
