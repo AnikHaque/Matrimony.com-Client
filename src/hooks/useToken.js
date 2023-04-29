@@ -5,7 +5,7 @@ const useToken = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(` https://matrimony-anik-anikhaque.vercel.app/JWT?email=${email}`)
+      fetch(` https://matrimony-com-server-anikhaque.vercel.app/JWT?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.accessToken) {

@@ -17,7 +17,7 @@ const CheckoutForm = ({ bookedData }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch(" https://matrimony-anik-anikhaque.vercel.app/create-payment-intent", {
+    fetch(" https://matrimony-com-server-anikhaque.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -74,7 +74,7 @@ const CheckoutForm = ({ bookedData }) => {
         email,
         bookingId: _id,
       };
-      fetch(" https://matrimony-anik-anikhaque.vercel.app/payments", {
+      fetch(" https://matrimony-com-server-anikhaque.vercel.app/payments", {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -7,7 +7,7 @@ const AdvertisedProducts = () => {
     queryKey: ["advertised"],
     queryFn: async () => {
       const res = await fetch(
-        " https://matrimony-anik-anikhaque.vercel.app/advertised"
+        " https://matrimony-com-server-anikhaque.vercel.app/advertised"
       );
       const data = await res.json();
       return data;

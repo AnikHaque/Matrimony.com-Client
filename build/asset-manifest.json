@@ -1,11 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.378241b6.css",
-    "main.js": "/static/js/main.b8fe14e3.js",
+    "main.css": "/static/css/main.81ec2b84.css",
+    "main.js": "/static/js/main.a83c9fac.js",
+    "static/js/236.88b107c6.chunk.js": "/static/js/236.88b107c6.chunk.js",
+    "static/js/703.3d43a117.chunk.js": "/static/js/703.3d43a117.chunk.js",
+    "static/js/513.59a5f3f8.chunk.js": "/static/js/513.59a5f3f8.chunk.js",
     "static/js/787.1066eabb.chunk.js": "/static/js/787.1066eabb.chunk.js",
     "static/media/Find-Your-Partner.svg": "/static/media/Find-Your-Partner.9cb7f4d683dfd4246eccaf1dabfa6aac.svg",
-    "static/media/Lawyer.svg": "/static/media/Lawyer.d8718184cf54e132a0530ebc0bbd3280.svg",
-    "static/media/Online-Course.svg": "/static/media/Online-Course.23b7f2c64d68678673bb940715f33b17.svg",
+    "static/media/meeting.jpg": "/static/media/meeting.c02d1c758caa4989c54c.jpg",
     "static/media/online.svg": "/static/media/online.db6d864743caf61c7c0e525519a0bac4.svg",
     "static/media/hug-gif.gif": "/static/media/hug-gif.3cb3a607845559c14061.gif",
     "static/media/soleMate.png": "/static/media/soleMate.749f247e9c0a5e1d3b7e.png",
@@ -15,18 +17,20 @@
     "static/media/right-shape.png": "/static/media/right-shape.8ea67ff532b196159bfd.png",
     "static/media/executiveimg.jpeg": "/static/media/executiveimg.a028a940cbb19aa4a203.jpeg",
     "static/media/Membership.svg": "/static/media/Membership.dc58280aceae4329110d3b0e492a3ccb.svg",
-    "static/media/Language-Switcher-English.svg": "/static/media/Language-Switcher-English.4aaf5476a856ab40368a1d43c21217f5.svg",
     "static/media/Shop.svg": "/static/media/Shop.f31e64daa6c263781721146ed7f6ac8b.svg",
     "static/media/Profile-Login-Icon.svg": "/static/media/Profile-Login-Icon.92474a7d412953a2c6b292a760034b0d.svg",
     "static/media/flower01.png": "/static/media/flower01.24e53a56da15be4bfcc6.png",
     "index.html": "/index.html",
     "static/media/wav.svg": "/static/media/wav.351b8be0ddf235d2506a.svg",
-    "main.378241b6.css.map": "/static/css/main.378241b6.css.map",
-    "main.b8fe14e3.js.map": "/static/js/main.b8fe14e3.js.map",
+    "main.81ec2b84.css.map": "/static/css/main.81ec2b84.css.map",
+    "main.a83c9fac.js.map": "/static/js/main.a83c9fac.js.map",
+    "236.88b107c6.chunk.js.map": "/static/js/236.88b107c6.chunk.js.map",
+    "703.3d43a117.chunk.js.map": "/static/js/703.3d43a117.chunk.js.map",
+    "513.59a5f3f8.chunk.js.map": "/static/js/513.59a5f3f8.chunk.js.map",
     "787.1066eabb.chunk.js.map": "/static/js/787.1066eabb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.378241b6.css",
-    "static/js/main.b8fe14e3.js"
+    "static/css/main.81ec2b84.css",
+    "static/js/main.a83c9fac.js"
   ]
 }

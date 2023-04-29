@@ -32,7 +32,7 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
     };
 
     console.log(modalInfo);
-    fetch(" https://matrimony-anik-anikhaque.vercel.app/bookeditems", {
+    fetch(" https://matrimony-com-server-anikhaque.vercel.app/bookeditems", {
       method: "POST",
       headers: {
         "content-type": "application/json",

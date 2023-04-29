@@ -5,7 +5,7 @@ const useBuyer = (email) => {
   const [isBuyerLoading, setIsBuyerLoading] = useState(true);
   useEffect(() => {
     if (email) {
-      fetch(` https://matrimony-anik-anikhaque.vercel.app/users/buyers/${email}`)
+      fetch(` https://matrimony-com-server-anikhaque.vercel.app/users/buyers/${email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

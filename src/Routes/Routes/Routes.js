@@ -72,7 +72,7 @@ export const router = createBrowserRouter([
           
         ),
         loader: ({ params }) =>
-          fetch(` https://matrimony-anik-anikhaque.vercel.app/products/${params.id}`),
+          fetch(` https://matrimony-com-server-anikhaque.vercel.app/products/${params.id}`),
       },
     
       
@@ -177,7 +177,7 @@ export const router = createBrowserRouter([
           </BuyerRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://matrimony-anik-anikhaque.vercel.app/bookings/${params.id}`),
+          fetch(`https://matrimony-com-server-anikhaque.vercel.app/bookings/${params.id}`),
       },
     ],
   },

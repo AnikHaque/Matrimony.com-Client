@@ -20,7 +20,7 @@ const AddKazi = () => {
     queryKey: ["productbrandname"],
     queryFn: async () => {
       const res = await fetch(
-        " https://matrimony-anik-anikhaque.vercel.app/productbrandname"
+        " https://matrimony-com-server-anikhaque.vercel.app/productbrandname"
       );
       const data = await res.json();
       return data;
@@ -30,7 +30,7 @@ const AddKazi = () => {
   const handleProductData = (data) => {
    
     // console.log(dataInfo);
-    // fetch(" https://matrimony-anik-anikhaque.vercel.app/kazi", {
+    // fetch(" https://matrimony-com-server-anikhaque.vercel.app/kazi", {
     //   method: "POST",
     //   headers: {
     //     "content-type": "application/json",
