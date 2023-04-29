@@ -17,7 +17,7 @@ const CheckoutForm = ({ bookedData }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch(" https://matrimony-com.onrender.com/create-payment-intent", {
+    fetch(" http://localhost:5000/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -74,7 +74,7 @@ const CheckoutForm = ({ bookedData }) => {
         email,
         bookingId: _id,
       };
-      fetch(" https://matrimony-com.onrender.com/payments", {
+      fetch(" http://localhost:5000/payments", {
         method: "POST",
         headers: {
           "content-type": "application/json",

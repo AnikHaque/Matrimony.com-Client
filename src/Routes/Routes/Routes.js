@@ -38,6 +38,7 @@ export const router = createBrowserRouter([
       { path: "/login", element: <LogIn></LogIn> },
       { path: "/signup", element: <SignUp></SignUp> },
       { path: "/blog", element: <Blog></Blog> },
+      { path: "/profile", element: <ProfileDetails></ProfileDetails> },
       { 
         path: "/kazi", 
         element:<Kazi></Kazi> ,
@@ -70,7 +71,7 @@ export const router = createBrowserRouter([
           
         ),
         loader: ({ params }) =>
-          fetch(` https://matrimony-com.onrender.com/products/${params.id}`),
+          fetch(` http://localhost:5000/products/${params.id}`),
       },
     
       
@@ -167,7 +168,7 @@ export const router = createBrowserRouter([
           </BuyerRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://matrimony-com.onrender.com/bookings/${params.id}`),
+          fetch(`http://localhost:5000/bookings/${params.id}`),
       },
     ],
   },

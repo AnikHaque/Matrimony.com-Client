@@ -113,7 +113,7 @@ const LogIn = () => {
     <div class="title">Login Form</div>
     <div class="social_icons">
       <a href="#"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a>
-      <a href="#"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+       <Link><i class="fa-brands fa-google"></i><span>Google</span></Link>
     </div>
     <form onSubmit={handleSubmit(handleLoginform)}>
       <div class="input_box">

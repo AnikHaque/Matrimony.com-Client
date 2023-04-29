@@ -1,8 +1,61 @@
 
 
+.topbar0 {
+    position: fixed;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+    width: 100%;
+    padding: 0 20px;
+    height: 60px;
+    display: grid;
+    grid-template-columns: 2fr 10fr 0.4fr 1fr;
+    align-items: center;
+    z-index: 1;
+}
 
+.dash-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-.user9 {
+.logo0 h2 {
+    color: #942dd9;
+}
+
+.search0 {
+    position: relative;
+    width: 60%;
+    justify-self: center;
+}
+
+.search0 input {
+    width: 100%;
+    min-width: 128px;
+    height: 40px;
+    padding: 0 40px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background: #f5f5f5;
+}
+
+.search0 i {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.fa-bell {
+    justify-self: right;
+}
+
+.user0 {
     position: relative;
     width: 50px;
     height: 50px;
@@ -12,37 +65,35 @@
 
 /* sidebar */
 
-.sidebar9 {
+.sidebar0 {
     position: fixed;
     top: 60px;
     width: 260px;
     height: calc(100% - 60px);
     background-image: linear-gradient(166deg, #f22876, #942dd9);
-    font-weight: bolder;
     overflow-x: hidden;
-    border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     z-index: 2;
 }
 
-.sidebar9 ul {
+.sidebar0 ul {
     margin-top: 20px;
 }
 
-.sidebar9 ul li {
+.sidebar0 ul li {
     width: 100%;
     list-style: none;
 }
 
-.sidebar9 ul li:hover {
+.sidebar0 ul li:hover {
     background: #fff;
 }
 
-.sidebar9 ul li:hover a {
+.sidebar0 ul li:hover a {
     color: #299B63;
 }
 
-.sidebar9 ul li a {
+.sidebar0 ul li a {
     width: 100%;
     text-decoration: none;
     color: #fff;
@@ -51,7 +102,7 @@
     align-items: center;
 }
 
-.sidebar9 ul li a i {
+.sidebar0 ul li a i {
     min-width: 60px;
     font-size: 24px;
     text-align: center;
@@ -60,7 +111,7 @@
 
 /* main */
 
-.main9 {
+.main0 {
     position: absolute;
     top: 60px;
     width: calc(100% - 260px);
@@ -69,7 +120,7 @@
     background: #f5f5f5;
 }
 
-.cards9 {
+.cards0 {
     width: 100%;
     padding: 35px 20px;
     display: grid;
@@ -77,7 +128,7 @@
     grid-gap: 20px;
 }
 
-.cards9 .card9 {
+.cards0 .card0 {
     padding: 20px;
     display: flex;
     align-items: center;
@@ -87,25 +138,111 @@
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
 
-.number9 {
+.number0 {
     font-size: 35px;
     font-weight: 500;
-    color: #299B63;
+    color: #942dd9;
 }
 
-.card-name9 {
-    color: #888;
+.card-name0 {
+    color: #942dd9;
     font-weight: 600;
 }
 
-.icon-box9 i {
+.icon-box0 i {
     font-size: 45px;
     color: #299b63;
 }
 
 
+/* charts */
 
+.charts {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+}
 
+.chart {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    width: 100%;
+}
 
+.chart h2 {
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #666;
+    text-align: center
+}
 
+@media (max-width:1115px) {
+    .sidebar {
+        width: 60px;
+    }
+    .main {
+        width: calc(100% - 60px);
+        left: 60px;
+    }
+}
 
+@media (max-width:880px) {
+    /* .topbar {
+        grid-template-columns: 1.6fr 6fr 0.4fr 1fr;
+    } */
+    .fa-bell {
+        justify-self: left;
+    }
+    .cards {
+        width: 100%;
+        padding: 35px 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+    .charts {
+        grid-template-columns: 1fr;
+    }
+    .doughnut-chart {
+        padding: 50px;
+    }
+    #doughnut {
+        padding: 50px;
+    }
+}
+
+@media (max-width:500px) {
+    .topbar {
+        grid-template-columns: 1fr 5fr 0.4fr 1fr;
+    }
+    .logo h2 {
+        font-size: 20px;
+    }
+    .search {
+        width: 80%;
+    }
+    .search input {
+        padding: 0 20px;
+    }
+    .fa-bell {
+        margin-right: 5px;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .doughnut-chart {
+        padding: 10px;
+    }
+    #doughnut {
+        padding: 0px;
+    }
+    .user {
+        width: 40px;
+        height: 40px;
+    }
+}
