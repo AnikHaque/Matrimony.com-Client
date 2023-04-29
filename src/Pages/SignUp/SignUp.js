@@ -66,7 +66,7 @@ const verifyEmail = () => {
   //   function to save registered users data
   const saveRegisteredUser = (name, email, role) => {
     const registeredUser = { name, email, role };
-    fetch(" http://localhost:5000/users", {
+    fetch(" https://matrimony-anik-anikhaque.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -83,7 +83,7 @@ const verifyEmail = () => {
 
   //   jwt token for registered user
   //   const registeredUserToken = (email) => {
-  //     fetch(` http://localhost:5000/JWT?email=${email}`)
+  //     fetch(` https://matrimony-anik-anikhaque.vercel.app/JWT?email=${email}`)
   //       .then((res) => res.json())
   //       .then((data) => {
   //         if (data.accessToken) {

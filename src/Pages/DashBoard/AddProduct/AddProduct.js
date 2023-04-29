@@ -39,7 +39,7 @@ const AddProduct = () => {
     queryKey: ["productbrandname"],
     queryFn: async () => {
       const res = await fetch(
-        " http://localhost:5000/productbrandname"
+        " https://matrimony-anik-anikhaque.vercel.app/productbrandname"
       );
       const data = await res.json();
       return data;

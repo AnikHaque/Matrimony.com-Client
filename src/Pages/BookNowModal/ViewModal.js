@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
-
+import { GrDocumentPdf } from 'react-icons/gr';
+import Pdf from "react-to-pdf";
 const ViewModal = ({ bookProduct, setBookProduct }) => {
   const { user } = useContext(AuthContext);
   console.log(user);
@@ -31,7 +32,7 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
     };
 
     console.log(modalInfo);
-    fetch(" http://localhost:5000/bookeditems", {
+    fetch(" https://matrimony-anik-anikhaque.vercel.app/bookeditems", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -50,6 +51,7 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
     setBookProduct(null);
   };
 
+  const ref = React.createRef();
   return (
     <div className="">
       <input type="checkbox" id="view-modal" className="modal-toggle" />
@@ -73,13 +75,16 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
 <input type="checkbox" id="my-modal-5" className="modal-toggle" />
 <div className="modal">
   <div className="modal-box h-full rounded-md">
+  <Pdf targetRef={ref} filename="Course-details.pdf">
+                {({ toPdf }) => <button onClick={toPdf} className="flex items-center mx-auto block p-3 text-center rounded-xl text-white bg-red-500 hover:bg-red-600">Download<GrDocumentPdf /></button>}
+            </Pdf>
   <label
             htmlFor="my-modal-5"
             className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
           </label>
-    <div className="grid grid-cols-2 lg:grid-cols-2 mt-10">
+    <div className="grid grid-cols-2 lg:grid-cols-2 mt-10" ref={ref}>
       <b className="mb-2">Name:</b>
       <p>{user.displayName}</p>
       <b className="mb-2">Email:</b>

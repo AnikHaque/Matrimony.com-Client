@@ -1,155 +1,224 @@
 import React from "react";
 
 import { BsArrowRightShort, BsArrowReturnRight } from "react-icons/bs";
+import meeting from "../../assets/images/meeting.jpg";
+import './Profile.css';
+import './ProfileDetails.css';
+
 const ProfileDetails = () => {
-  
+
  
   return (
-    <div className='pt-14 grid grid-cols-12 gap-5'>
-      <div className='col-span-9 mb-10'>
-        <div className='h-80 rounded-xl overflow-hidden'>
-          <img className='h-full w-full  ml-4' src='https://png.pngtree.com/thumb_back/fh260/background/20210823/pngtree-music-background-design-image_767402.jpg' alt='' />
-        </div>
-        <div className='space-y-5'>
-          <div className='mt-5'>
-            <h1 className='text-xl font-semibold text-primary ml-4'>position</h1>
-           <p className="ml-4">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-          </div>
-          <div>
-            <h1 className='text-primary text-lg font-medium mb-3'>Overview</h1>
-            <p>overview</p>
-          </div>
-          <div>
-            <h1 className='text-primary text-lg font-medium mb-3'>Skills</h1>
-            <ul>
-   
-                <li className='flex items-center'>
-                  <BsArrowRightShort /> <span>skill</span>
-                </li>
-             
-            </ul>
-          </div>
-          <div>
-            <h1 className='text-primary text-lg font-medium mb-3'>
-              Requirements
-            </h1>
-            <ul>
-                <li className='flex items-center'>
-                  <BsArrowRightShort /> <span>skill</span>
-                </li>
-            
-            </ul>
-          </div>
-          <div>
-            <h1 className='text-primary text-lg font-medium mb-3'>
-              Responsibilities
-            </h1>
-            <ul>
-                <li className='flex items-center'>
-                  <BsArrowRightShort /> <span>skill</span>
-                </li>
-            
-            </ul>
-          </div>
-        </div>
-        <hr className='my-5' />
-        <div>
-          <div>
-            <h1 className='text-xl font-semibold text-primary mb-5'>
-              General Q&A
-            </h1>
-            <div className='text-primary my-2'>
-             
-                <div>
-                  <small>email</small>
-                  <p className='text-lg font-medium'>question</p>
-                  
-                    <p className='flex items-center gap-2 relative left-5'>
-                      <BsArrowReturnRight /> item
-                    </p>
-                
+<>
 
-                  <div className='flex gap-3 my-5'>
-                    <input placeholder='Reply' type='text' className='w-full' />
-                    <button
-                      className='shrink-0 h-14 w-14 bg-primary/10 border border-primary hover:bg-primary rounded-full transition-all  grid place-items-center text-primary hover:text-white'
-                      type='button'
-                    >
-                      <BsArrowRightShort size={30} />
-                    </button>
-                  </div>
-                </div>
-             
-            </div>
+<section class="py-5 my-5">
+		<div class="container">
+			<h1 class="mb-5">Account Settings</h1>
+			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
+				<div class="profile-tab-nav border-right">
+					<div class="p-4">
+						<div class="img-circle text-center mb-3">
+							<img src="img/user2.jpg" alt="Image" class="shadow" />
+						</div>
+						<h4 class="text-center">Kiran Acharya</h4>
+					</div>
+					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
+							<i class="fa fa-home text-center mr-1"></i> 
+							Account
+						</a>
+						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+							<i class="fa fa-key text-center mr-1"></i> 
+							Password
+						</a>
+						<a class="nav-link" id="security-tab" data-toggle="pill" href="#security" role="tab" aria-controls="security" aria-selected="false">
+							<i class="fa fa-user text-center mr-1"></i> 
+							Security
+						</a>
+						<a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
+							<i class="fa fa-tv text-center mr-1"></i> 
+							Application
+						</a>
+						<a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
+							<i class="fa fa-bell text-center mr-1"></i> 
+							Notification
+						</a>
+					</div>
+				</div>
+				<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+					<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+						<h3 class="mb-4">Account Settings</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>First Name</label>
+								  	<input type="text" class="form-control" value="Kiran" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Last Name</label>
+								  	<input type="text" class="form-control" value="Acharya" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Email</label>
+								  	<input type="text" class="form-control" value="kiranacharya287@gmail.com" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Phone number</label>
+								  	<input type="text" class="form-control" value="+91 9876543215" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Company</label>
+								  	<input type="text" class="form-control" value="Kiran Workspace" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Designation</label>
+								  	<input type="text" class="form-control" value="UI Developer" />
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+								  	<label>Bio</label>
+									<textarea class="form-control" rows="4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!</textarea>
+								</div>
+							</div>
+						</div>
+						<div>
+							<button class="btn btn-primary">Update</button>
+							<button class="btn btn-light">Cancel</button>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+						<h3 class="mb-4">Password Settings</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Old password</label>
+								  	<input type="password" class="form-control" />
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>New password</label>
+								  	<input type="password" class="form-control" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Confirm new password</label>
+								  	<input type="password" class="form-control" />
+								</div>
+							</div>
+						</div>
+						<div>
+							<button class="btn btn-primary">Update</button>
+							<button class="btn btn-light">Cancel</button>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+						<h3 class="mb-4">Security Settings</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Login</label>
+								  	<input type="text" class="form-control" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Two-factor auth</label>
+								  	<input type="text" class="form-control" />
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="" id="recovery" />
+										<label class="form-check-label" for="recovery">
+										Recovery
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<button class="btn btn-primary">Update</button>
+							<button class="btn btn-light">Cancel</button>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
+						<h3 class="mb-4">Application Settings</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="" id="app-check" />
+										<label class="form-check-label" for="app-check">
+										App check
+										</label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" />
+										<label class="form-check-label" for="defaultCheck2">
+										Lorem ipsum dolor sit.
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<button class="btn btn-primary">Update</button>
+							<button class="btn btn-light">Cancel</button>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
+						<h3 class="mb-4">Notification Settings</h3>
+						<div class="form-group">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="notification1" />
+								<label class="form-check-label" for="notification1">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum accusantium accusamus, neque cupiditate quis
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="notification2" / >
+								<label class="form-check-label" for="notification2">
+									hic nesciunt repellat perferendis voluptatum totam porro eligendi.
+								</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="notification3" />
+								<label class="form-check-label" for="notification3">
+									commodi fugiat molestiae tempora corporis. Sed dignissimos suscipit
+								</label>
+							</div>
+						</div>
+						<div>
+							<button class="btn btn-primary">Update</button>
+							<button class="btn btn-light">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</>
 
-            <div className='flex gap-3 my-5'>
-              <input
-                placeholder='Ask a question...'
-                type='text'
-                className='w-full'
-              />
-              <button
-                className='shrink-0 h-14 w-14 bg-primary/10 border border-primary hover:bg-primary rounded-full transition-all  grid place-items-center text-primary hover:text-white'
-                type='button'
-              >
-                <BsArrowRightShort size={30} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className='col-span-3'>
-        <div className='rounded-xl bg-primary/10 p-5 text-primary space-y-5'>
-          <div>
-            <p>Experience</p>
-            <h1 className='font-semibold text-lg'>experience</h1>
-          </div>
-          <div>
-            <p>Work Level</p>
-            <h1 className='font-semibold text-lg'>workLevel</h1>
-          </div>
-          <div>
-            <p>Employment Type</p>
-            <h1 className='font-semibold text-lg'>employmentType</h1>
-          </div>
-          <div>
-            <p>Salary Range</p>
-            <h1 className='font-semibold text-lg'>salaryRange</h1>
-          </div>
-          <div>
-            <p>Location</p>
-            <h1 className='font-semibold text-lg'>location</h1>
-          </div>
-        </div>
-        <div className='mt-5 rounded-xl bg-primary/10 p-5 text-primary space-y-5'>
-          <div>
-            <h1 className='font-semibold text-lg'>companyName</h1>
-          </div>
-          <div>
-            <p>Company Size</p>
-            <h1 className='font-semibold text-lg'>Above 100</h1>
-          </div>
-          <div>
-            <p>Founded</p>
-            <h1 className='font-semibold text-lg'>2001</h1>
-          </div>
-          <div>
-            <p>Email</p>
-            <h1 className='font-semibold text-lg'>company.email@name.com</h1>
-          </div>
-          <div>
-            <p>Company Location</p>
-            <h1 className='font-semibold text-lg'>Los Angeles</h1>
-          </div>
-          <div>
-            <p>Website</p>
-            <a className='font-semibold text-lg' href='#'>
-              https://website.com
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 };
 

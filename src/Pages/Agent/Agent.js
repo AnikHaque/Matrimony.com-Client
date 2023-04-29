@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 // custom css 
 import './Agent.css'
 
@@ -7,6 +8,7 @@ import './Agent.css'
 import { useGetagentQuery } from "../../features/agent/agentApi";
 
 const Agent = () => {
+  const ref = React.createRef();
 //  fetch from redux 
   const {data:agent, isLoading,isError, isSuccess} = useGetagentQuery();
   
@@ -52,6 +54,7 @@ const Agent = () => {
 
             <div class="name-profession2">
               <span class="name2">{product.position}</span>
+              
               <span class="profession2">{product.employmentType}</span>
             </div>
 
