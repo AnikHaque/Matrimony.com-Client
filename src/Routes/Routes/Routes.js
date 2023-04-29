@@ -27,6 +27,7 @@ import Lawyer from "../../Pages/Lawyer/Lawyer";
 import AddItem from "../../Pages/DashBoard/AddItem/AddItem";
 import Item from "../../Pages/Item/Item";
 import ProfileDetails from "../../Pages/Products/ProfileDetails";
+import Test from "../../layout/Test";
 
 export const router = createBrowserRouter([
   {
@@ -101,6 +102,14 @@ export const router = createBrowserRouter([
         element: (
           <SellerRoute>
            <AddProduct></AddProduct>
+          </SellerRoute>
+        ),
+      },
+      {
+        path: "/dashboard/test",
+        element: (
+          <SellerRoute>
+           <Test></Test>
           </SellerRoute>
         ),
       },

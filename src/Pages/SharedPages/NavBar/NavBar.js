@@ -5,11 +5,7 @@ import blackLogo from "../../../assets/images/Logo/logoBlack.png";
 import blog from "../../../assets/images/NavIcons/Blog.svg";
 import findPartner from "../../../assets/images/NavIcons/Find-Your-Partner.svg";
 import login from "../../../assets/images/NavIcons/Profile-Login-Icon.svg";
-import eng from "../../../assets/images/NavIcons/Language-Switcher-English.svg";
-import findALawyer from "../../../assets/images/NavIcons/Lawyer.svg";
-import membership from "../../../assets/images/NavIcons/Membership.svg";
-import course from "../../../assets/images/NavIcons/Online-Course.svg";
-import register from "../../../assets/images/NavIcons/Profile-Login-Icon.svg";
+
 import shop from "../../../assets/images/Logo/Shop.svg";
 import kazi from "../../../assets/images/NavIcons/Profile-Login-Icon.svg";
 import home from "../../../assets/images/Logo/online.svg";

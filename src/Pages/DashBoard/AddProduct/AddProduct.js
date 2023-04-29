@@ -35,15 +35,15 @@ const AddProduct = () => {
   };
 
   return (
-    <div>
+    <div className="ml-56 mr-40 mt-12">
       <h1 className="text-xl font-semibold text-green-900">Add  Product</h1>
       <form
         onSubmit={handleSubmit(handleProductData)}
-        className="px-40 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-2 p-3 bg-orange-100"
+        className="px-20 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 p-4 bg-blue-100"
       >
         <div className="form-control">
           <label>
-            <span className="label-text text-xl">Name</span>
+            <span className="label-text text-xl">Category</span>
           </label>
           <select
             {...register("id")}
@@ -59,7 +59,7 @@ const AddProduct = () => {
         </div>
         <div className="form-control">
           <label>
-            <span className="label-text text-xl">Product Name</span>
+            <span className="label-text text-xl">Profile Name</span>
           </label>
           <input
             {...register("name")}
@@ -162,7 +162,7 @@ const AddProduct = () => {
           className="btn lg:btn-wide btn-primary  lg:ml-52 mt-4"
           type="submit"
         >
-          Add A Product
+          Submit Profile
         </button>
       </form>
     </div>
