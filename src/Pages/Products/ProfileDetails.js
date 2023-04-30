@@ -1,225 +1,235 @@
-import React from "react";
-
-import { BsArrowRightShort, BsArrowReturnRight } from "react-icons/bs";
-import meeting from "../../assets/images/meeting.jpg";
-import './Profile.css';
+import React, { useState, useEffect, useRef } from 'react';
 import './ProfileDetails.css';
 
+
+const product = { // Product Data
+  id: 1,
+  name: 'new macbook laptop',
+  slug: 'new-luxury-laptop',
+  photo: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  price: 1999,
+  desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consectetur vero asperiores quis animi explicabo accusamus nemo cupiditate harum pariatur! Provident sit tenetur totam mollitia consectetur nesciunt, recusandae obcaecati itaque!',
+  images: [
+    {
+      src: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    },
+    {
+      src: 'https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    },
+    {
+      src: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    },
+    {
+      src: 'https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    },
+    {
+      src: 'https://images.pexels.com/photos/1006293/pexels-photo-1006293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    },
+    {
+      src: 'https://images.pexels.com/photos/209151/pexels-photo-209151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    },
+    {
+      src: 'https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    },
+    {
+      src: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    },
+    {
+      src: 'https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    },
+    {
+      src: 'https://images.pexels.com/photos/1006293/pexels-photo-1006293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    },
+    {
+      src: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    },
+    {
+      src: 'https://images.pexels.com/photos/209151/pexels-photo-209151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    }
+  ],
+  colors: ["#2287fa", "#f71b1b", "green"],
+  infos: [
+    {
+      title: "highlights",
+      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni illum, sint explicabo esse temporibus! Dicta, voluptatum dolorem numquam deserunt, doloribus, voluptatem consequuntur praesentium deleniti nulla in repellendus eum vero."
+    },
+    {
+      title: "materials",
+      content: "materials"
+    },
+    {
+      title: "how to use",
+      content: "how to use"
+    },
+    {
+      title: "pro tips",
+      content: "pro tips"
+    }
+  ],
+  discount: 20,
+  sold: 52,
+  category: 'laptop',
+  brand: 'apple'
+}
+
 const ProfileDetails = () => {
+  const [slideIndex, setSlideIndex] = useState(1);
 
- 
+  const [width, setWidth] = useState(0);
+  const [start, setStart] = useState(0);
+  const [change, setChange] = useState(9);
+
+  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+
+  const [infoTitle, setInfoTitle] = useState(product.infos[0].title);
+
+  const slideRef = useRef();
+
+
+  useEffect(() => {
+    if(!slideRef.current) return;
+    const scrollWidth = slideRef.current.scrollWidth;
+    const childrenElementCount = slideRef.current.childElementCount;
+    const width = scrollWidth / childrenElementCount;
+    setWidth(width)
+  }, [])
+
+  function plusSlides(n) {
+    setSlideIndex(prev => prev + n);
+    slideShow(slideIndex + n);
+  }
+
+  function slideShow(n){
+    if(n > product.images.length) { setSlideIndex(1) };
+    if(n < 1) { setSlideIndex(product.images.length) };
+  }
+
+  // Drag
+  function dragStart(e){
+    setStart(e.clientX)
+  } 
+
+  function dragOver(e){
+    let touch = e.clientX;
+    setChange(start - touch);
+  }
+
+  function dragEnd(e){
+    // drag left chang > 0
+    // drag right chang < 0
+    if(change > 0){
+      slideRef.current.scrollLeft += width;
+    }else{
+      slideRef.current.scrollLeft -= width;
+    }
+  }
+
+  useEffect(() => {
+    if(!slideRef.current || !width) return;
+    let numOfThumb = Math.round(slideRef.current.offsetWidth / width);
+    slideRef.current.scrollLeft = slideIndex > numOfThumb ? (slideIndex - 1) * width : 0;
+  }, [width, slideIndex]);
+
+  
+
   return (
-<>
+    <React.Fragment>
+      <section className="product-details">
+        <div className="product-page-img">
+          <div className="big-images">
+            {
+              product.images.map((image, index) => (
+                <div key={index} className="mySlides" 
+                style={{display: (index + 1) === slideIndex ? "block" : "none"}}>
+                  <div className="numbertext">{index + 1} / {product.images.length}</div>
+                  <img src={image.src} alt="" />
+                </div>
+              ))
+            }
 
-<section class="py-5 my-5">
-		<div class="container">
-			<h1 class="mb-5">Account Settings</h1>
-			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
-				<div class="profile-tab-nav border-right">
-					<div class="p-4">
-						<div class="img-circle text-center mb-3">
-							<img src="img/user2.jpg" alt="Image" class="shadow" />
-						</div>
-						<h4 class="text-center">Kiran Acharya</h4>
-					</div>
-					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
-							<i class="fa fa-home text-center mr-1"></i> 
-							Account
-						</a>
-						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
-							<i class="fa fa-key text-center mr-1"></i> 
-							Password
-						</a>
-						<a class="nav-link" id="security-tab" data-toggle="pill" href="#security" role="tab" aria-controls="security" aria-selected="false">
-							<i class="fa fa-user text-center mr-1"></i> 
-							Security
-						</a>
-						<a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab" aria-controls="application" aria-selected="false">
-							<i class="fa fa-tv text-center mr-1"></i> 
-							Application
-						</a>
-						<a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
-							<i class="fa fa-bell text-center mr-1"></i> 
-							Notification
-						</a>
-					</div>
-				</div>
-				<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
-					<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
-						<h3 class="mb-4">Account Settings</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>First Name</label>
-								  	<input type="text" class="form-control" value="Kiran" />
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Last Name</label>
-								  	<input type="text" class="form-control" value="Acharya" />
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Email</label>
-								  	<input type="text" class="form-control" value="kiranacharya287@gmail.com" />
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Phone number</label>
-								  	<input type="text" class="form-control" value="+91 9876543215" />
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Company</label>
-								  	<input type="text" class="form-control" value="Kiran Workspace" />
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Designation</label>
-								  	<input type="text" class="form-control" value="UI Developer" />
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-								  	<label>Bio</label>
-									<textarea class="form-control" rows="4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!</textarea>
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
-						<h3 class="mb-4">Password Settings</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Old password</label>
-								  	<input type="password" class="form-control" />
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>New password</label>
-								  	<input type="password" class="form-control" />
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Confirm new password</label>
-								  	<input type="password" class="form-control" />
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
-						<h3 class="mb-4">Security Settings</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Login</label>
-								  	<input type="text" class="form-control" />
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Two-factor auth</label>
-								  	<input type="text" class="form-control" />
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="recovery" />
-										<label class="form-check-label" for="recovery">
-										Recovery
-										</label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application-tab">
-						<h3 class="mb-4">Application Settings</h3>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="app-check" />
-										<label class="form-check-label" for="app-check">
-										App check
-										</label>
-									</div>
-									<div class="form-check">
-										<input class="form-check-input" type="checkbox" value="" id="defaultCheck2" />
-										<label class="form-check-label" for="defaultCheck2">
-										Lorem ipsum dolor sit.
-										</label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
-					</div>
-					<div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
-						<h3 class="mb-4">Notification Settings</h3>
-						<div class="form-group">
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="notification1" />
-								<label class="form-check-label" for="notification1">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum accusantium accusamus, neque cupiditate quis
-								</label>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="notification2" / >
-								<label class="form-check-label" for="notification2">
-									hic nesciunt repellat perferendis voluptatum totam porro eligendi.
-								</label>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="notification3" />
-								<label class="form-check-label" for="notification3">
-									commodi fugiat molestiae tempora corporis. Sed dignissimos suscipit
-								</label>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-</>
+            <a href="#!" className='prev' onClick={() => plusSlides(-1)}>&#10094;</a>
+            <a href="#!" className='next' onClick={() => plusSlides(1)}>&#10095;</a>
+          </div>
+          
+          <div className="slider-img" draggable={true} ref={slideRef}
+          onDragStart={dragStart} onDragOver={dragOver} onDragEnd={dragEnd}>
+            {
+              product.images.map((image, index) => (
+                <div key={index} className={`slider-box ${index + 1 === slideIndex ? 'active' : ''}`}
+                onClick={() => setSlideIndex(index + 1)}>
+                  <img src={image.src} alt="" />
+                </div>
+              ))
+            }
+          </div>
+        </div>
 
-  );
-};
+        <div className="product-page-details">
+          <strong>{product.name}</strong>
 
-export default ProfileDetails;
+          <p className="product-category">
+            {product.brand} - {product.category}
+          </p>
+
+          <p className="product-price">
+            ${Math.round(product.price - product.price * product.discount / 100)} <del>{product.price}$</del>
+          </p>
+          
+          <p className="small-desc">{product.desc}</p>
+
+          <div className="product-options">
+            <span>Colors</span>
+            {
+              product.colors.map(color => (
+                <div key={color}>
+                  <button style={{background: color}} 
+                  className={color === selectedColor ? 'active' : ''}
+                  onClick={() => setSelectedColor(color)} />
+                </div>
+              ))
+            }
+          </div>
+          
+          <div className="product-page-offer">
+            <i className="fa-solid fa-tag" /> {product.discount}% Discount
+          </div>
+
+          <div className="product-sold">
+            <img />
+            <strong>{product.sold} <span>Products Sold.</span></strong>
+          </div>
+
+          <div className="cart-btns">
+            <a href="#!" className='add-cart'>Add to Cart</a>
+            <a href="#!" className='add-cart buy-now'>Buy Now</a>
+          </div>
+
+        </div>
+      </section>
+
+      <section className="product-all-info">
+        <ul className='product-info-menu'>
+            {
+              product.infos.map(info => (
+                <li key={info.title} onClick={() => setInfoTitle(info.title)}
+                className={`p-info-list ${info.title === infoTitle ? 'active' : ''}`}>
+                  {info.title}
+                </li>
+              ))
+            }
+        </ul>
+        {
+          product.infos.map(info => (
+            <div key={info.title} 
+            className={`info-container ${info.title === infoTitle ? 'active' : ''}`}>
+              {info.content}
+            </div>
+          ))
+        }
+
+      </section>
+    </React.Fragment>
+  )
+}
+
+export default ProfileDetails

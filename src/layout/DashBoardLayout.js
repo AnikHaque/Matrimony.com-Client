@@ -8,7 +8,6 @@ import useSeller from "../hooks/useSeller";
 import NavBar from "../Pages/SharedPages/NavBar/NavBar";
 import "./DashBoardLayout.css";
 
-
 const DashBoardLayout = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
