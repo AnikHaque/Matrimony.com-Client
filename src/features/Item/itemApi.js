@@ -14,11 +14,11 @@ const itemApi = apiSlice.injectEndpoints({
                 url : "/item",
             })
         }),
-        // getJobsById : builder.query({
-        //     query : (id) => ({
-        //         url : "/products/${id}",
-        //     })
-        // }),
+        getItemById : builder.query({
+            query : (id) => ({
+                url : `/item/${id}`,
+            })
+        }),
     }),
 });
-export const {usePostItemMutation, useGetItemQuery} = itemApi;
+export const {usePostItemMutation, useGetItemQuery,useGetItemByIdQuery} = itemApi;

@@ -6,21 +6,13 @@ import { usePostItemMutation } from "../../../features/Item/itemApi";
 
 const AddItem = () => {
   const { handleSubmit, register, control } = useForm();
+
   const {
-    fields: resFields,
-    append: resAppend,
-    remove: resRemove,
-  } = useFieldArray({ control, name: "responsibilities" });
-  const {
-    fields: skillFields,
-    append: skillAppend,
-    remove: skillRemove,
-  } = useFieldArray({ control, name: "skills" });
-  const {
-    fields: reqFields,
-    append: reqAppend,
-    remove: reqRemove,
-  } = useFieldArray({ control, name: "requirements" });
+    fields: imagesFields,
+    append: imagesAppend,
+    remove: imagesRemove,
+  } = useFieldArray({ control, name: "images" });
+
 
   const [ postItem, {isLoading, isError} ] = usePostItemMutation();
 
@@ -37,77 +29,75 @@ const AddItem = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className='w-full text-2xl text-primary mb-5'>
-          Add a new position
+          Add a new Product
         </h1>
         <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='position'>
-            Position
+          <label className='mb-2' htmlFor='name'>
+           Product Name
           </label>
-          <input type='text' id='position' {...register("position")} />
+          <input type='text' id='name' {...register("name")} />
         </div>
         <div className='flex flex-col w-full max-w-xs'>
           <label className='mb-2' htmlFor='img'>
-            Image
+           Product Slug
           </label>
-          <input type='text' id='img' {...register("img")} />
+          <input type='text' id='img' {...register("slug")} />
         </div>
         
         <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='experience'>
-            Experience
+          <label className='mb-2' htmlFor='photo'>
+            Photo
           </label>
-          <input type='text' id='experience' {...register("experience")} />
+          <input type='text' id='photo' {...register("photo")} />
         </div>
         <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='workLevel'>
-            Work Level
+          <label className='mb-2' htmlFor='category'>
+          Category
           </label>
-          <input type='text' id='workLevel' {...register("workLevel")} />
+          <input type='text' id='category' {...register("category")} />
         </div>
         <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='employmentType'>
-            Employment Type
+          <label className='mb-2' htmlFor='brand'>
+            Brand
           </label>
-          <input
-            type='text'
-            id='employmentType'
-            {...register("employmentType")}
-          />
+          <input type='text' id='brand' {...register("brand")} />
         </div>
         <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='salaryRange'>
-            Salary Range
+          <label className='mb-2' htmlFor='price'>
+           price
           </label>
-          <input type='text' id='salaryRange' {...register("salaryRange")} />
+          <input type='number' id='price' {...register("price")} />
         </div>
-        <div className='flex flex-col w-full'>
-          <label className='mb-2' htmlFor='location'>
-            Location
+        <div className='flex flex-col w-full max-w-xs'>
+          <label className='mb-2' htmlFor='discount'>
+           Discount
           </label>
-          <input type='text' id='location' {...register("location")} />
+          <input type='number' id='discount' {...register("discount")} />
         </div>
+      
+
         <hr className='w-full mt-2 bg-black' />
         <div className='flex flex-col w-full'>
-          <label className='mb-2' htmlFor='overview'>
+          <label className='mb-2' htmlFor='desc'>
             Overview
           </label>
-          <textarea rows={8} {...register("overview")} id='overview' />
+          <textarea rows={8} {...register("desc")} id='desc' />
         </div>
         <div className='flex flex-col w-full'>
-          <label className='mb-2'>Skills</label>
+          <label className='mb-2'>More images</label>
           <div>
             <div>
-              {skillFields.map((item, index) => {
+              {imagesFields.map((item, index) => {
                 return (
                   <div key={item.key} className='flex items-center gap-3 mb-5'>
                     <input
                       className='!w-full'
                       type='text'
-                      {...register(`skills[${index}]`)}
+                      {...register(`images[${index}]`)}
                     />
                     <button
                       type='button'
-                      onClick={() => skillRemove(index)}
+                      onClick={() => imagesRemove(index)}
                       className='grid place-items-center rounded-full flex-shrink-0 bg-red-500/20 border border-red-500 h-11 w-11 group transition-all hover:bg-red-500'
                     >
                       <FiTrash
@@ -122,88 +112,15 @@ const AddItem = () => {
             <div>
               <button
                 type='button'
-                onClick={() => skillAppend("")}
-                className='btn'
+                onClick={() => imagesAppend("")}
+                className='btn btn-primary'
               >
-                Add Skill
+                More Images
               </button>
             </div>
           </div>
         </div>
-        <div className='flex flex-col w-full'>
-          <label className='mb-2'>Responsibilities</label>
-          <div>
-            <div>
-              {resFields.map((item, index) => {
-                return (
-                  <div key={item.key} className=' mb-5 flex items-center gap-3'>
-                    <input
-                      className='!w-full'
-                      type='text'
-                      {...register(`responsibilities[${index}]`)}
-                    />
-                    <button
-                      type='button'
-                      onClick={() => resRemove(index)}
-                      className='grid place-items-center rounded-full flex-shrink-0 bg-red-500/20 border border-red-500 h-11 w-11 group transition-all hover:bg-red-500'
-                    >
-                      <FiTrash
-                        className='text-red-500 group-hover:text-white transition-all'
-                        size='20'
-                      />
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-            <div>
-              <button
-                type='button'
-                onClick={() => resAppend("")}
-                className='btn'
-              >
-                Add Responsibility
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className='flex flex-col w-full'>
-          <label className='mb-2'>Requirements</label>
-          <div>
-            <div>
-              {reqFields.map((item, index) => {
-                return (
-                  <div key={item.key} className=' mb-5 flex items-center gap-3'>
-                    <input
-                      className='!w-full'
-                      type='text'
-                      {...register(`requirements[${index}]`)}
-                    />
-                    <button
-                      type='button'
-                      onClick={() => reqRemove(index)}
-                      className='grid place-items-center rounded-full flex-shrink-0 bg-red-500/20 border border-red-500 h-11 w-11 group transition-all hover:bg-red-500'
-                    >
-                      <FiTrash
-                        className='text-red-500 group-hover:text-white transition-all'
-                        size='20'
-                      />
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-            <div>
-              <button
-                type='button'
-                onClick={() => reqAppend("")}
-                className='btn'
-              >
-                Add Requirement
-              </button>
-            </div>
-          </div>
-        </div>
+
 
         <div className='flex justify-end items-center w-full mt-3'>
           <button className='btn' type='submit'>

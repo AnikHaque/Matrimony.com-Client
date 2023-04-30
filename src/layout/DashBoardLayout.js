@@ -89,7 +89,7 @@ const DashBoardLayout = () => {
                         </Link>
                     </li>
                     <li>
-                    <Link to='/' class="active6 mt-[-40px]">
+                    <Link to='/dashboard/additem' class="active6 mt-[-40px]">
                             <span class="las la-user-alt">
                             <i class="fa-solid fa-user text-white text-xs"></i>
                             </span>

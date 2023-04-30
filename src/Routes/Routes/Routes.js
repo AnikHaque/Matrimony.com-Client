@@ -28,6 +28,7 @@ import AddItem from "../../Pages/DashBoard/AddItem/AddItem";
 import Item from "../../Pages/Item/Item";
 import ProfileDetails from "../../Pages/Products/ProfileDetails";
 import Test from "../../layout/Test";
+import { ItemDetails } from "../../Pages/Item/ItemDetails";
 
 export const router = createBrowserRouter([
   {
@@ -73,6 +74,16 @@ export const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(` https://matrimony-com-server-anikhaque.vercel.app/products/${params.id}`),
+      },
+    
+      {
+        path: "/items/:id",
+        element: (
+          
+          <ProfileDetails></ProfileDetails>
+          
+        ),
+       
       },
     
       

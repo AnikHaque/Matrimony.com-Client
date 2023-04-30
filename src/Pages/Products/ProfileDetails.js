@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ProfileDetails.css';
+import { useGetItemByIdQuery } from '../../features/Item/itemApi';
+import { useParams } from 'react-router-dom';
 
 
 const product = { // Product Data
@@ -10,61 +12,19 @@ const product = { // Product Data
   price: 1999,
   desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consectetur vero asperiores quis animi explicabo accusamus nemo cupiditate harum pariatur! Provident sit tenetur totam mollitia consectetur nesciunt, recusandae obcaecati itaque!',
   images: [
-    {
-      src: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    },
-    {
-      src: 'https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    },
-    {
-      src: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    },
-    {
-      src: 'https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    },
-    {
-      src: 'https://images.pexels.com/photos/1006293/pexels-photo-1006293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    },
-    {
-      src: 'https://images.pexels.com/photos/209151/pexels-photo-209151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    },
-    {
-      src: 'https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    },
-    {
-      src: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    },
-    {
-      src: 'https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    },
-    {
-      src: 'https://images.pexels.com/photos/1006293/pexels-photo-1006293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    },
-    {
-      src: 'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    },
-    {
-      src: 'https://images.pexels.com/photos/209151/pexels-photo-209151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    }
+    
+    'https://images.pexels.com/photos/1029757/pexels-photo-1029757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+ 'https://www.pinkvilla.com/files/shahrukhkhan_femaleactorsdebut_hd.jpg'
+  
+    
   ],
   colors: ["#2287fa", "#f71b1b", "green"],
   infos: [
-    {
-      title: "highlights",
-      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis magni illum, sint explicabo esse temporibus! Dicta, voluptatum dolorem numquam deserunt, doloribus, voluptatem consequuntur praesentium deleniti nulla in repellendus eum vero."
-    },
-    {
-      title: "materials",
-      content: "materials"
-    },
-    {
-      title: "how to use",
-      content: "how to use"
-    },
-    {
-      title: "pro tips",
-      content: "pro tips"
-    }
+    
+      'title', 
+      'content'
+    
+    
   ],
   discount: 20,
   sold: 52,
@@ -73,6 +33,9 @@ const product = { // Product Data
 }
 
 const ProfileDetails = () => {
+  const {id} = useParams();
+  const {data} = useGetItemByIdQuery(id);
+
   const [slideIndex, setSlideIndex] = useState(1);
 
   const [width, setWidth] = useState(0);
@@ -138,11 +101,11 @@ const ProfileDetails = () => {
         <div className="product-page-img">
           <div className="big-images">
             {
-              product.images.map((image, index) => (
+              data?.images.map((image, index) => (
                 <div key={index} className="mySlides" 
                 style={{display: (index + 1) === slideIndex ? "block" : "none"}}>
-                  <div className="numbertext">{index + 1} / {product.images.length}</div>
-                  <img src={image.src} alt="" />
+                  <div className="numbertext">{index + 1} / {data.images.length}</div>
+                  <img src={image} alt="" />
                 </div>
               ))
             }
@@ -154,10 +117,10 @@ const ProfileDetails = () => {
           <div className="slider-img" draggable={true} ref={slideRef}
           onDragStart={dragStart} onDragOver={dragOver} onDragEnd={dragEnd}>
             {
-              product.images.map((image, index) => (
+              data?.images.map((image, index) => (
                 <div key={index} className={`slider-box ${index + 1 === slideIndex ? 'active' : ''}`}
                 onClick={() => setSlideIndex(index + 1)}>
-                  <img src={image.src} alt="" />
+                  <img src={image} alt="" />
                 </div>
               ))
             }
@@ -165,17 +128,17 @@ const ProfileDetails = () => {
         </div>
 
         <div className="product-page-details">
-          <strong>{product.name}</strong>
+          <strong>{data?.name}</strong>
 
           <p className="product-category">
-            {product.brand} - {product.category}
+            {data?.brand} - {data?.category}
           </p>
 
           <p className="product-price">
-            ${Math.round(product.price - product.price * product.discount / 100)} <del>{product.price}$</del>
+            ${Math.round(data?.price - data?.price * data?.discount / 100)} <del>{data?.price}$</del>
           </p>
           
-          <p className="small-desc">{product.desc}</p>
+          <p className="small-desc">{data?.desc.slice(0,500)}</p>
 
           <div className="product-options">
             <span>Colors</span>
@@ -206,28 +169,65 @@ const ProfileDetails = () => {
 
         </div>
       </section>
+      <div className='ml-24 mt-20'>
+      <div className="dropdown mb-20">
+  <label tabIndex={0} className="bg-black text-white font bold text-xl pt-4 pb-4 mb-10 pl-32 pr-32 m-1">Highlights</label>
+  <p tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-[1000px] mt-12">
+   <p>A wedding sari is a traditional South Asian wedding dress, especially popular in South Indian states. The sari often consists of a combination of red and green, with golden brocade.
 
-      <section className="product-all-info">
+
+Traditional Indian Bride in Sari
+Wedding saris are predominantly red, a colour associated with married women, although colours and colour combinations vary by region, caste, and religion; non-Brahmin women in Tamil Nadu wear a red-and-white checked sari as traditional wedding attire.[1] The Padmasali wedding sari is a white sari, dyed with turmeric.[1]
+</p>
+  </p>
+</div>
+      <div className="dropdown">
+  <label tabIndex={0} className="bg-secondary text-white font bold text-xl pt-4 pb-4 pl-32 pr-32 m-1">Materials</label>
+  <p tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-[500px] mt-12">
+   <p>A wedding sari is a traditional South Asian wedding dress, especially popular in South Indian states. The sari often consists of a combination of red and green, with golden brocade.
+
+
+Traditional Indian Bride in Sari
+Wedding saris are predominantly red, a colour associated with married women, although colours and colour combinations vary by region, caste, and religion; non-Brahmin women in Tamil Nadu wear a red-and-white checked sari as traditional wedding attire.[1] The Padmasali wedding sari is a white sari, dyed with turmeric.[1]
+</p>
+  </p>
+</div>
+      <div className="dropdown">
+  <label tabIndex={0} className="bg-primary text-white font bold text-xl pt-4 pb-4 pl-32 pr-32 m-1">Pro Tips</label>
+  <p tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-[400px] mt-12">
+   <p>A wedding sari is a traditional South Asian wedding dress, especially popular in South Indian states. The sari often consists of a combination of red and green, with golden brocade.
+
+
+Traditional Indian Bride in Sari
+Wedding saris are predominantly red, a colour associated with married women, although colours and colour combinations vary by region, caste, and religion; non-Brahmin women in Tamil Nadu wear a red-and-white checked sari as traditional wedding attire.[1] The Padmasali wedding sari is a white sari, dyed with turmeric.[1]
+</p>
+  </p>
+</div>
+      </div>
+     
+    
+     
+      {/* <section className="product-all-info">
         <ul className='product-info-menu'>
             {
               product.infos.map(info => (
-                <li key={info.title} onClick={() => setInfoTitle(info.title)}
-                className={`p-info-list ${info.title === infoTitle ? 'active' : ''}`}>
-                  {info.title}
+                <li key={info} onClick={() => setInfoTitle(info)}
+                className={`p-info-list ${info === info? 'active' : ''}`}>
+                  {info}
                 </li>
               ))
             }
         </ul>
         {
           product.infos.map(info => (
-            <div key={info.title} 
-            className={`info-container ${info.title === infoTitle ? 'active' : ''}`}>
-              {info.content}
+            <div key={info} 
+            className={`info-container ${info === info ? 'active' : ''}`}>
+              {info}
             </div>
           ))
         }
 
-      </section>
+      </section> */}
     </React.Fragment>
   )
 }
