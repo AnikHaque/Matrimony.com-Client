@@ -32,7 +32,7 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
     };
 
     console.log(modalInfo);
-    fetch(" http://localhost:5000/bookeditems", {
+    fetch(" https://matrimony-com-server-anikhaque.vercel.app/bookeditems", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -63,17 +63,19 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
           >
             ✕
           </label>
-          <div className="flex justify-center items-center">
-          <img src={img} className=" h-40 mt-[-150px] w-40 rounded-full"></img>
-          </div>
+          <div className="grid lg:grid-cols-2">
 
-          <h3 className="text-lg text-center">{name}</h3>
-          <p className="font-bold text-md text-center">Short Description :</p>
-          <p className="text-center ml-20 mr-20">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-</p>
-<div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
-<div className="mt-8">
-<label htmlFor="my-modal-5" className="bg-primary text-white w-full pl-32 pr-32 text-xl pt-4 pb-4 rounded-md m-1 font-bold border-black">Personal Details</label>
+
+          <div className="">
+          <img src={img} className="  mt-[] w-[500px] h-[500px] rounded-md  "></img>
+          
+
+      
+          </div>
+          
+<div className="ml-28">
+<div className="mt-8 ">
+<label htmlFor="my-modal-5" className="bg-secondary text-white  pl-32 pr-32  text-xl pt-8 pb-8  rounded-md m-1 font-bold border-black">Personal Details</label>
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id="my-modal-5" className="modal-toggle" />
@@ -127,9 +129,10 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
   </div>
 </div>
 </div>
-
+<br></br>
+<br></br>
 <div className=" mt-8">
-<label htmlFor="my-modal-5" className="bg-primary text-white w-full pl-32 pr-32 text-xl pt-4 pb-4 rounded-md m-1 font-bold border-black">Family Details</label>
+<label htmlFor="my-modal-5" className="bg-primary text-white w-full pl-36 pr-36 text-xl pt-8 pb-8 rounded-md m-1 font-bold border-black">Family Details</label>
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id="my-modal-5" className="modal-toggle" />
@@ -180,8 +183,10 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
   </div>
 </div>
 </div>
+<br></br>
+<br></br>
 <div className="mt-8">
-<label htmlFor="my-modal-5" className="bg-primary text-white w-full pl-28 pr-28 text-xl pt-4 pb-4 rounded-md font-bold border-black">Professional Details</label>
+<label htmlFor="my-modal-5" className="bg-warning text-white w-full pl-28 pr-28 text-xl pt-8 pb-8 rounded-md font-bold border-black">Professional Details</label>
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id="my-modal-5" className="modal-toggle" />
@@ -232,8 +237,11 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
   </div>
 </div>
 </div>
+<br></br>
+<br></br>
+
 <div className="mt-8">
-<label htmlFor="my-modal-5" className="bg-primary text-white w-full pl-28 pr-28 text-xl pt-4 pb-4 rounded-md m-1 font-bold border-black">Educational Details</label>
+<label htmlFor="my-modal-5" className="bg-success text-white w-full pl-28 pr-28 text-xl pt-8 pb-8 rounded-md m-1 font-bold border-black">Educational Details</label>
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id="my-modal-5" className="modal-toggle" />
@@ -284,9 +292,10 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
   </div>
 </div>
 </div>
-
-<div className="my-8">
-<label htmlFor="my-modal-5" className="bg-primary text-white w-full pl-32 pr-32 text-xl pt-4 pb-4 rounded-md m-1 font-bold border-black">Other Details</label>
+<br></br>
+<br></br>
+<div className="mt-8">
+<label htmlFor="my-modal-5" className="bg-black text-white w-full pl-36 pr-36 text-xl pt-8 pb-8 rounded-md m-1 font-bold border-black">Other Details</label>
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id="my-modal-5" className="modal-toggle" />
@@ -338,6 +347,7 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
 </div>
 </div>
         </div>
+      </div>
       </div>
     </div>
   );
