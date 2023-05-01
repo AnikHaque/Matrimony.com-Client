@@ -7,30 +7,14 @@ const AdvertisedProducts = () => {
     queryKey: ["advertised"],
     queryFn: async () => {
       const res = await fetch(
-        " http://localhost:5000/advertised"
+        " http://localhost:5000/products"
       );
       const data = await res.json();
       return data;
     },
   });
   return (
-    // <div>
-    //   {advertisedItems && (
-    //     <>
-    //       <h1 className="text-4xl text-right container font-semibold text-indigo-400">
-    //         Advertised Items
-    //       </h1>
-    //       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-3 ml-8 mt-4 mb-10 p-5">
-    //         {advertisedItems.map((product) => (
-    //           <AdvertisedCard
-    //             key={product._id}
-    //             product={product}
-    //           ></AdvertisedCard>
-    //         ))}
-    //       </div>
-    //     </>
-    //   )}
-    // </div>
+    
     <div className="bg-[#F2F3F7] py-5">
       <div className="mx-5 md:w-10/12 md:mx-auto ">
         <div className="flex flex-col md:flex-row mt-8 justify-between mb-5">

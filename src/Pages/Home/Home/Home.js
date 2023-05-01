@@ -6,13 +6,14 @@ import Products from "../../Products/Products";
 import FindSoleMate from "../FindSoleMate/FindSoleMate";
 import MeetNewPeople from "../MeetNewPeople/MeetNewPeople";
 import Anexecutive from "../anexecutive/Anexecutive";
+import TopProfile from "../../TopProfile/TopProfile";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
       <Categories></Categories>
-      <AdvertisedProducts></AdvertisedProducts>
+     <TopProfile></TopProfile>
       {/* <FindSoleMate></FindSoleMate> */}
       {/* <MeetNewPeople></MeetNewPeople> */}
       <Anexecutive></Anexecutive>
