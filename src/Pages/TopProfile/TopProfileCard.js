@@ -24,9 +24,6 @@ const TopProfileCard = ({ product,setBookProduct }) => {
 
   const [postChoice, {isLoading, isError}] = usePostChoiceMutation();
   const {data:choice} = useGetChoiceQuery()
-if(choice){
-    alert("hello")
-}
 
   const onSubmit = (data) => {
     console.log(data);
