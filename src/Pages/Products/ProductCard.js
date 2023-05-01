@@ -83,13 +83,18 @@ const ProductCard = ({ product, setBookProduct }) => {
              >
               Appointment
              </label>
-      <label
+     
+             <div className="dropdown ">
+  
+             <label
+              tabIndex={0}
               onClick={() => setBookProduct(product)}
                htmlFor="view-modal"
                className="btn btn-primary"
              >
               View More
              </label>
+</div>
      
       
     </div>
