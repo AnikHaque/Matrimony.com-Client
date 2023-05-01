@@ -29,6 +29,7 @@ import Item from "../../Pages/Item/Item";
 import ProfileDetails from "../../Pages/Products/ProfileDetails";
 import Test from "../../layout/Test";
 import { ItemDetails } from "../../Pages/Item/ItemDetails";
+import LawyerDetails from "../../Pages/Lawyer/LawyerDetails";
 
 export const router = createBrowserRouter([
   {
@@ -73,7 +74,7 @@ export const router = createBrowserRouter([
           
         ),
         loader: ({ params }) =>
-          fetch(` https://matrimony-com-server-anikhaque.vercel.app/products/${params.id}`),
+          fetch(` http://localhost:5000/products/${params.id}`),
       },
     
       {
@@ -85,9 +86,15 @@ export const router = createBrowserRouter([
         ),
        
       },
-    
-      
-
+      {
+        path: "/lawyers/:id",
+        element: (
+          
+         <LawyerDetails></LawyerDetails>
+          
+        ),
+       
+      },
     
     ],
   },
@@ -188,7 +195,7 @@ export const router = createBrowserRouter([
           </BuyerRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://matrimony-com-server-anikhaque.vercel.app/bookings/${params.id}`),
+          fetch(`http://localhost:5000/bookings/${params.id}`),
       },
     ],
   },

@@ -1,5 +1,6 @@
 import React  from "react";
 import { useGetLawyerQuery } from "../../features/lawyer/lawyerApi";
+import { Link } from "react-router-dom";
 
 
 const Lawyer = () => {
@@ -33,7 +34,12 @@ const Lawyer = () => {
 
 
  <div class="buttons1">
-   <button class="button1">View Profile</button>
+ <Link to={`/lawyers/${product?._id}`}>
+
+ <button class="button1">View Profile</button>
+
+</Link>
+  
    <button class="button1">Book Now</button>
  </div>
 

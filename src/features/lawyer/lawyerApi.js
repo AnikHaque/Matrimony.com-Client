@@ -14,11 +14,11 @@ const lawyerApi = apiSlice.injectEndpoints({
                 url : "/lawyer",
             })
         }),
-        // getJobsById : builder.query({
-        //     query : (id) => ({
-        //         url : "/products/${id}",
-        //     })
-        // }),
+        getLawyerById : builder.query({
+            query : (id) => ({
+                url : `/lawyer/${id}`,
+            })
+        })
     }),
 });
-export const {usePostLawyerMutation, useGetLawyerQuery} = lawyerApi;
+export const {usePostLawyerMutation, useGetLawyerQuery, useGetLawyerByIdQuery} = lawyerApi;
