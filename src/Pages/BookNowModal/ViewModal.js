@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { GrDocumentPdf } from 'react-icons/gr';
 import Pdf from "react-to-pdf";
 const ViewModal = ({ bookProduct, setBookProduct }) => {
-  const { user } = useContext(AuthContext);
+  const { user,email } = useContext(AuthContext);
   console.log(user);
   const navigate = useNavigate();
   const { name, resalePrice, id, img } = bookProduct;
@@ -13,343 +13,150 @@ const ViewModal = ({ bookProduct, setBookProduct }) => {
   const handleModal = (event) => {
     event.preventDefault();
     const form = event.target;
-    const Username = form.Username.value;
-    const email = form.email.value;
+    
     const name = form.name.value;
-    const resalePrice = form.resalePrice.value;
-    const Phone = form.Phone.value;
-    const meetingLocation = form.MeetingLocation.value;
-    const modalInfo = {
-      id: id,
-
-      userName: Username,
-      email: email,
-      name: name,
-      resalePrice: resalePrice,
-      Phone: Phone,
-      meetingLocation: meetingLocation,
-      img: img,
-    };
-
-    console.log(modalInfo);
-    fetch(" https://matrimony-com-server-anikhaque.vercel.app/bookeditems", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(modalInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          toast.success("Successfully Booked");
-          navigate("/dashboard/myorders");
-        }
-        console.log(data);
-      });
-
-    setBookProduct(null);
-  };
-
+  
+  }
   const ref = React.createRef();
   return (
     <div className="">
-      <input type="checkbox" id="view-modal" className="modal-toggle" />
-      <div className="modal w-full bg-white">
-        <div className="">
-          <label
-            htmlFor="view-modal"
+    <input type="checkbox" id="view-modal" className="modal-toggle" />
+    <div className="modal">
+    
+      <div className="modal-box relative">
+        <label
+          htmlFor="view-modal"
+          className="btn btn-sm  btn-circle absolute right-2 top-2"
+        >
+          ✕
+        </label>
+        <form
+          onSubmit={handleModal}
+          className="grid grid-cols-1 gap-3 text-black p-5"
+        >
+          <h1 className="font-bold text-center text-xl">Bio Details</h1>
+          <img src={img} className="w-[100px] h-[100px] rounded-full mx-auto"></img>
+          <input
+            type="text"
+            name="name"
+            value={name}
+            disabled
+            placeholder="Item Name"
+            
+            className="input w-full text-primary font-bold bg-blue-100"
+          />
+          
+     {/* The button to open modal */}
+<label htmlFor="my-modal-3" className="btn btn-primary">Personal Details</label>
+<label htmlFor="my-modal-3" className="btn btn-secondary">Family Details</label>
+<label htmlFor="my-modal-3" className="btn btn-success">Professional Details</label>
+<label htmlFor="my-modal-3" className="btn btn-warning">Educational Details</label>
+<label htmlFor="my-modal-3" className="btn btn-black">Other Details</label>
+
+
+
+
+
+{/* Put this part before </body> tag */}
+<input type="checkbox" id="my-modal-3" className="modal-toggle" />
+<div className="modal">
+  <div className="modal-box relative">
+    <label
+            htmlFor="my-modal-3"
             className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕
           </label>
-          <div className="grid lg:grid-cols-2">
-
-
-          <div className="">
-          <img src={img} className="  mt-[] w-[500px] h-[500px] rounded-md  "></img>
-          
-
-      
-          </div>
-          
-<div className="ml-28">
-<div className="mt-8 ">
-<label htmlFor="my-modal-5" className="bg-secondary text-white  pl-32 pr-32  text-xl pt-8 pb-8  rounded-md m-1 font-bold border-black">Personal Details</label>
-
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal-5" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box h-full rounded-md">
-  <Pdf targetRef={ref} filename="Course-details.pdf">
+          <Pdf targetRef={ref} filename="profile.pdf">
                 {({ toPdf }) => <button onClick={toPdf} className="flex items-center mx-auto block p-3 text-center rounded-xl text-white bg-red-500 hover:bg-red-600">Download<GrDocumentPdf /></button>}
             </Pdf>
-  <label
-            htmlFor="my-modal-5"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
-    <div className="grid grid-cols-2 lg:grid-cols-2 mt-10" ref={ref}>
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Color:</b>
-      <p>White</p>
-      <b className="mb-2">Date of Birth:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      
-    </div>
-   
+            <br></br>
+          <div ref={ref}>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Name:</p>
+<p>{user?.displayName}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+            <div className="grid drid-cols-1 lg:grid-cols-2">
+<p>Email:</p>
+<p>{user?.email}</p>
+            </div>
+
+          </div>
   </div>
 </div>
-</div>
-<br></br>
-<br></br>
-<div className=" mt-8">
-<label htmlFor="my-modal-5" className="bg-primary text-white w-full pl-36 pr-36 text-xl pt-8 pb-8 rounded-md m-1 font-bold border-black">Family Details</label>
-
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal-5" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box h-full rounded-md">
-  <label
-            htmlFor="my-modal-5"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
-    <div className="grid grid-cols-2 lg:grid-cols-2 mt-10">
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Color:</b>
-      <p>White</p>
-      <b className="mb-2">Date of Birth:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      
-    </div>
-   
-  </div>
-</div>
-</div>
-<br></br>
-<br></br>
-<div className="mt-8">
-<label htmlFor="my-modal-5" className="bg-warning text-white w-full pl-28 pr-28 text-xl pt-8 pb-8 rounded-md font-bold border-black">Professional Details</label>
-
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal-5" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box h-full rounded-md">
-  <label
-            htmlFor="my-modal-5"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
-    <div className="grid grid-cols-2 lg:grid-cols-2 mt-10">
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Color:</b>
-      <p>White</p>
-      <b className="mb-2">Date of Birth:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      
-    </div>
-   
-  </div>
-</div>
-</div>
-<br></br>
-<br></br>
-
-<div className="mt-8">
-<label htmlFor="my-modal-5" className="bg-success text-white w-full pl-28 pr-28 text-xl pt-8 pb-8 rounded-md m-1 font-bold border-black">Educational Details</label>
-
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal-5" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box h-full rounded-md">
-  <label
-            htmlFor="my-modal-5"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
-    <div className="grid grid-cols-2 lg:grid-cols-2 mt-10">
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Color:</b>
-      <p>White</p>
-      <b className="mb-2">Date of Birth:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      
-    </div>
-   
-  </div>
-</div>
-</div>
-<br></br>
-<br></br>
-<div className="mt-8">
-<label htmlFor="my-modal-5" className="bg-black text-white w-full pl-36 pr-36 text-xl pt-8 pb-8 rounded-md m-1 font-bold border-black">Other Details</label>
-
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal-5" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box h-full rounded-md">
-  <label
-            htmlFor="my-modal-5"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
-    <div className="grid grid-cols-2 lg:grid-cols-2 mt-10">
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Color:</b>
-      <p>White</p>
-      <b className="mb-2">Date of Birth:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      <b className="mb-2">Name:</b>
-      <p>{user.displayName}</p>
-      <b className="mb-2">Email:</b>
-      <p>{user.email}</p>
-      <b className="mb-2">Age:</b>
-      <p>26</p>
-      <b className="mb-2">Nationality:</b>
-      <p>Bangladeshi</p>
-      
-    </div> 
-  </div>
-</div>
-</div>
-</div>
-        </div>
-      </div>
+        </form>
       </div>
     </div>
+  </div>
+
   );
 };
 
