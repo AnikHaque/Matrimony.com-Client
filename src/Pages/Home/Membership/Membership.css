@@ -120,8 +120,8 @@
 }
 .basic .btn button{
   border: 2px solid #ffd861;
-  background: #fff;
-  color: #ffd861;
+  background: #ffd861;
+  color: white;
 }
 .basic .btn button:hover{
   background: #ffd861;
@@ -143,8 +143,8 @@
 }
 .ultimate .btn button{
   border: 2px solid #43ef8b;
-  color: #43ef8b;
-  background: #fff;
+  color: white;
+  background: #43ef8b;
 }
 .ultimate .btn button:hover{
   background: #43ef8b;

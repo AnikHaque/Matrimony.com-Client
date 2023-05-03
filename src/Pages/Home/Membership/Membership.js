@@ -2,17 +2,24 @@ import React from 'react'
 
 import './Membership.css'
 
-import { useForm } from 'react-hook-form';
+import { useForm} from 'react-hook-form';
 import { usePostMembershipMutation } from '../../../features/membership/membershipApi';
+import { toast } from "react-hot-toast";
+import { useNavigate } from 'react-router-dom';
 const Membership = () => {
-  const { handleSubmit, register, control } = useForm();
+  const navigate = useNavigate()
+  const { handleSubmit, register, control,reset } = useForm();
   const [  postMembership, {isLoading, isError} ] = usePostMembershipMutation();
 
   const onSubmit = (data) => {
     postMembership(data);
-    console.log(data);
+   if(data){
+    toast("Membership Addition successful")
+    reset()
+    
+   }
   };
-
+ 
   return (
     <div>
       <div class="wrapper">
@@ -45,79 +52,50 @@ const Membership = () => {
         </li>
       </ul>
       {/* The button to open modal */}
-      <div class="btn"><button><label htmlFor="my-modal-3">open modal</label></button></div>     
+      <div class="btn"><button><label htmlFor="my-modal-3">Purchase</label></button></div>     
     </div>
     {/* Put this part before </body> tag */}
 <input type="checkbox" id="my-modal-3" className="modal-toggle" />
 <div className="modal">
   <div className="modal-box relative">
     <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <h3 className="text-lg font-bold">Congratulations random Internet user!</h3>
-    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
     <form
-        className='bg-secondary/20 shadow-lg p-10 rounded-2xl flex flex-wrap gap-3 max-w-3xl justify-between'
+        className=' shadow-lg p-10 rounded-2xl flex flex-wrap gap-3 max-w-3xl justify-between'
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className='w-full text-2xl text-primary mb-5'>
-          Add a new position
+          Add a Membership Purchase !
         </h1>
         <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='position'>
-            Position
+          <label className='mb-2' htmlFor='name'>
+            Name
           </label>
-          <input type='text' id='position' {...register("position")} />
+          <input className='bg-blue-100  h-10'  type='text' id='name' {...register("name")} />
         </div>
         <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='img'>
-            Image
+          <label className='mb-2' htmlFor='email'>
+           Email
           </label>
-          <input type='text' id='img' {...register("img")} />
+          <input className='bg-blue-100  h-10' type='text' id='email' {...register("email")} />
         </div>
         
         <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='experience'>
-            Experience
+          <label className='mb-2' htmlFor='category'>
+            Category
           </label>
-          <input type='text' id='experience' {...register("experience")} />
+          <input className='bg-blue-100  h-10' type='text' placeholder='Basic / Premium / Ultimate ?' id='category' {...register("category")} />
         </div>
-        <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='workLevel'>
-            Work Level
-          </label>
-          <input type='text' id='workLevel' {...register("workLevel")} />
-        </div>
-        <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='employmentType'>
-            Employment Type
-          </label>
-          <input
-            type='text'
-            id='employmentType'
-            {...register("employmentType")}
-          />
-        </div>
+ 
         <div className='flex flex-col w-full max-w-xs'>
           <label className='mb-2' htmlFor='salaryRange'>
-            Salary Range
+            Price
           </label>
-          <input type='text' id='salaryRange' {...register("salaryRange")} />
+          <input className='bg-blue-100  h-10' type='text' id='price' {...register("price")} />
         </div>
-        <div className='flex flex-col w-full'>
-          <label className='mb-2' htmlFor='location'>
-            Location
-          </label>
-          <input type='text' id='location' {...register("location")} />
-        </div>
-        <hr className='w-full mt-2 bg-black' />
-        <div className='flex flex-col w-full'>
-          <label className='mb-2' htmlFor='overview'>
-            Overview
-          </label>
-          <textarea rows={8} {...register("overview")} id='overview' />
-        </div>   
+ 
         <div className='flex justify-end items-center w-full mt-3'>
-          <button className='btn' type='submit'>
-            Submit
+          <button className='btn btn-secondary' type='submit'>
+         Purchase
           </button>
         </div>
       </form>
