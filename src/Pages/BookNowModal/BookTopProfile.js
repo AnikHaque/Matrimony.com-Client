@@ -21,7 +21,7 @@ const BookTopProfile = ({ bookProduct, setBookProduct }) => {
     };
 
     console.log(modalInfo);
-    fetch(" https://matrimony-com-server-anikhaque.vercel.app/choice", {
+    fetch(" http://localhost:5000/choice", {
       method: "POST",
       headers: {
         "content-type": "application/json",
