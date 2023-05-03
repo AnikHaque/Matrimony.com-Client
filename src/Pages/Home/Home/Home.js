@@ -7,6 +7,7 @@ import FindSoleMate from "../FindSoleMate/FindSoleMate";
 import MeetNewPeople from "../MeetNewPeople/MeetNewPeople";
 import Anexecutive from "../anexecutive/Anexecutive";
 import TopProfile from "../../TopProfile/TopProfile";
+import Membership from "../Membership/Membership";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       {/* <FindSoleMate></FindSoleMate> */}
       {/* <MeetNewPeople></MeetNewPeople> */}
       <Anexecutive></Anexecutive>
+      <Membership></Membership>
     </div>
   );
 };
