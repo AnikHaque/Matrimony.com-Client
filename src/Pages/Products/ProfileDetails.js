@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ProfileDetails.css';
-import { useGetItemByIdQuery } from '../../features/Item/itemApi';
+import { useBookItemMutation, useGetItemByIdQuery } from '../../features/Item/itemApi';
 import { useParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
+import { usePostBookedMutation } from '../../features/bookeditems/bookApi';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 
 const product = { // Product Data
@@ -33,8 +38,19 @@ const product = { // Product Data
 }
 
 const ProfileDetails = () => {
+  const { user } = useContext(AuthContext);
   const {id} = useParams();
   const {data} = useGetItemByIdQuery(id);
+  const { handleSubmit, register, control } = useForm();
+  const [ bookitem, {isLoading, isError} ] = usePostBookedMutation();
+
+  const onSubmit = (data) => {
+  bookitem(data);
+  console.log(data)
+  if(data){
+    toast("Booked Product Successfully");
+  }
+  }
 
   const [slideIndex, setSlideIndex] = useState(1);
 
@@ -163,8 +179,69 @@ const ProfileDetails = () => {
           </div>
 
           <div className="cart-btns">
-            <a href="#!" className='add-cart'>Add to Cart</a>
-            <a href="#!" className='add-cart buy-now'>Buy Now</a>
+           {/* The button to open modal */}
+<label htmlFor="my-modal-3" className="btn btn-secondary rounded-full">Add to Cart</label>
+
+{/* Put this part before </body> tag */}
+<input type="checkbox" id="my-modal-3" className="modal-toggle" />
+<div className="modal">
+  <div className="modal-box relative">
+    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <form
+        className='shadow-lg p-10 rounded-2xl flex flex-wrap gap-3 max-w-3xl justify-between'
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <h1 className='w-full text-xl text-primary mb-2'>
+          Purchase a Product
+        </h1>
+
+        
+        <div className='flex flex-col w-full max-w-xs'>
+          <label className='mb-2' htmlFor='name'>
+           Product Name
+          </label>
+          <input className='bg-secondary/20 h-10 rounded-md' type='text' id='name' {...register("name")} defaultValue={data?.name} />
+        </div>
+        <div className='flex flex-col w-full max-w-xs'>
+          <label className='mb-2' htmlFor='price'>
+           Product Price
+          </label>
+          <input className='bg-secondary/20 h-10 rounded-md' type='text' id='price' {...register("price")} defaultValue={data?.price} />
+        </div>
+        <div className='flex flex-col w-full max-w-xs'>
+          <label className='mb-2' htmlFor='cusname'>
+          Customer Name
+          </label>
+          <input
+            type='text'
+            className='bg-secondary/20 h-10 rounded-md'
+            id='cusname'
+            {...register("cusname")}
+            defaultValue={user?.displayName}
+          />
+        </div>
+        <div className='flex flex-col w-full max-w-xs'>
+          <label className='mb-2' htmlFor='phone'>
+           Phone Number
+          </label>
+          <input className='bg-secondary/20 h-10 rounded-md' type='number' id='phone' {...register("phone")}  />
+        </div>
+        <div className='flex flex-col w-full max-w-xs'>
+          <label className='mb-2' htmlFor='address'>
+           Delivery Address
+          </label>
+          <input className='bg-secondary/20 h-20' type='text' id='address' {...register("address")}  />
+        </div>
+
+        <div className='flex justify-end items-center w-full mt-3'>
+          <button className='btn btn-light' type='submit'>
+           Purchase Now
+          </button>
+        </div>
+      </form>
+  </div>
+</div>
+            
           </div>
 
         </div>
@@ -204,30 +281,6 @@ Wedding saris are predominantly red, a colour associated with married women, alt
   </p>
 </div>
       </div>
-     
-    
-     
-      {/* <section className="product-all-info">
-        <ul className='product-info-menu'>
-            {
-              product.infos.map(info => (
-                <li key={info} onClick={() => setInfoTitle(info)}
-                className={`p-info-list ${info === info? 'active' : ''}`}>
-                  {info}
-                </li>
-              ))
-            }
-        </ul>
-        {
-          product.infos.map(info => (
-            <div key={info} 
-            className={`info-container ${info === info ? 'active' : ''}`}>
-              {info}
-            </div>
-          ))
-        }
-
-      </section> */}
     </React.Fragment>
   )
 }
