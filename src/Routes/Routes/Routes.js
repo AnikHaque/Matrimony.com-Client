@@ -32,6 +32,8 @@ import { ItemDetails } from "../../Pages/Item/ItemDetails";
 import LawyerDetails from "../../Pages/Lawyer/LawyerDetails";
 import PaymentSuccess from "../../Pages/Item/PaymentSuccess";
 import  KaziDetails  from "../../Pages/kazi/KaziDetails";
+import SocilaMedia from "../../Social_Media/SocilaMedia";
+
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +45,7 @@ export const router = createBrowserRouter([
       { path: "/login", element: <LogIn></LogIn> },
       { path: "/signup", element: <SignUp></SignUp> },
       { path: "/blog", element: <Blog></Blog> },
+      { path: "/social", element:<SocilaMedia></SocilaMedia>},
       { path: "/profile", element: <ProfileDetails></ProfileDetails> },
       { 
         path: "/kazi", 

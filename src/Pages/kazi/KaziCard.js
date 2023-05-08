@@ -3,13 +3,19 @@ import './Kazi.css';
 const KaziCard = (props) => {
   const {
     _id,
-    img,
-    location,
-    name,
-    originalPrice,
-    resalePrice,
-    sellerName,
-    usedYear,
+  name,
+  gender,
+  price,
+  photo,
+  phone,
+  location,
+  memberYear,
+nidimg,
+experience,
+registry,
+review,
+religion,
+description
   } = props.product;
  
   return (

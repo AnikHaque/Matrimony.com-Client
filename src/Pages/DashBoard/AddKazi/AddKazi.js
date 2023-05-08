@@ -94,7 +94,7 @@ const AddKazi = () => {
           </label>
           <input
             {...register("photo")}
-            type="number"
+            type="text"
             placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
           />
@@ -105,7 +105,7 @@ const AddKazi = () => {
           </label>
           <input
             {...register("phone")}
-            type="text"
+            type="number"
             placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
           />
@@ -182,7 +182,7 @@ const AddKazi = () => {
           </label>
           <input
             {...register("religion")}
-            type="number"
+            type="text"
             placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
           />

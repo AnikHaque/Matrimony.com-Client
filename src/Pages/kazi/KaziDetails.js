@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useGetLawyerByIdQuery } from '../../features/lawyer/lawyerApi'
-import { useGetKaziByIdQuery } from '../../features/kazi/kaziApi';
+import { useGetKaziByIdQuery, useGetRelatedkaziQuery } from '../../features/kazi/kaziApi';
 import like from '../../assets/images/like.svg'
 import unlike from '../../assets/images/unlike.svg'
 import search from '../../assets/images/search.svg'
@@ -10,7 +10,27 @@ import lws from '../../assets/images/lws.svg'
 const KaziDetails = () => {
     const {id} = useParams();
     const {data, isLoading, isError} = useGetKaziByIdQuery(id);
-    const {name, img } = data || {}
+    const {   _id,
+        name,
+        gender,
+        price,
+        photo,
+        phone,
+        location,
+        memberYear,
+      nidimg,
+      experience,
+      registry,
+      review,
+      religion,
+      description } = data || {}
+
+      const {
+        data: relatedVideos,
+       
+    } = useGetRelatedkaziQuery({ id, gender });
+    console.log(relatedVideos)
+    
   return (
    <div>
     {/* <!-- navigation --> */}
@@ -25,7 +45,7 @@ const KaziDetails = () => {
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-          <img src={img} />
+          <img src={photo} />
         </div>
       </label>
       <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
@@ -50,7 +70,7 @@ const KaziDetails = () => {
                             width="100%"
                        
                             class="aspect-video h-[85%] rounded-md"
-                            src={img}
+                            src={photo}
                             title="Some video title"
                             frameborder=""
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -71,7 +91,7 @@ const KaziDetails = () => {
                                 <h2
                                     class="text-sm leading-[1.7142857] text-slate-600 w-full"
                                 >
-                                    Uploaded on 23 Nov 2022
+                                    Uploaded on {memberYear}
                                 </h2>
 
                                 {/* <!-- like/unlike --> */}

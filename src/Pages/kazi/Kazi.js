@@ -11,6 +11,7 @@ import { Error } from "../../ui/Error";
 const Kazi = () => {
   // const kazi = useLoaderData();
   const {data:kazi, isLoading,isError, isSuccess} = useGetKaziQuery();
+ 
   
   let content = null;
   if(isLoading){
@@ -29,12 +30,12 @@ const Kazi = () => {
    <div>
  <div class="profile-card1 mb-8">
  <div class="image1">
-   <img src={product.img} alt="" class="profile-img1" />
+   <img src={product.photo} alt="" class="profile-img1" />
  </div>
 
  <div class="text-data1">
    <span class="name1">{product.name}</span>
-   <span class="job1">YouTuber & Blogger</span>
+   <span class="job1">{product.location}</span>
  </div>
 
 

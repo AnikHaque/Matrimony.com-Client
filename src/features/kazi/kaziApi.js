@@ -19,6 +19,14 @@ const kaziApi = apiSlice.injectEndpoints({
                 url : `/kazi/${id}`,
             })
         }),
+        getRelatedkazi: builder.query({
+            query: ({ id,gender }) => {
+                const tags = gender.split(" ");
+                const likes = tags.map((tag) => `gender_like=${tag}`);
+                const queryString = `/kazi?${likes.join("&")}&_limit=4`;
+                return queryString;
+            },
+        }),
     }),
 });
-export const {usePostKaziMutation,useGetKaziQuery, useGetKaziByIdQuery} = kaziApi;
+export const {usePostKaziMutation,useGetKaziQuery, useGetKaziByIdQuery, useGetRelatedkaziQuery} = kaziApi;
