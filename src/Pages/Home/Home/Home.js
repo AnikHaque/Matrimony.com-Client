@@ -8,10 +8,12 @@ import MeetNewPeople from "../MeetNewPeople/MeetNewPeople";
 import Anexecutive from "../anexecutive/Anexecutive";
 import TopProfile from "../../TopProfile/TopProfile";
 import Membership from "../Membership/Membership";
+import NavBar from "../../SharedPages/NavBar/NavBar";
 
 const Home = () => {
   return (
     <div>
+      <NavBar></NavBar>
       <Banner></Banner>
       <Categories></Categories>
      <TopProfile></TopProfile>

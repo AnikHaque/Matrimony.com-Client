@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import KaziCard from "./KaziCard";
 // import BookNowModal from "../BookNowModal/BookNowModal";
 // import ProductCard from "./ProductCard";
@@ -40,7 +40,11 @@ const Kazi = () => {
 
 
  <div class="buttons1">
-   <button class="button1">View Profile</button>
+ <Link to={`/kazi/${product?._id}`}>
+
+ <button class="button1">View Profile</button>
+
+</Link>
    <button class="button1">Book Now</button>
  </div>
 

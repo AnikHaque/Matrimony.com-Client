@@ -58,12 +58,15 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="ml-56 mr-40 mt-12">
-      <h1 className="text-xl font-semibold text-green-900">Add a Profile !!!</h1>
+    <div className="">
+      
       <form
         onSubmit={handleSubmit(handleProductData)}
-        className="px-20 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 p-4 bg-blue-100"
+        className="shadow-lg p-10 rounded-2xl  gap-3 w-[85%] justify-between ml-[13%] bg-blue-100"
       >
+
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+       
         <div className="form-control">
           <label>
             <span className="label-text text-xl">Category</span>
@@ -446,22 +449,52 @@ const AddProduct = () => {
         </div>
         <div className="form-control">
           <label>
+            <span className="label-text text-xl">Are you Foody ?</span>
+          </label>
+          <select
+            {...register("foody")}
+            className="select select-bordered w-full max-w-lg"
+          >
+            <option disabled>No</option>
+            <option>No</option>
+            <option>Yes</option>
+            
+          </select>
+        </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">Are you Foody ?</span>
+          </label>
+          <select
+            {...register("foody")}
+            className="select select-bordered w-full max-w-lg"
+          >
+            <option disabled>No</option>
+            <option>No</option>
+            <option>Yes</option>
+            
+          </select>
+        </div>
+        <div className="form-control">
+          <label>
             <span className="label-text text-xl">Short Description</span>
           </label>
           <textarea
             {...register("description")}
-            className="textarea  md:w-[320px] lg:w-[560px] h-[150px] textarea-bordered"
+            className="textarea  md:w-[320px] lg:w-[1060px] h-[150px] textarea-bordered"
             placeholder="Bio"
           ></textarea>
         </div>
-        
+        </div>
+        <br></br>
         <button
-          className="btn lg:btn-wide btn-primary  mt-52 ml-72"
+          className="btn lg:btn-success btn-primary"
           type="submit"
         >
           Submit Profile
         </button>
       </form>
+     
     </div>
   );
 };

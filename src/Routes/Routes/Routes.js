@@ -30,6 +30,8 @@ import ProfileDetails from "../../Pages/Products/ProfileDetails";
 import Test from "../../layout/Test";
 import { ItemDetails } from "../../Pages/Item/ItemDetails";
 import LawyerDetails from "../../Pages/Lawyer/LawyerDetails";
+import PaymentSuccess from "../../Pages/Item/PaymentSuccess";
+import  KaziDetails  from "../../Pages/kazi/KaziDetails";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +49,10 @@ export const router = createBrowserRouter([
         element:<Kazi></Kazi> ,
       
       
+      },
+      {
+        path: "/payment/success",
+        element: <PaymentSuccess />
       },
       { 
         path: "/agent", 
@@ -84,6 +90,20 @@ export const router = createBrowserRouter([
           <ProfileDetails></ProfileDetails>
           
         ),
+        loader: ({ params }) =>
+        fetch(` http://localhost:5000/item/${params.id}`),
+       
+      },
+
+      {
+        path: "/kazi/:id",
+        element: (
+          
+     <KaziDetails></KaziDetails>
+          
+        ),
+        loader: ({ params }) =>
+        fetch(` http://localhost:5000/item/${params.id}`),
        
       },
       {

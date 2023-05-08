@@ -50,30 +50,14 @@ const AddKazi = () => {
 
   return (
     <div>
-      <h1 className="text-xl font-semibold text-green-900">Add A Product</h1>
       <form
         onSubmit={handleSubmit(handleProductData)}
-        className="px-40 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-2 p-3 bg-orange-100"
+        className="shadow-lg p-10 rounded-2xl grid grid-cols-1 lg:grid-cols-3 gap-3 w-[85%] justify-between ml-[13%] bg-blue-100"
       >
+      
         <div className="form-control">
           <label>
             <span className="label-text text-xl">Name</span>
-          </label>
-          <select
-            {...register("id")}
-            className="select select-bordered w-full max-w-xs defa"
-          >
-            <option disabled>Select Brand Name</option>
-            {brandnames.map((brandname) => (
-              <option value={brandname._id} key={brandname._id}>
-                {brandname.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="form-control">
-          <label>
-            <span className="label-text text-xl">Product Name</span>
           </label>
           <input
             {...register("name")}
@@ -84,10 +68,10 @@ const AddKazi = () => {
         </div>
         <div className="form-control">
           <label>
-            <span className="label-text text-xl">Resale Price</span>
+            <span className="label-text text-xl">Gender</span>
           </label>
           <input
-            {...register("resalePrice")}
+            {...register("gender")}
             type="text"
             placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
@@ -95,28 +79,25 @@ const AddKazi = () => {
         </div>
         <div className="form-control">
           <label>
-            <span className="label-text text-xl">Original Price</span>
+            <span className="label-text text-xl">Amount Per Marriage</span>
           </label>
           <input
-            {...register("originalPrice")}
-            type="text"
+            {...register("price")}
+            type="number"
             placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
           />
         </div>
         <div className="form-control">
           <label>
-            <span className="label-text text-xl">Condition</span>
+            <span className="label-text text-xl">Kazi Photo</span>
           </label>
-          <select
-            {...register("condition")}
-            className="select select-bordered w-full max-w-xs"
-          >
-            <option disabled>Select Condition</option>
-            <option>Excellent</option>
-            <option>Fair</option>
-            <option>Good</option>
-          </select>
+          <input
+            {...register("photo")}
+            type="number"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-xs"
+          />
         </div>
         <div className="form-control">
           <label>
@@ -142,10 +123,21 @@ const AddKazi = () => {
         </div>
         <div className="form-control">
           <label>
-            <span className="label-text text-xl">Year of Purchase</span>
+            <span className="label-text text-xl">Member Since</span>
           </label>
           <input
-            {...register("purchaseYear")}
+            {...register("memberYear")}
+            type="text"
+            placeholder="Type Date & Year"
+            className="input input-bordered w-full max-w-xs"
+          />
+        </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">NID Photo</span>
+          </label>
+          <input
+            {...register("nidimg")}
             type="text"
             placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
@@ -153,11 +145,44 @@ const AddKazi = () => {
         </div>
         <div className="form-control">
           <label>
-            <span className="label-text text-xl">Image</span>
+            <span className="label-text text-xl">Experience</span>
           </label>
           <input
-            {...register("img")}
+            {...register("experience")}
             type="text"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-xs"
+          />
+        </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">Total Marriage Registry</span>
+          </label>
+          <input
+            {...register("registry")}
+            type="number"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-xs"
+          />
+        </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">Total Review</span>
+          </label>
+          <input
+            {...register("review")}
+            type="number"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-xs"
+          />
+        </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">Religion</span>
+          </label>
+          <input
+            {...register("religion")}
+            type="number"
             placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
           />
@@ -168,15 +193,16 @@ const AddKazi = () => {
           </label>
           <textarea
             {...register("description")}
-            className="textarea  md:w-[320px] lg:w-[320px] textarea-bordered"
-            placeholder="Bio"
+            className="textarea   lg:w-[1000px] h-[80px] textarea-bordered"
+            placeholder="Details Of Kazi"
           ></textarea>
         </div>
+  
         <button
-          className="btn lg:btn-wide btn-primary  lg:ml-52 mt-4"
+          className="btn lg:btn-wide btn-secondary  mt-32"
           type="submit"
         >
-          Add A Product
+          Add A Kazi
         </button>
       </form>
     </div>

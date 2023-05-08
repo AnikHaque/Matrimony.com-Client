@@ -14,11 +14,11 @@ const kaziApi = apiSlice.injectEndpoints({
                 url : "/kazi",
             })
         }),
-        // getJobsById : builder.query({
-        //     query : (id) => ({
-        //         url : "/products/${id}",
-        //     })
-        // }),
+        getKaziById : builder.query({
+            query : (id) => ({
+                url : `/kazi/${id}`,
+            })
+        }),
     }),
 });
-export const {usePostKaziMutation,useGetKaziQuery} = kaziApi;
+export const {usePostKaziMutation,useGetKaziQuery, useGetKaziByIdQuery} = kaziApi;

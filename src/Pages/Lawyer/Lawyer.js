@@ -27,7 +27,7 @@ const Lawyer = () => {
  </div>
 
  <div class="text-data1">
-   <span class="name1">{product.position}</span>
+   <span class="name1">{product.name}</span>
    <span class="job1">{product.employmentType}</span>
  </div>
 

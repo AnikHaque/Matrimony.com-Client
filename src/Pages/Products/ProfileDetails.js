@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ProfileDetails.css';
 import { useBookItemMutation, useGetItemByIdQuery } from '../../features/Item/itemApi';
-import { useParams } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { usePostBookedMutation } from '../../features/bookeditems/bookApi';
@@ -40,17 +40,61 @@ const product = { // Product Data
 const ProfileDetails = () => {
   const { user } = useContext(AuthContext);
   const {id} = useParams();
-  const {data} = useGetItemByIdQuery(id);
+  // const {data} = useGetItemByIdQuery(id);
+  // console.log(data);
+  const shop = useLoaderData();
+   const {_id,name, price, discount} = shop;
+ 
   const { handleSubmit, register, control } = useForm();
+
   const [ bookitem, {isLoading, isError} ] = usePostBookedMutation();
 
-  const onSubmit = (data) => {
-  bookitem(data);
-  console.log(data)
-  if(data){
-    toast("Booked Product Successfully");
-  }
-  }
+  const handlePlaceOrder = (event,data) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const customer = user.displayName;
+    const email = user?.email || "unregistered";
+    const phone = form.phone.value;
+    const address = form.address.value;
+    const price = form.price.value;
+    const currency = form.currency.value;
+
+    const order = {
+      service:_id,
+      name,
+      price,
+      customer,
+      email,
+      phone,
+      address,
+      currency
+    };
+
+    fetch("http://localhost:5000/bookshop", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+       
+      },
+      body: JSON.stringify(order)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+    window.location.replace(data.url);
+      })
+      .catch((er) => console.error(er));
+  };
+
+  
+
+  // const onSubmit = (data) => {
+  // bookitem(data);
+  // console.log(data)
+  // if(data){
+  //   toast("Booked Product Successfully");
+  // }
+  // }
 
   const [slideIndex, setSlideIndex] = useState(1);
 
@@ -117,10 +161,10 @@ const ProfileDetails = () => {
         <div className="product-page-img">
           <div className="big-images">
             {
-              data?.images.map((image, index) => (
+              shop?.images.map((image, index) => (
                 <div key={index} className="mySlides" 
                 style={{display: (index + 1) === slideIndex ? "block" : "none"}}>
-                  <div className="numbertext">{index + 1} / {data.images.length}</div>
+                  <div className="numbertext">{index + 1} / {shop?.images.length}</div>
                   <img src={image} alt="" />
                 </div>
               ))
@@ -133,7 +177,7 @@ const ProfileDetails = () => {
           <div className="slider-img" draggable={true} ref={slideRef}
           onDragStart={dragStart} onDragOver={dragOver} onDragEnd={dragEnd}>
             {
-              data?.images.map((image, index) => (
+              shop?.images.map((image, index) => (
                 <div key={index} className={`slider-box ${index + 1 === slideIndex ? 'active' : ''}`}
                 onClick={() => setSlideIndex(index + 1)}>
                   <img src={image} alt="" />
@@ -144,17 +188,17 @@ const ProfileDetails = () => {
         </div>
 
         <div className="product-page-details">
-          <strong>{data?.name}</strong>
+          <strong>{shop?.name}</strong>
 
           <p className="product-category">
-            {data?.brand} - {data?.category}
+            {shop?.brand} - {shop?.category}
           </p>
 
           <p className="product-price">
-            ${Math.round(data?.price - data?.price * data?.discount / 100)} <del>{data?.price}$</del>
+            ${Math.round(shop?.price - shop?.price * shop?.discount / 100)} <del>{shop?.price}$</del>
           </p>
           
-          <p className="small-desc">{data?.desc.slice(0,500)}</p>
+          <p className="small-desc">{shop?.desc.slice(0,500)}</p>
 
           <div className="product-options">
             <span>Colors</span>
@@ -187,58 +231,71 @@ const ProfileDetails = () => {
 <div className="modal">
   <div className="modal-box relative">
     <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <form
-        className='shadow-lg p-10 rounded-2xl flex flex-wrap gap-3 max-w-3xl justify-between'
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <h1 className='w-full text-xl text-primary mb-2'>
-          Purchase a Product
-        </h1>
+    <div>
+      <form onSubmit={handlePlaceOrder} className="">
+       
+        <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <input
+              name="name"
+              type="text"
+              placeholder="Name"
+              className="input input-ghost w-full  input-bordered"
+              defaultValue={name}
+            />
+            <input
+              name="cusname"
+              type="text"
+              placeholder="Customer Name"
+              className="input input-ghost w-full  input-bordered"
+              defaultValue={user?.displayName}
+            />
+          
+            <input
+              name="phone"
+              type="text"
+              placeholder="Your Phone"
+              className="input input-ghost w-full  input-bordered"
+              required
+            />
+            <input
+              name="email"
+              type="text"
+              placeholder="Your email"
+              defaultValue={user?.email}
+              className="input input-ghost w-full  input-bordered"
+              readOnly
+            />
+          <select
+            defaultValue="BDT"
+            name="currency"
+            className="select select-bordered max-w-xs"
+          >
+            <option value="BDT">BDT</option>
+            <option value="USD">USD</option>
+          </select>
 
-        
-        <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='name'>
-           Product Name
-          </label>
-          <input className='bg-secondary/20 h-10 rounded-md' type='text' id='name' {...register("name")} defaultValue={data?.name} />
-        </div>
-        <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='price'>
-           Product Price
-          </label>
-          <input className='bg-secondary/20 h-10 rounded-md' type='text' id='price' {...register("price")} defaultValue={data?.price} />
-        </div>
-        <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='cusname'>
-          Customer Name
-          </label>
           <input
-            type='text'
-            className='bg-secondary/20 h-10 rounded-md'
-            id='cusname'
-            {...register("cusname")}
-            defaultValue={user?.displayName}
+            type="text"
+            name="price"
+            placeholder="Price"
+            defaultValue={price}
+            className="input input-ghost w-full  input-bordered"
           />
-        </div>
-        <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='phone'>
-           Phone Number
-          </label>
-          <input className='bg-secondary/20 h-10 rounded-md' type='number' id='phone' {...register("phone")}  />
-        </div>
-        <div className='flex flex-col w-full max-w-xs'>
-          <label className='mb-2' htmlFor='address'>
-           Delivery Address
-          </label>
-          <input className='bg-secondary/20 h-20' type='text' id='address' {...register("address")}  />
-        </div>
+          </div>
 
-        <div className='flex justify-end items-center w-full mt-3'>
-          <button className='btn btn-light' type='submit'>
-           Purchase Now
-          </button>
+
+          <textarea
+            name="address"
+            className="textarea textarea-bordered h-24 w-full my-5"
+            placeholder="Your Address"
+            required
+          ></textarea>
+
+          <input className="btn btn-secondary w-full" type="submit" value="Purchase" />
         </div>
       </form>
+    </div>
   </div>
 </div>
             

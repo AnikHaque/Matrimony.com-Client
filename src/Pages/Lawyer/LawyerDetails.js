@@ -5,7 +5,7 @@ import { useGetLawyerByIdQuery } from '../../features/lawyer/lawyerApi'
 const LawyerDetails = () => {
     const {id} = useParams();
     const {data, isLoading, isError} = useGetLawyerByIdQuery(id);
-    const {position } = data || {}
+    const {name, designation, img, experience,casesolved, Speciality,price, gender, location,overview } = data || {}
   return (
     <div>
           <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mt-[30px] container mx-auto p-3 px-6 ">
@@ -18,11 +18,11 @@ const LawyerDetails = () => {
           </div>
 
           <h1 className="font-bold text-primary ml-20  text-3xl">
-        {position}
+        position
           </h1>
           <ul className="list-t">
             <li className="text-t ml-20">
-              <b>Designation:</b> {position}
+              <b>Designation:</b> position
             </li>
             <li className="text-t ml-20">
               <b>specialization Area:</b> name

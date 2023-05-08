@@ -6,7 +6,7 @@ import NavBar from "../Pages/SharedPages/NavBar/NavBar";
 const Main = () => {
   return (
     <div>
-      <NavBar></NavBar>
+     
       <Outlet></Outlet>
       <Footer></Footer>
     </div>
