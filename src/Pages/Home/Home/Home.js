@@ -9,6 +9,7 @@ import Anexecutive from "../anexecutive/Anexecutive";
 import TopProfile from "../../TopProfile/TopProfile";
 import Membership from "../Membership/Membership";
 import NavBar from "../../SharedPages/NavBar/NavBar";
+import Blogs from "../Blogs/Blogs";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       {/* <MeetNewPeople></MeetNewPeople> */}
       <Anexecutive></Anexecutive>
       <Membership></Membership>
+      <Blogs></Blogs>
     </div>
   );
 };
