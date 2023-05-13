@@ -3,12 +3,12 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
-const BookTopProfile = ({ bookProduct, setBookProduct }) => {
+const BookTopProfile = ({ bookProfile, setBookProfile }) => {
   const { user } = useContext(AuthContext);
   console.log(user);
   const navigate = useNavigate();
-  const { name, resalePrice, id, img } = bookProduct;
-  console.log(bookProduct);
+  const { name, resalePrice, id, img } = bookProfile;
+  console.log(bookProfile);
   const handleModal = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -37,7 +37,7 @@ const BookTopProfile = ({ bookProduct, setBookProduct }) => {
         console.log(data);
       });
 
-    setBookProduct(null);
+    setBookProfile(null);
   };
 
   return (

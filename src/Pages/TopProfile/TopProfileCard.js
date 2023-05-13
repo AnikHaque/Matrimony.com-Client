@@ -11,7 +11,7 @@ import { useGetChoiceQuery, usePostChoiceMutation } from "../../features/choicel
 import { useForm } from "react-hook-form";
 
 import './TopProfile.css'
-const TopProfileCard = ({ product,setBookProduct }) => {
+const TopProfileCard = ({ product,setBookProfile }) => {
     const { handleSubmit, register, control } = useForm();
   const {
     _id,
@@ -20,11 +20,10 @@ const TopProfileCard = ({ product,setBookProduct }) => {
    presentlocation
   } = product;
 
-  const products = useLoaderData();
+ 
 
   const [postChoice, {isLoading, isError}] = usePostChoiceMutation();
-  const {data:choice} = useGetChoiceQuery()
-
+ 
   const onSubmit = (data) => {
     console.log(data);
     postChoice(data);
@@ -52,7 +51,7 @@ const TopProfileCard = ({ product,setBookProduct }) => {
     <div class="buttons">
    
       <button> <label
-        onClick={() => setBookProduct(product)}
+        onClick={() => setBookProfile(product)}
          htmlFor="booking-modal"
          className=""
        >

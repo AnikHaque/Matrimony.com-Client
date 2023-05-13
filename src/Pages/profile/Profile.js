@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import img1 from '../../assets/images/auth/img/img_1.avif'
 import img2 from '../../assets/images/auth/img/img_2.avif'
 import img3 from '../../assets/images/auth/img/img_3.avif'
@@ -15,7 +15,14 @@ import { useLoaderData, useParams } from 'react-router-dom'
 const Profile = () => {
   const {  user } = useContext(AuthContext);
   const {id} = useParams();
-  const products = useLoaderData();
+  const [food,setFood] = useState({})
+     useEffect(()=>{
+         fetch(`http://localhost:5000/products/${id}`)
+       .then(res=>res.json())
+        .then(data=>console.log(data))
+
+     },[])
+  
   return (
    <div>
     <NavBar></NavBar>

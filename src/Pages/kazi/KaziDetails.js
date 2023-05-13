@@ -10,7 +10,7 @@ import lws from '../../assets/images/lws.svg'
 const KaziDetails = () => {
     const {id} = useParams();
     const {data, isLoading, isError} = useGetKaziByIdQuery(id);
-    const {   _id,
+    const {_id,
         name,
         gender,
         price,
@@ -130,7 +130,7 @@ const KaziDetails = () => {
                             <div
                                 class="mt-4 text-sm text-[#334155] dark:text-slate-400"
                             >
-                                Some video description here
+                               {description}
                             </div>
                         </div>
                     </div>

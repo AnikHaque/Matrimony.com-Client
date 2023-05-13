@@ -3,20 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import { FaSearch } from "react-icons/fa";
 import TopProfileCard from "./TopProfileCard";
 import BookTopProfile from "../BookNowModal/BookTopProfile";
+import { useGetTopProfileQuery } from "../../features/topProfile/topProfileApi";
 
 const TopProfile = () => {
-    const [bookProduct, setBookProduct] = useState({});
-
-  const { data: advertisedItems = [] } = useQuery({
-    queryKey: ["advertised"],
-    queryFn: async () => {
-      const res = await fetch(
-        " http://localhost:5000/products"
-      );
-      const data = await res.json();
-      return data;
-    },
-  });
+   const {data: topProfile , isLoading, isError } = useGetTopProfileQuery()
+   const [bookProfile, setBookProfile] = useState({})
   return (
     
     <div className="bg-[#F2F3F7] py-5">
@@ -39,22 +30,20 @@ const TopProfile = () => {
           </div>
         </div>
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
-        {advertisedItems.slice(0,6).map((product) => (
+        {topProfile?.slice(0,6).map((product) => (
                <TopProfileCard
                  key={product._id}
-                 setBookProduct={setBookProduct}
                 product={product}
+                setBookProfile={setBookProfile}
                ></TopProfileCard>
           
             ))}
-
-{bookProduct && (
+            {bookProfile && (
         <BookTopProfile
-          setBookProduct={setBookProduct}
-          bookProduct={bookProduct}
+          setBookProfile={setBookProfile}
+          bookProfile={bookProfile}
         ></BookTopProfile>
       )}
-
         </div>
       </div>
     </div>

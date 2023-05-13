@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import KaziCard from "./KaziCard";
-// import BookNowModal from "../BookNowModal/BookNowModal";
-// import ProductCard from "./ProductCard";
 import './Kazi.css'
 import { useGetKaziQuery } from "../../features/kazi/kaziApi";
-import KaziLoader from "../../ui/KaziLoader";
 import Loader from "../../ui/Loader";
 import { Error } from "../../ui/Error";
 const Kazi = () => {
   // const kazi = useLoaderData();
-  const {data:kazi, isLoading,isError, isSuccess} = useGetKaziQuery();
+  const {data:kazi, isLoading,isError} = useGetKaziQuery();
  
   
   let content = null;

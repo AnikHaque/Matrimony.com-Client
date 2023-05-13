@@ -34,6 +34,7 @@ import PaymentSuccess from "../../Pages/Item/PaymentSuccess";
 import  KaziDetails  from "../../Pages/kazi/KaziDetails";
 import SocilaMedia from "../../Social_Media/SocilaMedia";
 import Profile from "../../Pages/profile/Profile";
+import AddTopProfile from "../../Pages/DashBoard/AddTopProfile/AddTopProfile";
 
 
 export const router = createBrowserRouter([
@@ -87,14 +88,13 @@ export const router = createBrowserRouter([
           fetch(` http://localhost:5000/products/${params.id}`),
       },
       {
-        path: "/topprile/:id",
+        path: "/topprofile/:id",
         element: (
           
             <Profile></Profile>
           
         ),
-        loader: ({ params }) =>
-          fetch(` http://localhost:5000/products/${params.id}`),
+       
       },
     
       {
@@ -154,6 +154,14 @@ export const router = createBrowserRouter([
         element: (
           <SellerRoute>
            <AddProduct></AddProduct>
+          </SellerRoute>
+        ),
+      },
+      {
+        path: "/dashboard/addtopprofile",
+        element: (
+          <SellerRoute>
+           <AddTopProfile></AddTopProfile>
           </SellerRoute>
         ),
       },
