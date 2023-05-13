@@ -5,24 +5,18 @@ import img3 from '../../assets/images/auth/img/img_3.avif'
 import img4 from '../../assets/images/auth/img/img_4.avif'
 import img5 from '../../assets/images/auth/img/img_5.avif'
 import img6 from '../../assets/images/auth/img/img_6.avif'
-import img7 from '../../assets/images/auth/img/user.jpeg'
 import './Profile.css';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider'
 import { useContext } from 'react'
 import NavBar from '../SharedPages/NavBar/NavBar'
 import { useLoaderData, useParams } from 'react-router-dom'
+import { useGetTopProfileByIdQuery } from '../../features/topProfile/topProfileApi'
 
 const Profile = () => {
   const {  user } = useContext(AuthContext);
   const {id} = useParams();
-  const [food,setFood] = useState({})
-     useEffect(()=>{
-         fetch(`http://localhost:5000/products/${id}`)
-       .then(res=>res.json())
-        .then(data=>console.log(data))
-
-     },[])
-  
+const {data} = useGetTopProfileByIdQuery(id);
+ const {name, designation, email, img, description} = data || {}
   return (
    <div>
     <NavBar></NavBar>
@@ -30,12 +24,12 @@ const Profile = () => {
       <div class="cols__container mt-32">
         <div class="left__col">
           <div class="img__container">
-            <img src={img7} alt="Anna Smith" />
+            <img src={img} alt="Anna Smith" />
             <span></span>
           </div>
-          <h2>Anna Smith{id}</h2>
-          <p>UX/UI Designer</p>
-          <p>anna@example.com</p>
+          <h2>{name}</h2>
+          <p>{designation}</p>
+          <p>{email}</p>
 
           <ul class="about ul">
             <li><span>4,073</span>Followers</li>
@@ -45,9 +39,7 @@ const Profile = () => {
 
           <div class="content">
             <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam
-              erat volutpat. Morbi imperdiet, mauris ac auctor dictum, nisl
-              ligula egestas nulla.
+             {description}
             </p>
 
             <ul className='ul'>
@@ -66,7 +58,7 @@ const Profile = () => {
               <li><a href="">groups</a></li>
               <li><a href="">about</a></li>
             </ul>
-            <button>Follow</button>
+            <button className='btn btn-primary'>Take Appointment</button>
           </nav>
 
           <div class="photos">

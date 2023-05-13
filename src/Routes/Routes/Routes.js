@@ -87,15 +87,6 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(` http://localhost:5000/products/${params.id}`),
       },
-      {
-        path: "/topprofile/:id",
-        element: (
-          
-            <Profile></Profile>
-          
-        ),
-       
-      },
     
       {
         path: "/items/:id",
@@ -125,6 +116,15 @@ export const router = createBrowserRouter([
         element: (
           
          <LawyerDetails></LawyerDetails>
+          
+        ),
+       
+      },
+      {
+        path: "/topprofile/:id",
+        element: (
+          
+         <Profile></Profile>
           
         ),
        

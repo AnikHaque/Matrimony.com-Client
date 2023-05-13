@@ -14,12 +14,12 @@ const topProfileApi = apiSlice.injectEndpoints({
                 url : "/topprofile",
             })
         }),
-        getKaziById : builder.query({
+        getTopProfileById : builder.query({
             query : (id) => ({
-                url : `/kazi/${id}`,
+                url : `/topprofile/${id}`,
             })
         }),
         }),
       
 });
-export const {usePostTopProfileMutation, useGetTopProfileQuery} = topProfileApi;
+export const {usePostTopProfileMutation, useGetTopProfileQuery, useGetTopProfileByIdQuery} = topProfileApi;
