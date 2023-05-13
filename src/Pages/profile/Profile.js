@@ -10,9 +10,12 @@ import './Profile.css';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider'
 import { useContext } from 'react'
 import NavBar from '../SharedPages/NavBar/NavBar'
+import { useLoaderData, useParams } from 'react-router-dom'
+
 const Profile = () => {
-  const {  user } =
-  useContext(AuthContext);
+  const {  user } = useContext(AuthContext);
+  const {id} = useParams();
+  const products = useLoaderData();
   return (
    <div>
     <NavBar></NavBar>
@@ -23,7 +26,7 @@ const Profile = () => {
             <img src={img7} alt="Anna Smith" />
             <span></span>
           </div>
-          <h2>Anna Smith</h2>
+          <h2>Anna Smith{id}</h2>
           <p>UX/UI Designer</p>
           <p>anna@example.com</p>
 

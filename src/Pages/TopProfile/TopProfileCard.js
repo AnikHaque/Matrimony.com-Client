@@ -6,7 +6,7 @@ import {
   FaHeart,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { useGetChoiceQuery, usePostChoiceMutation } from "../../features/choicelist/choiceListApi";
 import { useForm } from "react-hook-form";
 
@@ -14,10 +14,13 @@ import './TopProfile.css'
 const TopProfileCard = ({ product,setBookProduct }) => {
     const { handleSubmit, register, control } = useForm();
   const {
+    _id,
    name,
    img,
    presentlocation
   } = product;
+
+  const products = useLoaderData();
 
   const [postChoice, {isLoading, isError}] = usePostChoiceMutation();
   const {data:choice} = useGetChoiceQuery()
@@ -56,7 +59,7 @@ const TopProfileCard = ({ product,setBookProduct }) => {
          ChoiceList
        </label>
        </button>
-      <Link to={`/topprofile/${product._id}`}><button>View Profile</button></Link>
+      <Link to={`/topprofile/${_id}`}><button>View Profile</button></Link>
     </div>
    
   </div>

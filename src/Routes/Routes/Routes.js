@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
       { path: "/signup", element: <SignUp></SignUp> },
       { path: "/blog", element: <Blog></Blog> },
       { path: "/social", element:<SocilaMedia></SocilaMedia>},
-      { path: "/profile", element: <Profile></Profile> },
+     
       { 
         path: "/kazi", 
         element:<Kazi></Kazi> ,
@@ -81,6 +81,16 @@ export const router = createBrowserRouter([
         element: (
           
             <Products></Products>
+          
+        ),
+        loader: ({ params }) =>
+          fetch(` http://localhost:5000/products/${params.id}`),
+      },
+      {
+        path: "/topprile/:id",
+        element: (
+          
+            <Profile></Profile>
           
         ),
         loader: ({ params }) =>
