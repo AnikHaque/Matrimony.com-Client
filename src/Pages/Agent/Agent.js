@@ -44,8 +44,6 @@ const Agent = () => {
             <img src="https://www.pinkvilla.com/files/shahrukhkhan_femaleactorsdebut_hd.jpg" className="w-40 rounded-md border border-black" alt="" />
             </div>
             }
-            
-
             <div class="media-icons2">
               <i class="fab fa-facebook text-white text-xl"></i>
               <i class="fab fa-twitter text-white text-xl"></i>

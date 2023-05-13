@@ -22,10 +22,10 @@ const AddProduct = () => {
     remove: resRemove,
   } = useFieldArray({ control, name: "responsibilities" });
   const {
-    fields: skillFields,
-    append: skillAppend,
-    remove: skillRemove,
-  } = useFieldArray({ control, name: "skills" });
+    fields: siblingsFields,
+    append: siblingsAppend,
+    remove: siblingsRemove,
+  } = useFieldArray({ control, name: "siblings" });
   const {
     fields: reqFields,
     append: reqAppend,
@@ -116,6 +116,84 @@ const AddProduct = () => {
             className="input input-bordered w-full max-w-lg"
           />
         </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">Designation</span>
+          </label>
+          <input
+            {...register("designation")}
+            type="text"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-lg"
+          />
+        </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">Gender</span>
+          </label>
+          <input
+            {...register("gender")}
+            type="text"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-lg"
+          />
+        </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">Office Address</span>
+          </label>
+          <input
+            {...register("ofcaddress")}
+            type="text"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-lg"
+          />
+        </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">Facebook ID</span>
+          </label>
+          <input
+            {...register("facebook")}
+            type="text"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-lg"
+          />
+        </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">Twitter ID</span>
+          </label>
+          <input
+            {...register("twitter")}
+            type="text"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-lg"
+          />
+        </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">Instagram ID</span>
+          </label>
+          <input
+            {...register("instagram")}
+            type="text"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-lg"
+          />
+        </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">Youtube Link</span>
+          </label>
+          <input
+            {...register("youtube")}
+            type="text"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-lg"
+          />
+        </div>
+        
         <div className="form-control">
           <label>
             <span className="label-text text-xl">No of Siblings</span>
@@ -276,17 +354,17 @@ const AddProduct = () => {
           <label className='mb-2'>Siblings Info</label>
           <div>
             <div>
-              {skillFields.map((item, index) => {
+              {siblingsFields.map((item, index) => {
                 return (
                   <div key={item.key} className='flex items-center gap-3 mb-5'>
                     <input
                       className='!w-full'
                       type='text'
-                      {...register(`skills[${index}]`)}
+                      {...register(`siblings[${index}]`)}
                     />
                     <button
                       type='button'
-                      onClick={() => skillRemove(index)}
+                      onClick={() => siblingsRemove(index)}
                       className='grid place-items-center rounded-full flex-shrink-0 bg-red-500/20 border border-red-500 h-11 w-11 group transition-all hover:bg-red-500'
                     >
                       <FiTrash
@@ -301,7 +379,7 @@ const AddProduct = () => {
             <div>
               <button
                 type='button'
-                onClick={() => skillAppend("")}
+                onClick={() => siblingsAppend("")}
                 className='btn bg-white'
               >
                 Add Siblings Information
@@ -449,10 +527,10 @@ const AddProduct = () => {
         </div>
         <div className="form-control">
           <label>
-            <span className="label-text text-xl">Are you Foody ?</span>
+            <span className="label-text text-xl">Are you open minded?</span>
           </label>
           <select
-            {...register("foody")}
+            {...register("minded")}
             className="select select-bordered w-full max-w-lg"
           >
             <option disabled>No</option>
@@ -463,10 +541,24 @@ const AddProduct = () => {
         </div>
         <div className="form-control">
           <label>
-            <span className="label-text text-xl">Are you Foody ?</span>
+            <span className="label-text text-xl">Do you like travelling ?</span>
           </label>
           <select
-            {...register("foody")}
+            {...register("travelling")}
+            className="select select-bordered w-full max-w-lg"
+          >
+            <option disabled>No</option>
+            <option>No</option>
+            <option>Yes</option>
+            
+          </select>
+        </div>
+        <div className="form-control">
+          <label>
+            <span className="label-text text-xl">Do you drink ?</span>
+          </label>
+          <select
+            {...register("drink")}
             className="select select-bordered w-full max-w-lg"
           >
             <option disabled>No</option>

@@ -38,8 +38,8 @@ const TopProfile = () => {
             <FaSearch className="absolute right-3 text-[#FF6801]" />
           </div>
         </div>
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {advertisedItems.slice(0,9).map((product) => (
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
+        {advertisedItems.slice(0,6).map((product) => (
                <TopProfileCard
                  key={product._id}
                  setBookProduct={setBookProduct}
