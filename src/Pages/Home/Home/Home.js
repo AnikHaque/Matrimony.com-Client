@@ -10,13 +10,14 @@ import TopProfile from "../../TopProfile/TopProfile";
 import Membership from "../Membership/Membership";
 import NavBar from "../../SharedPages/NavBar/NavBar";
 import Blogs from "../Blogs/Blogs";
+import CategoriesHome from "../Categories/CategoriesHome";
 
 const Home = () => {
   return (
     <div>
       <NavBar></NavBar>
       <Banner></Banner>
-      <Categories></Categories>
+    <CategoriesHome></CategoriesHome>
      <TopProfile></TopProfile>
       {/* <FindSoleMate></FindSoleMate> */}
       {/* <MeetNewPeople></MeetNewPeople> */}

@@ -104,7 +104,7 @@ const {data} = useGetTopProfileByIdQuery(id);
 <div className="modal">
   <div className="modal-box relative">
     <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <h3 className="text-lg font-bold">Congratulations random Internet user!</h3>
+    <h3 className="text-lg font-bold text-center">Please Pay first for Appointment !!!!</h3>
     <form onSubmit={handlePlaceOrder} className="">
        
        <div>

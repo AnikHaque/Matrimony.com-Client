@@ -3,6 +3,7 @@ import { useGetItemQuery } from "../../features/Item/itemApi";
 
 import './Item.css';
 import { Link } from "react-router-dom";
+import NavBar from "../SharedPages/NavBar/NavBar";
 
 const Item = () => {
   const {data:item, isLoading,isError, isSuccess} = useGetItemQuery();
@@ -74,7 +75,12 @@ const Item = () => {
  ))} 
 </div>
   }
-  return content;
+  return (
+    <div>
+      <NavBar></NavBar>
+      {content}
+    </div>
+  );
 
 };
 

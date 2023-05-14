@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import CategoryCard from "../CategoryCard/CategoryCard";
 import NavBar from "../../SharedPages/NavBar/NavBar";
 
-const Categories = () => {
+const CategoriesHome = () => {
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: () =>
@@ -13,7 +13,6 @@ const Categories = () => {
   });
   return (
     <div>
-      <NavBar></NavBar>
       <h1 className="text-4xl mt-4 font-semibold text-center">
         Browse By Category
       </h1>
@@ -29,4 +28,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default CategoriesHome;

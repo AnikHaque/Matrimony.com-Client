@@ -35,6 +35,8 @@ import  KaziDetails  from "../../Pages/kazi/KaziDetails";
 import SocilaMedia from "../../Social_Media/SocilaMedia";
 import Profile from "../../Pages/profile/Profile";
 import AddTopProfile from "../../Pages/DashBoard/AddTopProfile/AddTopProfile";
+import PaymentDone from "../../Pages/TopProfile/PaymentDone";
+import Categories from "../../Pages/Home/Categories/Categories";
 
 
 export const router = createBrowserRouter([
@@ -44,10 +46,12 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       { path: "/", element: <Home></Home> },
+      { path: "/home", element: <Home></Home> },
       { path: "/login", element: <LogIn></LogIn> },
       { path: "/signup", element: <SignUp></SignUp> },
       { path: "/blog", element: <Blog></Blog> },
       { path: "/social", element:<SocilaMedia></SocilaMedia>},
+      { path: "/categories", element:<Categories></Categories>},
      
       { 
         path: "/kazi", 
@@ -58,6 +62,10 @@ export const router = createBrowserRouter([
       {
         path: "/payment/success",
         element: <PaymentSuccess />
+      },
+      {
+        path: "/payment/complete",
+        element: <PaymentDone></PaymentDone>
       },
       { 
         path: "/agent", 

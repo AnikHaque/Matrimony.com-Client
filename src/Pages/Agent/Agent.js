@@ -6,6 +6,7 @@ import './Agent.css'
 
 // components import 
 import { useGetagentQuery } from "../../features/agent/agentApi";
+import NavBar from "../SharedPages/NavBar/NavBar";
 
 const Agent = () => {
   const ref = React.createRef();
@@ -78,7 +79,12 @@ const Agent = () => {
  ))} 
 </div>
   }
-  return content;
+  return (
+    <div>
+      <NavBar></NavBar>
+      {content}
+    </div>
+  );
 };
 
 export default Agent;

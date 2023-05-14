@@ -58,7 +58,7 @@ const TopProfileCard = ({ product,setBookProfile }) => {
          ChoiceList
        </label>
        </button>
-      <Link to={`/topprofile/${_id}`}><button>View Profile</button></Link>
+      <Link to={`/topprofile/${_id}`}><button>View</button></Link>
     </div>
    
   </div>
