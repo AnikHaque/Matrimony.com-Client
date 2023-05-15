@@ -4,43 +4,48 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
-  const url = ` http://localhost:5000/bookeditems?email=${user?.email}`;
-  const { data: bookedItems = [] } = useQuery({
-    queryKey: ["bookeditems", user?.email],
+  console.log(user)
+  const url = ` http://localhost:5000/membership?email=${user?.email}`;
+  const { data: membership = [] } = useQuery({
+    queryKey: ["membership", user?.email],
     queryFn: async () => {
-      const res = await fetch(url, {
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
+      const res = await fetch(url, {});
       const data = await res.json();
       return data;
     },
   });
-  console.log(bookedItems);
+  console.log(membership);
   return (
     <div>
-      <h1>My Orders</h1>
+      <h1 className="font-bold text-2xl mt-12 mb-4 text-center">My Membership Bookings:-</h1>
       <div className="overflow-x-auto">
-        <table className="table w-full">
+        <table className="table w-[70%] mx-auto">
           <thead>
             <tr>
-              <th></th>
-              {/* <th>Image</th> */}
-              <th>Product Name</th>
-              <th>Price</th>
+              <th>S/L No</th>
+              <th>Image</th>
+              <th>Member Name</th>
+              <th>Membership Category</th>
+              <th>Membership Price</th>
               <th>Payment Status</th>
+              <th>Membership Price</th>
+              <th>Payment Status</th>
+           
             </tr>
           </thead>
           <tbody>
-            {bookedItems?.map((bookedItem, i) => (
+            {membership?.map((bookedItem, i) => (
               <>
                 <tr key={bookedItem._id}>
                   <th>{i + 1}</th>
-                  {/* <td>{bookedItem.img}</td> */}
+                  <td>{user.photoURL}</td>
                   <td>{bookedItem.name}</td>
-                  <td>{bookedItem.resalePrice}</td>
-                  <td>
+                  <td>{bookedItem.category}</td>
+                  <td>{bookedItem.price}</td>
+                  <td>{bookedItem.category}</td>
+                  <td>{bookedItem.price}</td>
+                  
+                  {/* <td>
                     {bookedItem.resalePrice && !bookedItem.paid && (
                       <Link
                         to={`/dashboard/payment/${bookedItem._id}`}
@@ -52,7 +57,7 @@ const MyOrders = () => {
                     {bookedItem.resalePrice && bookedItem.paid && (
                       <span className="text-primary font-bold">Paid</span>
                     )}
-                  </td>
+                  </td> */}
                 </tr>
               </>
             ))}

@@ -52,6 +52,7 @@ export const router = createBrowserRouter([
       { path: "/blog", element: <Blog></Blog> },
       { path: "/social", element:<SocilaMedia></SocilaMedia>},
       { path: "/categories", element:<Categories></Categories>},
+    
      
       { 
         path: "/kazi", 
