@@ -5,7 +5,7 @@ import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
   console.log(user)
-  const url = ` http://localhost:5000/membership?email=${user?.email}`;
+  const url = ` https://matrimony-com-server-anikhaque.vercel.app/membership?email=${user?.email}`;
   const { data: membership = [] } = useQuery({
     queryKey: ["membership", user?.email],
     queryFn: async () => {

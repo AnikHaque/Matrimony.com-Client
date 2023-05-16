@@ -54,7 +54,7 @@ const handlePlaceOrder = (event,data) => {
       currency
     };
 
-    fetch("http://localhost:5000/bookKaziprofile", {
+    fetch("https://matrimony-com-server-anikhaque.vercel.app/bookKaziprofile", {
       method: "POST",
       headers: {
         "content-type": "application/json",

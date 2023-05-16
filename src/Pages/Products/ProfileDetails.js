@@ -71,7 +71,7 @@ const ProfileDetails = () => {
       currency
     };
 
-    fetch("http://localhost:5000/bookshop", {
+    fetch("https://matrimony-com-server-anikhaque.vercel.app/bookshop", {
       method: "POST",
       headers: {
         "content-type": "application/json",
