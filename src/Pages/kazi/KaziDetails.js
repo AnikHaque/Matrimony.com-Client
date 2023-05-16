@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useGetLawyerByIdQuery } from '../../features/lawyer/lawyerApi'
 import { useGetKaziByIdQuery, useGetRelatedkaziQuery } from '../../features/kazi/kaziApi';
 import like from '../../assets/images/like.svg'
 import unlike from '../../assets/images/unlike.svg'
-import search from '../../assets/images/search.svg'
-import lws from '../../assets/images/lws.svg'
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const KaziDetails = () => {
+      const { user } = useContext(AuthContext);
     const {id} = useParams();
     const {data, isLoading, isError} = useGetKaziByIdQuery(id);
     const {_id,
@@ -31,6 +31,44 @@ const KaziDetails = () => {
     } = useGetRelatedkaziQuery({ id, gender });
     console.log(relatedVideos)
     
+
+const handlePlaceOrder = (event,data) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const customer = user.displayName;
+    const email = user?.email || "unregistered";
+    const phone = form.phone.value;
+    const address = form.address.value;
+    const price = form.price.value;
+    const currency = form.currency.value;
+
+    const order = {
+      service:_id,
+      name,
+      price,
+      customer,
+      email,
+      phone,
+      address,
+      currency
+    };
+
+    fetch("http://localhost:5000/bookKaziprofile", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+       
+      },
+      body: JSON.stringify(order)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+    window.location.replace(data.url);
+      })
+      .catch((er) => console.error(er));
+  };
+
   return (
    <div>
     {/* <!-- navigation --> */}
@@ -177,10 +215,200 @@ const KaziDetails = () => {
                                 </p>
                             </div>
                         </div>
+                        <div class="w-full flex flex-row gap-2 mb-4">
+                            <div
+                                class="relative w-[168px] h-[94px] flex-none duration-300 hover:scale-[1.03]"
+                            >
+                                <a href="video.html">
+                                    <img
+                                        src="https://i3.ytimg.com/vi/6O4s7v28nlw/maxresdefault.jpg"
+                                        class="object-cover"
+                                        alt="Some video title"
+                                    />
+                                </a>
+                                <p
+                                    class="absolute right-2 bottom-2 bg-gray-900 text-gray-100 text-xs px-1 py"
+                                >
+                                    12:10
+                                </p>
+                            </div>
+
+                            <div class="flex flex-col w-full">
+                                <a href="#">
+                                    <p
+                                        class="text-slate-900 text-sm font-semibold"
+                                    >
+                                        Some video title
+                                    </p>
+                                </a>
+                                <a
+                                    class="text-gray-400 text-xs mt-2 hover:text-gray-600"
+                                    href="#"
+                                >
+                                    Learn with Sumit
+                                </a>
+                                <p class="text-gray-400 text-xs mt-1">
+                                    100K views . 23 Oct 2022
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-row gap-2 mb-4">
+                            <div
+                                class="relative w-[168px] h-[94px] flex-none duration-300 hover:scale-[1.03]"
+                            >
+                                <a href="video.html">
+                                    <img
+                                        src="https://i3.ytimg.com/vi/6O4s7v28nlw/maxresdefault.jpg"
+                                        class="object-cover"
+                                        alt="Some video title"
+                                    />
+                                </a>
+                                <p
+                                    class="absolute right-2 bottom-2 bg-gray-900 text-gray-100 text-xs px-1 py"
+                                >
+                                    12:10
+                                </p>
+                            </div>
+
+                            <div class="flex flex-col w-full">
+                                <a href="#">
+                                    <p
+                                        class="text-slate-900 text-sm font-semibold"
+                                    >
+                                        Some video title
+                                    </p>
+                                </a>
+                                <a
+                                    class="text-gray-400 text-xs mt-2 hover:text-gray-600"
+                                    href="#"
+                                >
+                                    Learn with Sumit
+                                </a>
+                                <p class="text-gray-400 text-xs mt-1">
+                                    100K views . 23 Oct 2022
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-row gap-2 mb-4">
+                            <div
+                                class="relative w-[168px] h-[94px] flex-none duration-300 hover:scale-[1.03]"
+                            >
+                                <a href="video.html">
+                                    <img
+                                        src="https://i3.ytimg.com/vi/6O4s7v28nlw/maxresdefault.jpg"
+                                        class="object-cover"
+                                        alt="Some video title"
+                                    />
+                                </a>
+                                <p
+                                    class="absolute right-2 bottom-2 bg-gray-900 text-gray-100 text-xs px-1 py"
+                                >
+                                    12:10
+                                </p>
+                            </div>
+
+                            <div class="flex flex-col w-full">
+                                <a href="#">
+                                    <p
+                                        class="text-slate-900 text-sm font-semibold"
+                                    >
+                                        Some video title
+                                    </p>
+                                </a>
+                                <a
+                                    class="text-gray-400 text-xs mt-2 hover:text-gray-600"
+                                    href="#"
+                                >
+                                    Learn with Sumit
+                                </a>
+                                <p class="text-gray-400 text-xs mt-1">
+                                    100K views . 23 Oct 2022
+                                </p>
+                            </div>
+                        </div>
+                              {/* The button to open modal */}
+<label htmlFor="my-modal-3" className="btn btn-secondary w-[70%] ml-14 rounded-full mt-8">Book Appointment</label>
+
+{/* Put this part before </body> tag */}
+<input type="checkbox" id="my-modal-3" className="modal-toggle" />
+<div className="modal">
+  <div className="modal-box relative">
+    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+   <div>
+      <form onSubmit={handlePlaceOrder} className="">
+       
+        <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <input
+              name="name"
+              type="text"
+              placeholder="Name"
+              className="input input-ghost w-full  input-bordered"
+              defaultValue={user?.displayName}
+            />
+            <input
+              name="cusname"
+              type="text"
+              placeholder="Customer Name"
+              className="input input-ghost w-full  input-bordered"
+            defaultValue={name}
+            />
+          
+            <input
+              name="phone"
+              type="text"
+              placeholder="Your Phone"
+              className="input input-ghost w-full  input-bordered"
+              defaultValue={phone}
+              required
+            />
+            <input
+              name="email"
+              type="text"
+              placeholder="Your email"
+              defaultValue={user?.email}
+              className="input input-ghost w-full  input-bordered"
+              readOnly
+            />
+          <select
+            defaultValue="BDT"
+            name="currency"
+            className="select select-bordered max-w-xs"
+          >
+            <option value="BDT">BDT</option>
+            <option value="USD">USD</option>
+          </select>
+
+          <input
+            type="text"
+            name="price"
+            placeholder="Price"
+           defaultValue={price}
+            className="input input-ghost w-full  input-bordered"
+          />
+          </div>
+
+
+          <textarea
+            name="address"
+            className="textarea textarea-bordered h-24 w-full my-5"
+            placeholder="Your Address"
+            required
+          ></textarea>
+
+          <input className="btn btn-secondary w-full" type="submit" value="Pay For Appointment" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
                     </div>
+                    
                 </div>
             </div>
+            
         </section>
+  
    </div>
   )
 }

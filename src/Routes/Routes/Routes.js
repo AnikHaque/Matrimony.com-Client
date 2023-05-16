@@ -37,6 +37,7 @@ import Profile from "../../Pages/profile/Profile";
 import AddTopProfile from "../../Pages/DashBoard/AddTopProfile/AddTopProfile";
 import PaymentDone from "../../Pages/TopProfile/PaymentDone";
 import Categories from "../../Pages/Home/Categories/Categories";
+import PaymentKazi from "../../Pages/kazi/PaymentKazi";
 
 
 export const router = createBrowserRouter([
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
       {
         path: "/payment/complete",
         element: <PaymentDone></PaymentDone>
+      },
+      {
+        path: "/payment/done",
+        element: <PaymentKazi></PaymentKazi>
       },
       { 
         path: "/agent", 
@@ -153,9 +158,9 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/myorders",
         element: (
-          <BuyerRoute>
+          <SellerRoute>
             <MyOrders></MyOrders>
-          </BuyerRoute>
+          </SellerRoute>
         ),
       },
       {
