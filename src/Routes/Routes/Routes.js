@@ -158,9 +158,9 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/myorders",
         element: (
-          <SellerRoute>
+          <BuyerRoute>
             <MyOrders></MyOrders>
-          </SellerRoute>
+          </BuyerRoute>
         ),
       },
       {

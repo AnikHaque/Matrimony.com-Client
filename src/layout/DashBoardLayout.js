@@ -57,6 +57,14 @@ const DashBoardLayout = () => {
                         </Link>
                     </li>
                     <li>
+                       <Link to='/dashboard/myorders' class="active6 mt-[-40px]">
+                            <span class="las la-user-alt">
+                            <i class="fa-solid fa-user text-white text-xs"></i>
+                            </span>
+                            <small>My Orders</small>
+                        </Link>
+                    </li>
+                    <li>
                     <Link to='/dashboard/addproduct' class="active6 mt-[-40px]">
                             <span class="las la-user-alt">
                             <i class="fa-solid fa-user text-white text-xs"></i>
