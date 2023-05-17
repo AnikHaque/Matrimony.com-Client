@@ -32,7 +32,8 @@
     align-items: center;
 }
 
-.side-header6 h3, side-head span {
+.side-header6 h3,
+side-head span {
     color: #fff;
     font-weight: 400;
 }
@@ -44,24 +45,24 @@
 
 /* width */
 .side-content6::-webkit-scrollbar {
-  width: 5px;
+    width: 5px;
 }
 
 /* Track */
 .side-content6::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
 }
- 
+
 /* Handle */
 .side-content6::-webkit-scrollbar-thumb {
-  background: #b0b0b0; 
-  border-radius: 10px;
+    background: #b0b0b0;
+    border-radius: 10px;
 }
 
 /* Handle on hover */
 .side-content6::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
+    background: #b30000;
 }
 
 .profile6 {
@@ -113,7 +114,8 @@
     background: #2B384E;
 }
 
-.side-menu6 a.active span, .side-menu6 a.active small {
+.side-menu6 a.active span,
+.side-menu6 a.active small {
     color: #fff;
 }
 
@@ -123,33 +125,34 @@
     font-size: 1.7rem;
 }
 
-.side-menu6 a span, .side-menu6 a small {
+.side-menu6 a span,
+.side-menu6 a small {
     color: #899DC1;
 }
 
-#menu-toggle6:checked ~ .sidebar6 {
+#menu-toggle6:checked~.sidebar6 {
     width: 60px;
 }
 
-#menu-toggle6:checked ~ .sidebar6 .side-header6 span {
+#menu-toggle6:checked~.sidebar6 .side-header6 span {
     display: none;
 }
 
-#menu-toggle6:checked ~ .main-content6 {
+#menu-toggle6:checked~.main-content6 {
     margin-left: 60px;
     width: calc(100% - 60px);
 }
 
-#menu-toggle6:checked ~ .main-content6 header {
+#menu-toggle6:checked~.main-content6 header {
     left: 60px;
 }
 
-#menu-toggle6:checked ~ .sidebar6 .profile6,
-#menu-toggle6:checked ~ .sidebar6 .side-menu6 a small {
+#menu-toggle6:checked~.sidebar6 .profile6,
+#menu-toggle6:checked~.sidebar6 .side-menu6 a small {
     display: none;
 }
 
-#menu-toggle6:checked ~ .sidebar6 .side-menu6 a span {
+#menu-toggle6:checked~.sidebar6 .side-menu6 a span {
     font-size: 1.3rem;
 }
 
@@ -172,7 +175,8 @@ header {
     transition: left 300ms;
 }
 
-.header-content6, .header-menu6 {
+.header-content6,
+.header-menu6 {
     display: flex;
     align-items: center;
 }
@@ -227,7 +231,8 @@ header {
     align-items: center;
 }
 
-.user6 div, .client-img6 {
+.user6 div,
+.client-img6 {
     height: 40px;
     width: 40px;
     margin-right: 1rem;
@@ -249,7 +254,8 @@ main {
     border-bottom: 1px solid #dee2e8;
 }
 
-.page-header6 h1, .page-header6 small {
+.page-header6 h1,
+.page-header6 small {
     color: #74767d;
 }
 
@@ -342,7 +348,8 @@ main {
     align-items: center;
 }
 
-.add6, .browse6 {
+.add6,
+.browse6 {
     display: flex;
     align-items: center;
 }
@@ -354,11 +361,15 @@ main {
     color: #666;
 }
 
-input, button, select {
+input,
+button,
+select {
     outline: none;
 }
 
-.add6 select, .browse6 input, .browse6 select {
+.add6 select,
+.browse6 input,
+.browse6 select {
     height: 35px;
     border: 1px solid #b0b0b0;
     border-radius: 3px;
@@ -475,59 +486,48 @@ table tbody tr {
     .analytics6 {
         grid-template-columns: 100%;
     }
-    
+
     .sidebar6 {
         left: -165px;
         z-index: 90;
     }
-    
+
     header {
         left: 0;
         width: 100%;
     }
-    
+
     .main-content6 {
         margin-left: 0;
         width: 100%;
     }
-    
-    #menu-toggle6:checked ~ .sidebar6 {
+
+    #menu-toggle6:checked~.sidebar6 {
         left: 0;
     }
-    
-    #menu-toggle6:checked ~ .sidebar6 {
+
+    #menu-toggle6:checked~.sidebar6 {
         width: 165px;
     }
 
-    #menu-toggle6:checked ~ .sidebar6 .side-header6 span {
+    #menu-toggle6:checked~.sidebar6 .side-header6 span {
         display: inline-block;
     }
 
-    #menu-toggle6:checked ~ .sidebar6 .profile6,
-    #menu-toggle6:checked ~ .sidebar6 .side-menu6 a small {
+    #menu-toggle6:checked~.sidebar6 .profile6,
+    #menu-toggle6:checked~.sidebar6 .side-menu6 a small {
         display: block;
     }
 
-    #menu-toggle6:checked ~ .sidebar6 .side-menu6 a span {
+    #menu-toggle6:checked~.sidebar6 .side-menu6 a span {
         font-size: 1.7rem;
     }
-    
-    #menu-toggle6:checked ~ .main-content6 header {
+
+    #menu-toggle6:checked~.main-content6 header {
         left: 0px;
     }
-    
+
     table {
         width: 900px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-

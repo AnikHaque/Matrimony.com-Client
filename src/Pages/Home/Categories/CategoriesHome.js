@@ -7,7 +7,7 @@ const CategoriesHome = () => {
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: () =>
-      fetch(" https://matrimony-com-server-anikhaque.vercel.app/categories").then((res) =>
+      fetch(" http://localhost:5000/categories").then((res) =>
         res.json()
       ),
   });
