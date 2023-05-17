@@ -18,7 +18,7 @@ const Payment = () => {
     return <Loading></Loading>;
   }
   return (
-    <div>
+    <div className='paymentprofilebody'>
       {/* <h1>Payment</h1>
       <div className="text-xl font-semibold bg-orange-300 p-4 w-1/2">
         <h1>Customer Name : {userName} </h1>
@@ -29,21 +29,35 @@ const Payment = () => {
         <p>Price : {resalePrice} </p>
         
       </div> */}
- <section class="container3 ml-40">
-
-      <div class="card3">
-        <div class="image3">
-          <img src={img} alt="" />
+   <div class="containerpayment">
+        <h1 className='font-bold text-lg'>Confirm Your Payment</h1>
+        <div class="">
+            <div class="">
+              
+                <div class="">
+                    <input type="text" placeholder="Type here" className="input inputpayment w-full max-w-xs bg-blue-100 mr-4" defaultValue={userName} />
+                   
+                    <input type="text" placeholder="Type here" className="input inputpayment w-full max-w-xs bg-blue-100" defaultValue={email}  />
+                </div>
+                
+            </div>
+            
         </div>
-        <h2>{name}</h2>
-        <p>{email}</p>
-      </div>
-    </section>
-      <div className="w-96 ml-40 ">
+        <div class="second-row">
+            <div class="card-number">
+                <h3>Card Number</h3>
+                 <div className="">
+        
         <Elements stripe={stripePromise}>
           <CheckoutForm bookedData={bookedData}></CheckoutForm>
         </Elements>
       </div>
+            </div>
+        </div>
+       
+       
+    </div>
+      
     </div>
   );
 };

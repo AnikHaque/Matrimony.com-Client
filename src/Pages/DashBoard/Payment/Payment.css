@@ -1,47 +1,40 @@
-/* Import Google font - Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-.container3 {
-  display: flex;
-  gap: 12px;
-  max-width: 400px;
+
+.paymentprofilebody {
   width: 100%;
-  background-image: linear-gradient(166deg, #f22876, #942dd9);
-  margin-top: 50px;
-  border-radius: 10px;
-}
-.container3 .card3 {
+  height: 100vh;
   display: flex;
-  flex: 0 0 100%;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 30px;
+ padding-left: 80px;
+  margin-top: 30px;
  
+  background-color: azure;
 }
-.card3 .image3 {
-  height: 70px;
-  width: 70px;
-  padding: 4px;
-  background: #4070f4;
-  border-radius: 50%;
+
+.containerpayment {
+  width: 750px;
+  height: 500px;
+  border: 4px dotted red;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  justify-content: space-around;
 }
-.image3 img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid #fff;
-}
-.card3 h2 {
-  margin-top: 25px;
-  color: #333;
-  font-size: 18px;
-  font-weight: 600;
-}
-.card3 p {
-  margin-top: 4px;
-  font-size: 18px;
-  font-weight: 400;
-  color: #333;
+
+.containerpayment h1 {
   text-align: center;
 }
+
+
+.inputpayment {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+
+
+
+

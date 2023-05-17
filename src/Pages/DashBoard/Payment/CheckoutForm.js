@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 import hug from '../../../assets/images/gif/hug-gif.gif'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const CheckoutForm = ({ bookedData }) => {
   const { resalePrice, userName, email, _id } = bookedData;
   //   console.log(_id);
@@ -14,7 +14,7 @@ const CheckoutForm = ({ bookedData }) => {
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-
+const navigate = useNavigate()
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     fetch(" http://localhost:5000/create-payment-intent", {
@@ -88,6 +88,7 @@ const CheckoutForm = ({ bookedData }) => {
             setPaymentSuccess("Your payment is completed");
             setTransactionId(paymentIntent.id);
             toast.success("Payment Successful");
+            navigate('/dashboard/myorders');
            
           }
           console.log(data);
@@ -123,7 +124,7 @@ const CheckoutForm = ({ bookedData }) => {
           paymentProcessing || !paymentSuccess && 
         
 <button
-          className="btn btn-shared text-white text-lg mt-8 mt-2"
+          className="btn btn-shared text-white text-lg mt-8 mt-2 w-full"
           type="submit"
           disabled={!stripe || !clientSecret}
         >
@@ -134,16 +135,7 @@ const CheckoutForm = ({ bookedData }) => {
         <p className="text-red-400">{cardError}</p>
         {paymentSuccess && (
           <div >
-            <div>  <p className="text-green-700 font-bold mb-4  ml-20 text-center ">{paymentSuccess}<i class="fa-solid fa-heart ml-2 text-red-400"></i></p></div>
-          
-            <img src={hug} className="lg:max-w-md  mt-[-300px] rounded-md"></img>
-            
-            {/* <p className="text-blue-700 font-bold">{paymentSuccess} <i class="fa-solid fa-heart ml-2 text-red-400"></i></p>
-            <p className="text-blue-700">
-              Your transaction Id:{" "}
-              <span className="font-bold">{transactionId}</span>
-            </p> */}
-             
+            <div>  <p className="text-green-700 font-bold mb-4  ml-20 text-center ">{paymentSuccess}<i class="fa-solid fa-heart ml-2 text-red-400"></i></p></div>   
           </div>
          
         )}
