@@ -18,6 +18,7 @@ const Home = () => {
       <NavBar></NavBar>
       <Banner></Banner>
     <CategoriesHome></CategoriesHome>
+   
      <TopProfile></TopProfile>
       {/* <FindSoleMate></FindSoleMate> */}
       {/* <MeetNewPeople></MeetNewPeople> */}

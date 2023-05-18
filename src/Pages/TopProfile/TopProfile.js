@@ -7,7 +7,43 @@ import { useGetTopProfileQuery } from "../../features/topProfile/topProfileApi";
 
 const TopProfile = () => {
    const {data: topProfile , isLoading, isError } = useGetTopProfileQuery()
-   const [bookProfile, setBookProfile] = useState({})
+    const [bookProfile, setBookProfile] = useState({})
+    let content = null;
+
+   if(isLoading){
+content = <div>
+<img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700" className="flex justify-between align-items-center w-52"></img>
+</div>
+   }
+   if(!isLoading && isError){
+content = <div>
+ <p>There is an error occured</p>
+</div>
+   }
+   if(!isLoading && !isError && topProfile?.length === 0){
+content = <div>
+ <p>No Data Found</p>
+</div>
+   }
+   if(!isLoading && !isError && topProfile?.length > 0){
+content =  <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
+        {topProfile?.slice(0,6).map((product) => (
+               <TopProfileCard
+                 key={product._id}
+                product={product}
+                setBookProfile={setBookProfile}
+               ></TopProfileCard>
+          
+            ))}
+            {bookProfile && (
+        <BookTopProfile
+          setBookProfile={setBookProfile}
+          bookProfile={bookProfile}
+        ></BookTopProfile>
+      )}
+        </div>
+   }
+  
   return (
     
     <div className="bg-[#F2F3F7] py-5">
@@ -29,22 +65,7 @@ const TopProfile = () => {
             <FaSearch className="absolute right-3 text-[#FF6801]" />
           </div>
         </div>
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
-        {topProfile?.slice(0,6).map((product) => (
-               <TopProfileCard
-                 key={product._id}
-                product={product}
-                setBookProfile={setBookProfile}
-               ></TopProfileCard>
-          
-            ))}
-            {bookProfile && (
-        <BookTopProfile
-          setBookProfile={setBookProfile}
-          bookProfile={bookProfile}
-        ></BookTopProfile>
-      )}
-        </div>
+       {content}
       </div>
     </div>
   );
