@@ -38,6 +38,8 @@ import AddTopProfile from "../../Pages/DashBoard/AddTopProfile/AddTopProfile";
 import PaymentDone from "../../Pages/TopProfile/PaymentDone";
 import Categories from "../../Pages/Home/Categories/Categories";
 import PaymentKazi from "../../Pages/kazi/PaymentKazi";
+import Blogs from "../../Pages/Home/Blogs/Blogs";
+import MyMembership from "../../Pages/Membership/MyMembership";
 
 
 export const router = createBrowserRouter([
@@ -50,7 +52,7 @@ export const router = createBrowserRouter([
       { path: "/home", element: <Home></Home> },
       { path: "/login", element: <LogIn></LogIn> },
       { path: "/signup", element: <SignUp></SignUp> },
-      { path: "/blog", element: <Blog></Blog> },
+      { path: "/blog", element: <Blogs></Blogs> },
       { path: "/social", element:<SocilaMedia></SocilaMedia>},
       { path: "/categories", element:<Categories></Categories>},
     
@@ -158,9 +160,17 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/myorders",
         element: (
-          <BuyerRoute>
+        
             <MyOrders></MyOrders>
-          </BuyerRoute>
+     
+        ),
+      },
+      {
+        path: "/dashboard/mymembership",
+        element: (
+          <SellerRoute>
+           <MyMembership></MyMembership>
+          </SellerRoute>
         ),
       },
       {
