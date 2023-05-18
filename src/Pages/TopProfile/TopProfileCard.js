@@ -30,7 +30,10 @@ const TopProfileCard = ({ product,setBookProfile }) => {
     console.log(data)
   };
   return (
-    <div >
+    <div data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="1500"
+     data-aos-duration="1500">
       
       <div class="wrapper00 ">
     <div class="img-area">

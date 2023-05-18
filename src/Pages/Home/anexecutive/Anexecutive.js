@@ -7,7 +7,8 @@ import Title from '../anexecutive/Title/Title';
 
 const Anexecutive = () => {
     return (
-        <div className='container mx-auto py-10 px-4 md:px-0'>
+        <div className='container mx-auto py-10 px-4 md:px-0' data-aos="fade-up"
+     data-aos-duration="3000">
             <div className='main-container'>
                 <div className='section-header'>
                     <div className='text-center mb-6'>
@@ -33,7 +34,7 @@ const Anexecutive = () => {
                                     <img src={p1} alt="Not Available" />
                                 </div>
                                 <div className='ml-5 pb-3 md:pr-20'>
-                                    <Title titleText="Simple to use"></Title>
+                                    <Title  titleText="Simple to use"></Title>
                                     <p className='my-1 text-lg'>Simple steps to follow to have a matching connection</p>
                                     <hr />
                                 </div>

@@ -4,6 +4,7 @@ import BookNowModal from "../BookNowModal/BookNowModal";
 import ProductCard from "./ProductCard";
 
 import ViewModal from "../BookNowModal/ViewModal";
+import NavBar from "../SharedPages/NavBar/NavBar";
 const Products = () => {
   const [bookProduct, setBookProduct] = useState({});
   const products = useLoaderData();
@@ -11,7 +12,7 @@ const Products = () => {
  
   return (
     <div >
-    
+    <NavBar></NavBar>
             
     <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-3 ml-8 mt-10 mb-10 p-10">
       

@@ -21,7 +21,7 @@ const Membership = () => {
   };
  
   return (
-    <div>
+    <div data-aos="fade-right"  data-aos-duration="1000">
       <div class="wrapper">
     <div class="table basic">
       <div class="price-section">

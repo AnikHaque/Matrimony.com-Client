@@ -11,8 +11,8 @@ const Kazi = () => {
  
   
   let content = null;
-  if(isLoading){
-    content = <div className="ml-[450px] w-72"><Loader></Loader></div>
+  if(isLoading && !isError ){
+    content = <div className="flex h-72 justify-center items-center"><Loader></Loader></div>
   }
   if(!isLoading && isError){
     content = <p>There is an error occured</p>
@@ -24,7 +24,7 @@ const Kazi = () => {
    content = <div className=" grid lg:grid-cols-3 md:grid-cols-2 gap-3 ml-8  p-10">
       
    {kazi?.map((product) => (
-   <div>
+   <div data-aos="zoom-in">
  <div class="profile-card1 mb-8">
  <div class="image1">
    <img src={product.photo} alt="" class="profile-img1" />

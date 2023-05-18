@@ -5,7 +5,7 @@ import blackLogo from "../../../assets/images/Logo/logoBlack.png";
 import blog from "../../../assets/images/NavIcons/Blog.svg";
 import findPartner from "../../../assets/images/NavIcons/Find-Your-Partner.svg";
 import login from "../../../assets/images/NavIcons/Profile-Login-Icon.svg";
-
+import loginavator from '../../../assets/images/loginavator.png';
 import shop from "../../../assets/images/Logo/Shop.svg";
 import kazi from "../../../assets/images/NavIcons/Profile-Login-Icon.svg";
 import home from "../../../assets/images/Logo/online.svg";
@@ -42,6 +42,7 @@ const englishHandler = () => {
     { id: 3, to: "/blog", icon: blog, tooltip: "Blog" },
 
     { id: 8, to: "/agent", icon: kazi, tooltip: "Agent" },
+    { id: 8, to: "/social", icon: kazi, tooltip: "Social Media" },
     { id: 9, to: "/dashboard", icon: kazi, tooltip: "Dashboard" },
 ];
  
@@ -76,6 +77,7 @@ const englishHandler = () => {
             <div>
                 <ul className={"flex justify-end items-center gap-2 h-32 mt-[-20px] "}>
                   
+                  
                    {!user && <ul>
                       <Link to="/login">
                       <li className={`relative cursor-pointer ${NavBarCSS.engDropdown}`}>
@@ -93,7 +95,7 @@ const englishHandler = () => {
                      <Link onClick={handleLogOut}>
                       <li className={`relative cursor-pointer ${NavBarCSS.engDropdown}`}>
                             <div className="">
-                                <img className="w-[55px] rounded-full" src={user.photoURL} alt="Not Available" />
+                                <img className="w-[55px] rounded-full" src={user.photoURL} alt='Photo' />
                                 <h1 className="font-semibold mt-[-3px] ml-[3px] ">Logout</h1>
                             </div>
                            

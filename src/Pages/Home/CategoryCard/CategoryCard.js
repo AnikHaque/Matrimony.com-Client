@@ -11,7 +11,7 @@ const CategoryCard = ({ category }) => {
   return (
     <div>
       <Link to={`products/${_id}`}>
-        <div onClick={handleCard} className="card w-96  bg-[#E5E8E8] ">
+        <div onClick={handleCard} className="card w-96  bg-[#E5E8E8] " data-aos="zoom-out-up" data-aos-duration="2000">
           <div className="card-body">
             <div className="card-actions "></div>
             <h1 className=" text-[#be2bac] text-center text-3xl font-bold">
