@@ -11,17 +11,10 @@ const CategoriesHome = () => {
  
   
   let content = null;
-if(isLoading){
-  content = <div class="loader bbbb">
-      <div class="circles">
-        <span class="circle"></span>
-        <span class="circle1"></span>
-        <span class="circle2"></span>
-        <span class="circle3"></span>
-        <span class="circle4"></span>
-      </div>
-      <span class="text">Loading ...</span>
-    </div>
+if(isLoading && !isError){
+  content =<div class="h-20 mt-12 mb-12  flex items-center justify-center">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/e8605269321565.5ba1e199ba5a8.gif" className="w-52"></img>
+</div>
 }
   if(!isLoading && isError){
     content = <p>There is an error occured</p>

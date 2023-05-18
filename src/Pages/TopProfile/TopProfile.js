@@ -10,9 +10,9 @@ const TopProfile = () => {
     const [bookProfile, setBookProfile] = useState({})
     let content = null;
 
-   if(isLoading){
-content = <div>
-<img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700" className="flex justify-between align-items-center w-52"></img>
+   if(isLoading && !isError){
+content = <div class="h-20 mt-12 mb-12  flex items-center justify-center">
+<img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700" className="w-48"></img>
 </div>
    }
    if(!isLoading && isError){
