@@ -9,8 +9,10 @@ const Item = () => {
   const {data:item, isLoading,isError, isSuccess} = useGetItemQuery();
   
   let content = null;
-  if(isLoading){
-    content = <p>Loading</p>
+  if(isLoading && !isError){
+     content =<div class="h-20 mt-12 mb-12  flex items-center justify-center">
+    <img src="https://cutewallpaper.org/24/loading-gif-png/loading-3c604-animated-22dff-gif-5a929-download-74076-vector.gif" className="w-72 mt-12"></img>
+</div>
   }
   if(!isLoading && isError){
     content = <p>There is an error occured</p>
