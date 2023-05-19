@@ -1,18 +1,12 @@
 import React from "react";
-import {
-  FaCalendar,
-  FaCheckCircle,
-  FaClock,
-  FaHeart,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
-import { Link, useLoaderData } from "react-router-dom";
-import { useGetChoiceQuery, usePostChoiceMutation } from "../../features/choicelist/choiceListApi";
+
+import { Link} from "react-router-dom";
+import {  usePostChoiceMutation } from "../../features/choicelist/choiceListApi";
 import { useForm } from "react-hook-form";
 
 import './TopProfile.css'
 const TopProfileCard = ({ product,setBookProfile }) => {
-    const { handleSubmit, register, control } = useForm();
+    const { } = useForm();
   const {
     _id,
    name,
@@ -22,7 +16,7 @@ const TopProfileCard = ({ product,setBookProfile }) => {
 
  
 
-  const [postChoice, {isLoading, isError}] = usePostChoiceMutation();
+  const [postChoice] = usePostChoiceMutation();
  
   const onSubmit = (data) => {
     console.log(data);

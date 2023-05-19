@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import './Kazi.css'
 import { useGetKaziQuery } from "../../features/kazi/kaziApi";
 import Loader from "../../ui/Loader";
