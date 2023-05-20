@@ -41,6 +41,8 @@ import PaymentKazi from "../../Pages/kazi/PaymentKazi";
 import Blogs from "../../Pages/Home/Blogs/Blogs";
 import MyMembership from "../../Pages/Membership/MyMembership";
 import MembershipPayment from "../../Pages/Membership/MembershipPayment";
+import Demo from "../../Pages/Demo/Demo";
+import Hero from "../../Pages/Hero/Hero";
 
 
 export const router = createBrowserRouter([
@@ -56,6 +58,8 @@ export const router = createBrowserRouter([
       { path: "/blog", element: <Blogs></Blogs> },
       { path: "/social", element:<SocilaMedia></SocilaMedia>},
       { path: "/categories", element:<Categories></Categories>},
+      { path: "/demo", element:<Demo></Demo>},
+    
     
      
       { 
@@ -122,7 +126,7 @@ export const router = createBrowserRouter([
         path: "/kazi/:id",
         element: (
           
-     <KaziDetails></KaziDetails>
+    <Hero></Hero>
           
         ),
         loader: ({ params }) =>
