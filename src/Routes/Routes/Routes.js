@@ -45,6 +45,7 @@ import Demo from "../../Pages/Demo/Demo";
 import Hero from "../../Pages/Hero/Hero";
 
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -126,7 +127,7 @@ export const router = createBrowserRouter([
         path: "/kazi/:id",
         element: (
           
-    <Hero></Hero>
+   <Hero></Hero>
           
         ),
         loader: ({ params }) =>

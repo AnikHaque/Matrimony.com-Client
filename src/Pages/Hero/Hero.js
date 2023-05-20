@@ -1,14 +1,34 @@
 import React, { useContext } from "react";
-import { fadeIn, slideIn, staggerContainer } from "../../utils/motion";
-import certificate from '../../assets/certificate.png'
-import css from "./Hero.module.scss";
+import "./Hero.css";
+import Vector1 from "../../assets/img/Vector1.png";
+
+import Vector2 from "../../assets/img/Vector2.png";
+import boy from "../../assets/img/boy.png";
+import glassesimoji from "../../assets/img/glassesimoji.png";
+import thumbup from "../../assets/img/thumbup.png";
+import crown from "../../assets/img/crown.png";
+
+import Github from "../../assets/img/github.png";
+import LinkedIn from "../../assets/img/linkedin.png";
+import Instagram from "../../assets/img/instagram.png";
+import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
-import { useGetKaziByIdQuery } from "../../features/kazi/kaziApi";
-import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { Link } from "react-scroll";
+import FloatinDiv from "../FloatingDiv/FloatingDiv";
+import { useGetKaziByIdQuery, useGetRelatedkaziQuery } from "../../features/kazi/kaziApi";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import NavBar from "../SharedPages/NavBar/NavBar";
+import Works from "../Works/Works";
 const Hero = () => {
-  const { user } = useContext(AuthContext);
+  // Transition
+  const transition = { duration: 2, type: "spring" };
+
+  // context
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
+
+   const { user } = useContext(AuthContext);
     const {id} = useParams();
     const {data, isLoading, isError} = useGetKaziByIdQuery(id);
     const {_id,
@@ -26,7 +46,14 @@ const Hero = () => {
       religion,
       description } = data || {}
 
-      const handlePlaceOrder = (event,data) => {
+      const {
+        data: relatedVideos,
+       
+    } = useGetRelatedkaziQuery({ id, gender });
+    console.log(relatedVideos)
+    
+
+const handlePlaceOrder = (event,data) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -62,62 +89,21 @@ const Hero = () => {
       })
       .catch((er) => console.error(er));
   };
-
   return (
     <div>
       <NavBar></NavBar>
-    <section className={`paddings ${css.wrapper}`}>
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
-        className={`innerWidth ${css.container}`}
-      >
-        <div className={css.upperElements}>
-          <motion.span className="primaryText text-2xl   mt-12 ml-8" variants={fadeIn("right", "tween", 0.2, 1)}>
-        If you get married,
-            <br />
-      you want to be very married.
-          </motion.span>
-             <motion.span className="secondaryText text-4xl mr-12 mt-8" variants={fadeIn("left", "tween", 0.4, 1)}>
-           I'm Your Kazi
-            <br />
-         <b className="text-5xl text-secondary">{name}</b>
-        
-          </motion.span>
+       <div className="Intro" id="Intro">
+      {/* left name side */}
+      <div className="i-left">
+        <div className="i-name">
+          {/* yahan change hy darkmode ka */}
+          <span style={{ color: darkMode ? "white" : "" }}>Hy! I Am</span>
+          <span className=""><b className="text-secondary">{name}</b></span>
+          <span className="">
+            <p className="text-black text-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          </span>
         </div>
-
-        <motion.div
-          variants={fadeIn("up", "tween", 0.3, 1)}
-          className={css.person}
-        >
-          <motion.img variants={slideIn("up", "tween", 0.5, 1.3)} src={photo} className="w-[40%] ml-28 rounded-fill rounded-md mt-14" alt="" />
-        </motion.div>
-
-        <a className={css.email} href="mailto:zainkeepscode@gmail.com">
-        Member Since <b>{memberYear}</b>
-        </a>
-
-        <div className={css.lowerElements}>
-          <motion.div variants={fadeIn("right", "tween", 0.3, 1)} className={css.experience}>
-            <div className="primaryText"><b className="text-7xl">{experience}</b></div>
-            <div className="secondaryText">
-              <div>Years</div>
-              <div>Experience</div>
-            </div>
-          </motion.div>
-
-          <motion.div variants={fadeIn("left", "tween", 0.5, 1)} className={css.certificate}>
-            <img src={certificate} alt="" />
-            <span>CERTIFIED PROFESSIONAL</span>
-            <span>KAZI FROM <b className="text-primary">{location}</b></span>
-          </motion.div>
-        </div>
-      </motion.div>
-    </section>
-
-         <label htmlFor="my-modal-3" className="btn btn-secondary w-[20%] ml-14 rounded-full mt-8">Book Appointment</label>
+       <label htmlFor="my-modal-3" className="btn btn-secondary w-[70%] ml-14 rounded-full mt-8">Book Appointment</label>
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id="my-modal-3" className="modal-toggle" />
@@ -192,7 +178,58 @@ const Hero = () => {
     </div>
   </div>
 </div>
+       
+      </div>
+      {/* right image side */}
+      <div className="i-right">
+        <img src={Vector1} alt="" />
+        <img src={Vector2} alt="" />
+        <img src={photo} alt="" className="w-64 h-64 mt-10 ml-[-58px] rounded-xl" />
+        {/* animation */}
+        <motion.img
+          initial={{ left: "-36%" }}
+          whileInView={{ left: "-24%" }}
+          transition={transition}
+          src={glassesimoji}
+          alt=""
+        />
+
+        <motion.div
+          initial={{ top: "-4%", left: "74%" }}
+          whileInView={{ left: "68%" }}
+          transition={transition}
+          className="floating-div"
+        >
+          <FloatinDiv img={crown} text1={experience} text2="Experience" />
+        </motion.div>
+
+        {/* animation */}
+        <motion.div
+          initial={{ left: "9rem", top: "18rem" }}
+          whileInView={{ left: "0rem" }}
+          transition={transition}
+          className="floating-div"
+        >
+          {/* floatinDiv mein change hy dark mode ka */}
+          <FloatinDiv img={thumbup} text1="Member Since" text2={memberYear} />
+        </motion.div>
+
+        <div className="blur" style={{ background: "rgb(238 210 255)" }}></div>
+        <div
+          className="blur"
+          style={{
+            background: "#C1F5FF",
+            top: "17rem",
+            width: "21rem",
+            height: "11rem",
+            left: "-9rem",
+          }}
+        ></div>
+      </div>
     </div>
+    <Works></Works>
+    </div>
+   
   );
 };
 
