@@ -6,6 +6,8 @@ import { useForm} from 'react-hook-form';
 import { usePostMembershipMutation } from '../../../features/membership/membershipApi';
 import { toast } from "react-hot-toast";
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { themeContext } from '../../../Context';
 const Membership = () => {
   const navigate = useNavigate()
   const { handleSubmit, register, control,reset } = useForm();
@@ -19,11 +21,12 @@ const Membership = () => {
     
    }
   };
- 
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
   return (
     <div data-aos="fade-right"  data-aos-duration="1000">
       <div class="wrapper">
-    <div class="table basic">
+    <div class="table basic" style={{ color: darkMode ? "black" : "" }}>
       <div class="price-section">
         <div class="price-area">
           <div class="inner-area">
@@ -101,7 +104,7 @@ const Membership = () => {
       </form>
   </div>
 </div>
-    <div class="table premium">
+    <div class="table premium " style={{ color: darkMode ? "black" : "" }}>
       <div class="ribbon"><span>Recommend</span></div>
       <div class="price-section">
         <div class="price-area">
@@ -132,7 +135,7 @@ const Membership = () => {
       </ul>
       <div class="btn"><button>Purchase</button></div>
     </div>
-    <div class="table ultimate">
+    <div class="table ultimate" style={{ color: darkMode ? "black" : "" }}>
       <div class="price-section">
         <div class="price-area">
           <div class="inner-area">

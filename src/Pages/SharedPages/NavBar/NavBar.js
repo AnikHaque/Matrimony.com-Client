@@ -12,8 +12,12 @@ import home from "../../../assets/images/Logo/online.svg";
 import categories from "../../../assets/images/Logo/Membership.svg";
 
 import NavBarCSS from './NavBar.css';
+import Toggle from "../../Toggle/Toggle";
+import { themeContext } from "../../../Context";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+    const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
   const [language, setLanguage] = useState(true);
   const handleLogOut = () => {
     logOut()
@@ -48,8 +52,8 @@ const englishHandler = () => {
  
   return (
     <>
-    <header
-        className={`${"bg-white"} sticky hidden lg:block top-0 lg:h-[100px] z-50 shadow-md body-font ${
+    <header style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }}
+        className={`${"bg-white"}  sticky hidden lg:block top-0 lg:h-[100px] z-50 shadow-md body-font ${
             NavBarCSS.navbar
         }`}
     >
@@ -104,6 +108,18 @@ const englishHandler = () => {
                         </Link>
                     </ul>
                     }
+                    <ul>
+                     <Link>
+                      <li className={`relative cursor-pointer ${NavBarCSS.engDropdown}`}>
+                            <div className="">
+                               <Toggle />
+                            </div>
+                           
+                        </li>
+                    
+                        </Link>
+                    </ul>
+                    
                 </ul>
             </div>
         </div>

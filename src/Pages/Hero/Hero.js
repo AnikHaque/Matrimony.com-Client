@@ -20,6 +20,7 @@ import { useParams } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import NavBar from "../SharedPages/NavBar/NavBar";
 import Works from "../Works/Works";
+import Header from "../Header/Header";
 const Hero = () => {
   // Transition
   const transition = { duration: 2, type: "spring" };
@@ -90,7 +91,7 @@ const handlePlaceOrder = (event,data) => {
       .catch((er) => console.error(er));
   };
   return (
-    <div>
+    <div style={{ background: darkMode ? "black" : "" }} >
       <NavBar></NavBar>
        <div className="Intro" id="Intro">
       {/* left name side */}

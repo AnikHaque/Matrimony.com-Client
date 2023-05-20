@@ -3,19 +3,22 @@ import React, { Fragment,useRef } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 
 import './Banner.css'
+import { useContext } from 'react';
+import { themeContext } from '../../../Context';
 const Banner = () => {
   const navigate = useNavigate()
- 
+  const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
   return (
     <Fragment>
-      <section  className="bg-[url('https://img1.picmix.com/output/stamp/normal/9/9/4/3/1503499_8efaf.gif')] h-[calc(95vh-90px)] flex items-center">
+      <section style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }}  className="bg-[url('https://img1.picmix.com/output/stamp/normal/9/9/4/3/1503499_8efaf.gif')] h-[calc(95vh-90px)] flex items-center">
    <div className='banner-bg container'>
     <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-2'>
     <div >
 <div className="  ml-16 mt-20">
   <div className="max-w-lg">
-    <h1 className="mb-5 text-5xl font-bold text-[#be2bac]">Together is a wonderful place to be</h1>
-    <p className="mb-5 text-black">Come, let’s be a comfortable couple and take care of each other! How glad we shall be, that we have somebody we are fond of always, to talk to and sit with... Come, let’s be a comfortable couple and take care of each other! How glad we shall be, that we have somebody we are fond of always, to talk to and sit with...</p>
+    <h1 style={{ color: darkMode ? "" : "" }} className="mb-5 text-5xl font-bold text-[#be2bac]">Together is a wonderful place to be</h1>
+    <p style={{ color: darkMode ? "white" : "" }} className="mb-5 text-black">Come, let’s be a comfortable couple and take care of each other! How glad we shall be, that we have somebody we are fond of always, to talk to and sit with... Come, let’s be a comfortable couple and take care of each other! How glad we shall be, that we have somebody we are fond of always, to talk to and sit with...</p>
     <button className="btn btn-shared text-white">Get Started</button>
   </div>
 </div>

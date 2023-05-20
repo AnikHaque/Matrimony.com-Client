@@ -4,8 +4,12 @@ import { FaSearch } from "react-icons/fa";
 import TopProfileCard from "./TopProfileCard";
 import BookTopProfile from "../BookNowModal/BookTopProfile";
 import { useGetTopProfileQuery } from "../../features/topProfile/topProfileApi";
+import { useContext } from "react";
+import { themeContext } from "../../Context";
 
 const TopProfile = () => {
+    const theme = useContext(themeContext);
+  const darkMode = theme.state.darkMode;
    const {data: topProfile , isLoading, isError } = useGetTopProfileQuery()
     const [bookProfile, setBookProfile] = useState({})
     let content = null;
@@ -46,7 +50,7 @@ content =  <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2
   
   return (
     
-    <div className="bg-[#F2F3F7] py-5">
+    <div className="bg-[#F2F3F7] py-5" style={{ color: darkMode ? "black" : "" }}>
       <div className="mx-5 md:w-10/12 md:mx-auto ">
         <div className="flex flex-col md:flex-row mt-8 justify-between mb-5">
           <div>
