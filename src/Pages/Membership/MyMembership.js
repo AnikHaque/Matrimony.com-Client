@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import './MyMembership.css';
+import { Link } from 'react-router-dom';
 
 const MyMembership = () => {
      const { user } = useContext(AuthContext);
@@ -44,7 +45,13 @@ const MyMembership = () => {
              <td>{pd.price}</td>
              <td>false</td>
              <td>
-                <button className=' bg-green-700 pt-2 pb-2 pl-4 pr-4 rounded-md text-white font-semibold'>Pay</button>
+              <Link
+                        to={`/dashboard/membershipPayment/${pd._id}`}
+                        className=""
+                      >
+                       <button className=' bg-green-700 pt-2 pb-2 pl-4 pr-4 rounded-md text-white font-semibold'>Pay</button>
+                      </Link>
+               
              </td>
            </tr>  
            </>

@@ -40,6 +40,7 @@ import Categories from "../../Pages/Home/Categories/Categories";
 import PaymentKazi from "../../Pages/kazi/PaymentKazi";
 import Blogs from "../../Pages/Home/Blogs/Blogs";
 import MyMembership from "../../Pages/Membership/MyMembership";
+import MembershipPayment from "../../Pages/Membership/MembershipPayment";
 
 
 export const router = createBrowserRouter([
@@ -115,6 +116,7 @@ export const router = createBrowserRouter([
         fetch(` http://localhost:5000/item/${params.id}`),
        
       },
+    
 
       {
         path: "/kazi/:id",
@@ -151,17 +153,19 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-      <PrivateRoute>
+     
         <DashBoardLayout></DashBoardLayout>
-      </PrivateRoute>
+      
     ),
     children: [
       { path: "/dashboard", element: <DashBoard></DashBoard> },
       {
         path: "/dashboard/myorders",
         element: (
-        
-            <MyOrders></MyOrders>
+        <SellerRoute>
+           <MyOrders></MyOrders>
+        </SellerRoute>
+           
      
         ),
       },
@@ -172,6 +176,17 @@ export const router = createBrowserRouter([
            <MyMembership></MyMembership>
           </SellerRoute>
         ),
+      },
+        {
+        path: "/dashboard/membershipPayment/:id",
+        element: (
+          
+         <MembershipPayment></MembershipPayment>
+          
+        ),
+        loader: ({ params }) =>
+        fetch(` http://localhost:5000/membership/${params.id}`),
+       
       },
       {
         path: "/dashboard/addproduct",
@@ -256,9 +271,9 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/payment/:id",
         element: (
-          <BuyerRoute>
+          
             <Payment></Payment>
-          </BuyerRoute>
+       
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/bookings/${params.id}`),

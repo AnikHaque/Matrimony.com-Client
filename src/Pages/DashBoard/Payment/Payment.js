@@ -19,16 +19,6 @@ const Payment = () => {
   }
   return (
     <div className='paymentprofilebody'>
-      {/* <h1>Payment</h1>
-      <div className="text-xl font-semibold bg-orange-300 p-4 w-1/2">
-        <h1>Customer Name : {userName} </h1>
-        <p>Phone :{Phone} </p>
-        <p>Email : {email} </p>
-        <p>Location : {meetingLocation} </p>
-        <p>Ordered Item : {name} </p>
-        <p>Price : {resalePrice} </p>
-        
-      </div> */}
    <div class="containerpayment">
         <h1 className='font-bold text-lg'>Confirm Your Payment</h1>
         <div class="">
@@ -54,8 +44,7 @@ const Payment = () => {
       </div>
             </div>
         </div>
-       
-       
+   
     </div>
       
     </div>

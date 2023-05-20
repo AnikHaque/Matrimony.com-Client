@@ -16,13 +16,10 @@ const CategoryCard = ({ category }) => {
             <div className="card-actions ">
              
             </div>
-            <div className="flex">
-               <img src="https://cdn2.vectorstock.com/i/1000x1000/63/21/wedding-bride-avatar-cartoon-vector-24926321.jpg" className="w-14 rounded-md"></img>
-                <h1 className=" text-[#be2bac] text-center text-3xl font-bold ml-8">{name}</h1>
-            </div>
-           
+            <div className="">
               
-            
+                <h1 className=" text-[#be2bac] text-center text-3xl font-bold">{name}</h1>
+            </div>  
           </div>
         </div>
       </Link>
