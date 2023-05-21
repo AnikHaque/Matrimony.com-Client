@@ -43,6 +43,7 @@ import MyMembership from "../../Pages/Membership/MyMembership";
 import MembershipPayment from "../../Pages/Membership/MembershipPayment";
 import Demo from "../../Pages/Demo/Demo";
 import Hero from "../../Pages/Hero/Hero";
+import BlogDetails from "../../Pages/Home/Blogs/BlogDetails";
 
 
 
@@ -59,7 +60,7 @@ export const router = createBrowserRouter([
       { path: "/blog", element: <Blogs></Blogs> },
       { path: "/social", element:<SocilaMedia></SocilaMedia>},
       { path: "/categories", element:<Categories></Categories>},
-      { path: "/demo", element:<Demo></Demo>},
+      { path: "/blogdetails", element:<BlogDetails></BlogDetails>},
     
     
      
