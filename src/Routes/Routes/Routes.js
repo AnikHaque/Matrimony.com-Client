@@ -44,6 +44,7 @@ import MembershipPayment from "../../Pages/Membership/MembershipPayment";
 import Demo from "../../Pages/Demo/Demo";
 import Hero from "../../Pages/Hero/Hero";
 import BlogDetails from "../../Pages/Home/Blogs/BlogDetails";
+import AgentDetails from "../../Pages/Agent/AgentDetails";
 
 
 
@@ -61,6 +62,7 @@ export const router = createBrowserRouter([
       { path: "/social", element:<SocilaMedia></SocilaMedia>},
       { path: "/categories", element:<Categories></Categories>},
       { path: "/blogdetails", element:<BlogDetails></BlogDetails>},
+      { path: "/agentdetails", element:<AgentDetails></AgentDetails>},
     
     
      
