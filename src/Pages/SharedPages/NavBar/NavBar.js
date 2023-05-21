@@ -79,6 +79,7 @@ const englishHandler = () => {
                 ))}
             </nav>
             <div>
+               
                 <ul className={"flex justify-end items-center gap-2 h-32 mt-[-20px] "}>
                   
                   
@@ -88,6 +89,7 @@ const englishHandler = () => {
                             <div className="">
                                 <img className="w-[55px]" src={login} alt="Not Available" />
                                 <h1 className="font-semibold mt-[-8px] ml-[10px] ">Login</h1>
+                                
                             </div>
                            
                         </li>
@@ -95,6 +97,7 @@ const englishHandler = () => {
                         
                     </ul>
                     }
+                   <Toggle />
                    {user && <ul>
                      <Link onClick={handleLogOut}>
                       <li className={`relative cursor-pointer ${NavBarCSS.engDropdown}`}>
@@ -108,17 +111,7 @@ const englishHandler = () => {
                         </Link>
                     </ul>
                     }
-                    <ul>
-                     <Link>
-                      <li className={`relative cursor-pointer ${NavBarCSS.engDropdown}`}>
-                            <div className="">
-                               <Toggle />
-                            </div>
-                           
-                        </li>
-                    
-                        </Link>
-                    </ul>
+                   
                     
                 </ul>
             </div>

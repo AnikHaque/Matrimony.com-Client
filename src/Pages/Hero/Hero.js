@@ -21,6 +21,8 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import NavBar from "../SharedPages/NavBar/NavBar";
 import Works from "../Works/Works";
 import Header from "../Header/Header";
+import Experience from "../Experience/Experience"
+import Services from "../Services/Services"
 const Hero = () => {
   // Transition
   const transition = { duration: 2, type: "spring" };
@@ -228,7 +230,11 @@ const handlePlaceOrder = (event,data) => {
         ></div>
       </div>
     </div>
+    <br></br>
+    <br></br>
+    <Experience></Experience>
     <Works></Works>
+    <Services></Services>
     </div>
    
   );
