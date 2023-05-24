@@ -40,7 +40,7 @@ const {data} = useGetTopProfileByIdQuery(id);
     currency
   };
 
-  fetch("http://localhost:5000/booktopprofile", {
+  fetch("https://matrimony-com-server-anikhaque.vercel.app/booktopprofile", {
     method: "POST",
     headers: {
       "content-type": "application/json",

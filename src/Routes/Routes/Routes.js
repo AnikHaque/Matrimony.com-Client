@@ -111,7 +111,7 @@ export const router = createBrowserRouter([
           
         ),
         loader: ({ params }) =>
-          fetch(` http://localhost:5000/products/${params.id}`),
+          fetch(` https://matrimony-com-server-anikhaque.vercel.app/products/${params.id}`),
       },
     
       {
@@ -122,7 +122,7 @@ export const router = createBrowserRouter([
           
         ),
         loader: ({ params }) =>
-        fetch(` http://localhost:5000/item/${params.id}`),
+        fetch(` https://matrimony-com-server-anikhaque.vercel.app/item/${params.id}`),
        
       },
     
@@ -135,7 +135,7 @@ export const router = createBrowserRouter([
           
         ),
         loader: ({ params }) =>
-        fetch(` http://localhost:5000/item/${params.id}`),
+        fetch(` https://matrimony-com-server-anikhaque.vercel.app/item/${params.id}`),
        
       },
       {
@@ -194,7 +194,7 @@ export const router = createBrowserRouter([
           
         ),
         loader: ({ params }) =>
-        fetch(` http://localhost:5000/membership/${params.id}`),
+        fetch(` https://matrimony-com-server-anikhaque.vercel.app/membership/${params.id}`),
        
       },
       {
@@ -285,7 +285,7 @@ export const router = createBrowserRouter([
        
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/bookings/${params.id}`),
+          fetch(`https://matrimony-com-server-anikhaque.vercel.app/bookings/${params.id}`),
       },
     ],
   },
