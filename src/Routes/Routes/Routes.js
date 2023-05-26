@@ -46,6 +46,8 @@ import Hero from "../../Pages/Hero/Hero";
 import BlogDetails from "../../Pages/Home/Blogs/BlogDetails";
 import AgentDetails from "../../Pages/Agent/AgentDetails";
 import MainProfile from "../../Pages/SocialMedia/MainProfile/MainProfile";
+import Chat from "../../Pages/Chat";
+import MyProfile from "../../Pages/DashBoard/MyProfile/MyProfile";
 
 
 
@@ -64,14 +66,9 @@ export const router = createBrowserRouter([
       { path: "/categories", element:<Categories></Categories>},
       { path: "/blogdetails", element:<BlogDetails></BlogDetails>},
       { path: "/agentdetails", element:<AgentDetails></AgentDetails>},
-    
-    
-     
       { 
         path: "/kazi", 
         element:<Kazi></Kazi> ,
-      
-      
       },
       {
         path: "/payment/success",
@@ -88,8 +85,6 @@ export const router = createBrowserRouter([
       { 
         path: "/agent", 
         element:<Agent></Agent> ,
-      
-      
       },
       { 
         path: "/lawyer", 
@@ -99,10 +94,7 @@ export const router = createBrowserRouter([
       { 
         path: "/shop", 
         element:<Item></Item> ,
-      },
-     
-  
-      
+      }, 
       {
         path: "/products/:id",
         element: (
@@ -111,7 +103,7 @@ export const router = createBrowserRouter([
           
         ),
         loader: ({ params }) =>
-          fetch(` https://matrimony-com-server-anikhaque.vercel.app/products/${params.id}`),
+          fetch(` http://localhost:5000/products/${params.id}`),
       },
     
       {
@@ -122,7 +114,7 @@ export const router = createBrowserRouter([
           
         ),
         loader: ({ params }) =>
-        fetch(` https://matrimony-com-server-anikhaque.vercel.app/item/${params.id}`),
+        fetch(` http://localhost:5000/item/${params.id}`),
        
       },
     
@@ -135,7 +127,7 @@ export const router = createBrowserRouter([
           
         ),
         loader: ({ params }) =>
-        fetch(` https://matrimony-com-server-anikhaque.vercel.app/item/${params.id}`),
+        fetch(` http://localhost:5000/item/${params.id}`),
        
       },
       {
@@ -186,6 +178,14 @@ export const router = createBrowserRouter([
           </SellerRoute>
         ),
       },
+      {
+        path: "/dashboard/myProfile",
+        element: (
+          <BuyerRoute>
+          <MyProfile></MyProfile>
+          </BuyerRoute>
+        ),
+      },
         {
         path: "/dashboard/membershipPayment/:id",
         element: (
@@ -194,7 +194,7 @@ export const router = createBrowserRouter([
           
         ),
         loader: ({ params }) =>
-        fetch(` https://matrimony-com-server-anikhaque.vercel.app/membership/${params.id}`),
+        fetch(` http://localhost:5000/membership/${params.id}`),
        
       },
       {
@@ -285,7 +285,7 @@ export const router = createBrowserRouter([
        
         ),
         loader: ({ params }) =>
-          fetch(`https://matrimony-com-server-anikhaque.vercel.app/bookings/${params.id}`),
+          fetch(`http://localhost:5000/bookings/${params.id}`),
       },
     ],
   },

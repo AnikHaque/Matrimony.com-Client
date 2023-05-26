@@ -12,7 +12,7 @@ const PaymentDone = () => {
   const [order, setOrder] = useState({});
 
   useEffect(() => {
-    fetch(`https://matrimony-com-server-anikhaque.vercel.app/booking/by-transaction-id/${transactionId}`)
+    fetch(`http://localhost:5000/booking/by-transaction-id/${transactionId}`)
     .then(res => res.json())
     .then(data => setOrder(data));
   }, [transactionId])

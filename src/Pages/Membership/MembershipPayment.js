@@ -27,11 +27,11 @@ import './MyMembership.css'
                 </div>
                 <div class="inputBox">
                     <span>address :</span>
-                    <input type="text" placeholder="room - street - locality" />
+                    <input type="text" placeholder="room - street - locality" defaultValue={bookingMembership?.address} />
                 </div>
                 <div class="inputBox">
-                    <span>city :</span>
-                    <input type="text" placeholder="mumbai" />
+                    <span>Mobile Number :</span>
+                    <input type="number" placeholder="mumbai" defaultValue={bookingMembership?.phone}/>
                 </div>
 
                 <div class="flex">
@@ -56,8 +56,8 @@ import './MyMembership.css'
                     <img src="https://i.ibb.co/NmRwHb2/card-img.png" alt="" />
                 </div>
                 <div class="inputBox">
-                    <span>name on card :</span>
-                    <input type="text" placeholder="mr. john deo" /> 
+                    <span>Payable Amount :</span>
+                    <input type="number" placeholder="mr. john deo" defaultValue={bookingMembership?.price} /> 
                 </div>
                 <div class="inputBox">
                     <span>credit card number :</span>

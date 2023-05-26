@@ -88,6 +88,18 @@ const Membership = () => {
           </label>
           <input className='bg-blue-100  h-10' type='text' placeholder='Basic / Premium / Ultimate ?' id='category' {...register("category")} />
         </div>
+        <div className='flex flex-col w-full max-w-xs'>
+          <label className='mb-2' htmlFor='category'>
+           Address
+          </label>
+          <input className='bg-blue-100  h-10' type='text' placeholder='Basic / Premium / Ultimate ?' id='category' {...register("address")} />
+        </div>
+        <div className='flex flex-col w-full max-w-xs'>
+          <label className='mb-2' htmlFor='category'>
+            Phone Number
+          </label>
+          <input className='bg-blue-100  h-10' type='number' placeholder='Basic / Premium / Ultimate ?' id='category' {...register("phone")} />
+        </div>
  
         <div className='flex flex-col w-full max-w-xs'>
           <label className='mb-2' htmlFor='salaryRange'>
