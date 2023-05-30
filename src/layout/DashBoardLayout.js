@@ -38,7 +38,7 @@ const DashBoardLayout = () => {
             </div>
             <div class="side-menu6">
                 {
-                    isBuyer &&
+                    isSeller &&
                 
                 <ul>
                     <li>

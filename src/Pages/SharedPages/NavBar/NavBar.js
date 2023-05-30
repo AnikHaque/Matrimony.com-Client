@@ -14,6 +14,26 @@ import categories from "../../../assets/images/Logo/Membership.svg";
 import NavBarCSS from './NavBar.css';
 import Toggle from "../../Toggle/Toggle";
 import { themeContext } from "../../../Context";
+
+
+import {
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+  Avatar,
+  Typography,
+} from "@material-tailwind/react";
+import {
+  Cog6ToothIcon,
+  PowerIcon,
+  InboxArrowDownIcon,
+  UserCircleIcon,
+  LifebuoyIcon,
+} from "@heroicons/react/24/outline";
+
+
+
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
     const theme = useContext(themeContext);
@@ -50,6 +70,8 @@ const englishHandler = () => {
     { id: 9, to: "/dashboard", icon: kazi, tooltip: "Dashboard" },
 ];
  
+
+
   return (
     <>
     <header style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }}
@@ -97,18 +119,101 @@ const englishHandler = () => {
                         
                     </ul>
                     }
-                   <Toggle />
+               
                    {user && <ul>
-                     <Link onClick={handleLogOut}>
-                      <li className={`relative cursor-pointer ${NavBarCSS.engDropdown}`}>
-                            <div className="">
-                                <img className="w-[55px] rounded-full" src={user.photoURL} alt='Photo' />
-                                <h1 className="font-semibold mt-[-3px] ml-[3px] ">Logout</h1>
-                            </div>
-                           
-                        </li>
-                    
-                        </Link>
+                     <Menu>
+                      
+      <MenuHandler>
+     
+        <Avatar
+          variant="circular"
+          alt="candice wu"
+          className="cursor-pointer rounded-full w-20"
+          src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+          
+        />
+
+     </MenuHandler>
+       
+      <MenuList className="mt-6">
+        <MenuItem className="flex items-center gap-2">
+          <UserCircleIcon strokeWidth={2} className="h-4 w-4" />
+          <Typography variant="small" className="font-normal">
+            My Profile
+          </Typography>
+        </MenuItem>
+        <MenuItem className="flex items-center gap-2">
+          <Cog6ToothIcon strokeWidth={2} className="h-4 w-4" />
+          <Typography variant="small" className="font-normal">
+           Account Setting
+          </Typography>
+        </MenuItem>
+        <MenuItem className="flex items-center gap-2">
+          <InboxArrowDownIcon strokeWidth={2} className="h-4 w-4" />
+          <Typography variant="small" className="font-normal">
+            Join Chat
+          </Typography>
+        </MenuItem>
+        
+        <hr className="my-2 border-blue-gray-50" />
+        <MenuItem className="flex items-center gap-2 ">
+          <PowerIcon strokeWidth={2} className="h-4 w-4" />
+          <Typography variant="small" className="font-normal">
+            <Link onClick={logOut}>
+              Sign Out
+            </Link>
+          
+          </Typography>
+        </MenuItem>
+      </MenuList>
+    </Menu>
+                     <Menu>
+                       
+      <MenuHandler>
+     
+        <Avatar
+        data-aos="fade-up"
+          variant="circular"
+          alt="candice wu"
+          className="cursor-pointer w-6 mt-12 ml-[-38px]"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSagGtZYzIq39vilDMeajWylZ0Xtfw_Ak6JeA&usqp=CAU"
+          
+        />
+
+     </MenuHandler>
+       
+      <MenuList className="mt-6">
+        <MenuItem className="flex items-center gap-2">
+          <UserCircleIcon strokeWidth={2} className="h-4 w-4" />
+          <Typography variant="small" className="font-normal">
+            My Profile
+          </Typography>
+        </MenuItem>
+        <MenuItem className="flex items-center gap-2">
+          <Cog6ToothIcon strokeWidth={2} className="h-4 w-4" />
+          <Typography variant="small" className="font-normal">
+           Account Setting
+          </Typography>
+        </MenuItem>
+        <MenuItem className="flex items-center gap-2">
+          <InboxArrowDownIcon strokeWidth={2} className="h-4 w-4" />
+          <Typography variant="small" className="font-normal">
+            Join Chat
+          </Typography>
+        </MenuItem>
+        
+        <hr className="my-2 border-blue-gray-50" />
+        <MenuItem className="flex items-center gap-2 ">
+          <PowerIcon strokeWidth={2} className="h-4 w-4" />
+          <Typography variant="small" className="font-normal">
+            <Link onClick={logOut}>
+              Sign Out
+            </Link>
+          
+          </Typography>
+        </MenuItem>
+      </MenuList>
+    </Menu>
                     </ul>
                     }
                    

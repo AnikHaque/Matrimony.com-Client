@@ -81,16 +81,6 @@ const verifyEmail = () => {
       });
   };
 
-  //   jwt token for registered user
-  //   const registeredUserToken = (email) => {
-  //     fetch(` http://localhost:5000/JWT?email=${email}`)
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         if (data.accessToken) {
-  //           localStorage.setItem("accessToken", data.accessToken);
-  //         }
-  //       });
-  //   };
 
   const handleGoogleSignIn = () => {
     googleSignIn()

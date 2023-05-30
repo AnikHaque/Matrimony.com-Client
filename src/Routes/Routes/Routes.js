@@ -48,6 +48,7 @@ import AgentDetails from "../../Pages/Agent/AgentDetails";
 import MainProfile from "../../Pages/SocialMedia/MainProfile/MainProfile";
 import Chat from "../../Pages/Chat";
 import MyProfile from "../../Pages/DashBoard/MyProfile/MyProfile";
+import LawyerPayment from "../../Pages/Lawyer/LawyerPayment";
 
 
 
@@ -135,6 +136,16 @@ export const router = createBrowserRouter([
         element: (
           
          <LawyerDetails></LawyerDetails>
+          
+        ),
+       
+      },
+
+      {
+        path: "/lawyer/:id",
+        element: (
+          
+   <LawyerPayment></LawyerPayment>
           
         ),
        
