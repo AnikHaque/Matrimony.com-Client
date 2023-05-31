@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Hero.css";
 import Vector1 from "../../assets/img/Vector1.png";
 
@@ -23,7 +23,19 @@ import Works from "../Works/Works";
 import Header from "../Header/Header";
 import Experience from "../Experience/Experience"
 import Services from "../Services/Services"
+
+import {
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+} from "@material-tailwind/react";
+
 const Hero = () => {
+  const [open, setOpen] = useState(false);
+ 
+  const handleOpen = () => setOpen(!open);
   // Transition
   const transition = { duration: 2, type: "spring" };
 
@@ -110,18 +122,20 @@ const handlePlaceOrder = (event,data) => {
 			</div>
 			<div className="text-gray-800">
 				<p>{description}</p>
-          <label htmlFor="my-modal-3" className="btn btn-secondary rounded-md text-white mt-4">Book Appointment</label>
-			</div>
-		</div>
-	</div>
-</div>
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal-3" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box relative">
-    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-   <div>
-      <form onSubmit={handlePlaceOrder} className="">
+           <Button onClick={handleOpen} variant="gradient" className='bg-blue-400 text-white pl-10 text-md pr-10 pt-2 rounded-md pb-2 mt-4'>
+        Book Appointment
+      </Button>
+      <Dialog
+        open={open}
+        handler={handleOpen}
+        animate={{
+          mount: { scale: 1, y: 0 },
+          unmount: { scale: 0.9, y: -100 },
+        }}
+      >
+        <DialogHeader>Payment For Appointment.</DialogHeader>
+        <DialogBody divider>
+         <form onSubmit={handlePlaceOrder} className="">
        
         <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -170,7 +184,7 @@ const handlePlaceOrder = (event,data) => {
             name="price"
             placeholder="Price"
            defaultValue={price}
-            className="input input-ghost w-full  input-bordered"
+            className="input input-ghost w-full  input-bordered border-black"
           />
           </div>
 
@@ -182,13 +196,31 @@ const handlePlaceOrder = (event,data) => {
             required
           ></textarea>
 
-          <input className="btn btn-secondary w-full" type="submit" value="Pay For Appointment" />
+          
+
+          <DialogFooter>
+          <Button
+            variant="text"
+            color="red"
+            onClick={handleOpen}
+            className="mr-1"
+          >
+            <span className="mr-4">Cancel</span>
+          </Button>
+          <Button variant="gradient" color="green" className="bg-green-600 pl-8 pr-8 pt-4 pb-4" onClick={handleOpen} type="submit">
+            <span>Payment</span>
+          </Button>
+        </DialogFooter>
+
         </div>
       </form>
-    </div>
-  </div>
-</div>
-       
+        </DialogBody>
+        
+      </Dialog>
+			</div>
+		</div>
+	</div>
+</div>    
       </div>
       
     </div>

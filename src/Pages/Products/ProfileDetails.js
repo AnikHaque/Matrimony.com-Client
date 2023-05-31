@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ProfileDetails.css';
-import { useBookItemMutation, useGetItemByIdQuery } from '../../features/Item/itemApi';
-import { useLoaderData, useParams } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-hot-toast';
-import { usePostBookedMutation } from '../../features/bookeditems/bookApi';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-
+import {
+  Tabs,
+  TabsHeader,
+  TabsBody,
+  Tab,
+  TabPanel,
+} from "@material-tailwind/react";
+import NavBar from '../SharedPages/NavBar/NavBar';
 
 const product = { // Product Data
   id: 1,
@@ -38,64 +41,31 @@ const product = { // Product Data
 }
 
 const ProfileDetails = () => {
+  const data = [
+    {
+      label: "Highlights",
+      value: "highlights",
+      desc: `'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consectetur vero asperiores quis animi explicabo accusamus nemo cupiditate harum pariatur! Provident sit tenetur totam mollitia consectetur nesciunt, recusandae obcaecati itaque!Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consectetur vero asperiores quis animi explicabo accusamus nemo cupiditate harum pariatur! Provident sit tenetur totam mollitia consectetur nesciunt, recusandae obcaecati itaque!Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consectetur vero asperiores quis animi explicabo accusamus nemo cupiditate harum pariatur! Provident sit tenetur totam mollitia consectetur nesciunt, recusandae obcaecati itaque!Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque consectetur vero asperiores quis animi explicabo accusamus nemo cupiditate harum pariatur! Provident sit tenetur totam mollitia consectetur nesciunt, recusandae obcaecati itaque!',`,
+    },
+    {
+      label: "Material",
+      value: "material",
+      desc: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).`,
+    },
+    {
+      label: "Pro Tips",
+      value: "pro tips",
+      desc: `Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.`,
+    },
+   
+  ];
+
   const { user } = useContext(AuthContext);
   const {id} = useParams();
   // const {data} = useGetItemByIdQuery(id);
   // console.log(data);
   const shop = useLoaderData();
-   const {_id,name, price, discount} = shop;
- 
-  const { handleSubmit, register, control } = useForm();
-
-  const [ bookitem, {isLoading, isError} ] = usePostBookedMutation();
-
-  const handlePlaceOrder = (event,data) => {
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const customer = user.displayName;
-    const email = user?.email || "unregistered";
-    const phone = form.phone.value;
-    const address = form.address.value;
-    const price = form.price.value;
-    const currency = form.currency.value;
-
-    const order = {
-      service:_id,
-      name,
-      price,
-      customer,
-      email,
-      phone,
-      address,
-      currency
-    };
-
-    fetch("http://localhost:5000/bookshop", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-       
-      },
-      body: JSON.stringify(order)
-    })
-      .then((res) => res.json())
-      .then((data) => {
-    window.location.replace(data.url);
-      })
-      .catch((er) => console.error(er));
-  };
-
-  
-
-  // const onSubmit = (data) => {
-  // bookitem(data);
-  // console.log(data)
-  // if(data){
-  //   toast("Booked Product Successfully");
-  // }
-  // }
-
+   const {name, price, discount} = shop;
   const [slideIndex, setSlideIndex] = useState(1);
 
   const [width, setWidth] = useState(0);
@@ -157,6 +127,7 @@ const ProfileDetails = () => {
 
   return (
     <React.Fragment>
+      <NavBar></NavBar>
       <section className="product-details">
         <div className="product-page-img">
           <div className="big-images">
@@ -224,120 +195,30 @@ const ProfileDetails = () => {
 
           <div className="cart-btns">
            {/* The button to open modal */}
-<label htmlFor="my-modal-3" className="btn btn-secondary rounded-full">Add to Cart</label>
-
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal-3" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box relative">
-    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <div>
-      <form onSubmit={handlePlaceOrder} className="">
-       
-        <div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <input
-              name="name"
-              type="text"
-              placeholder="Name"
-              className="input input-ghost w-full  input-bordered"
-              defaultValue={name}
-            />
-            <input
-              name="cusname"
-              type="text"
-              placeholder="Customer Name"
-              className="input input-ghost w-full  input-bordered"
-              defaultValue={user?.displayName}
-            />
-          
-            <input
-              name="phone"
-              type="text"
-              placeholder="Your Phone"
-              className="input input-ghost w-full  input-bordered"
-              required
-            />
-            <input
-              name="email"
-              type="text"
-              placeholder="Your email"
-              defaultValue={user?.email}
-              className="input input-ghost w-full  input-bordered"
-              readOnly
-            />
-          <select
-            defaultValue="BDT"
-            name="currency"
-            className="select select-bordered max-w-xs"
-          >
-            <option value="BDT">BDT</option>
-            <option value="USD">USD</option>
-          </select>
-
-          <input
-            type="text"
-            name="price"
-            placeholder="Price"
-            defaultValue={price}
-            className="input input-ghost w-full  input-bordered"
-          />
-          </div>
-
-
-          <textarea
-            name="address"
-            className="textarea textarea-bordered h-24 w-full my-5"
-            placeholder="Your Address"
-            required
-          ></textarea>
-
-          <input className="btn btn-secondary w-full" type="submit" value="Purchase" />
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-            
+<label className="btn btn-secondary rounded-full">
+  <Link to={`/shop/${shop?._id}`}>ADD TO CART</Link>
+</label>
+    
           </div>
 
         </div>
       </section>
-      <div className='ml-24 mt-20'>
-      <div className="dropdown mb-20">
-  <label tabIndex={0} className="bg-black text-white font bold text-xl pt-4 pb-4 mb-10 pl-32 pr-32 m-1">Highlights</label>
-  <p tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-[1000px] mt-12">
-   <p>A wedding sari is a traditional South Asian wedding dress, especially popular in South Indian states. The sari often consists of a combination of red and green, with golden brocade.
-
-
-Traditional Indian Bride in Sari
-Wedding saris are predominantly red, a colour associated with married women, although colours and colour combinations vary by region, caste, and religion; non-Brahmin women in Tamil Nadu wear a red-and-white checked sari as traditional wedding attire.[1] The Padmasali wedding sari is a white sari, dyed with turmeric.[1]
-</p>
-  </p>
-</div>
-      <div className="dropdown">
-  <label tabIndex={0} className="bg-secondary text-white font bold text-xl pt-4 pb-4 pl-32 pr-32 m-1">Materials</label>
-  <p tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-[500px] mt-12">
-   <p>A wedding sari is a traditional South Asian wedding dress, especially popular in South Indian states. The sari often consists of a combination of red and green, with golden brocade.
-
-
-Traditional Indian Bride in Sari
-Wedding saris are predominantly red, a colour associated with married women, although colours and colour combinations vary by region, caste, and religion; non-Brahmin women in Tamil Nadu wear a red-and-white checked sari as traditional wedding attire.[1] The Padmasali wedding sari is a white sari, dyed with turmeric.[1]
-</p>
-  </p>
-</div>
-      <div className="dropdown">
-  <label tabIndex={0} className="bg-primary text-white font bold text-xl pt-4 pb-4 pl-32 pr-32 m-1">Pro Tips</label>
-  <p tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-[400px] mt-12">
-   <p>A wedding sari is a traditional South Asian wedding dress, especially popular in South Indian states. The sari often consists of a combination of red and green, with golden brocade.
-
-
-Traditional Indian Bride in Sari
-Wedding saris are predominantly red, a colour associated with married women, although colours and colour combinations vary by region, caste, and religion; non-Brahmin women in Tamil Nadu wear a red-and-white checked sari as traditional wedding attire.[1] The Padmasali wedding sari is a white sari, dyed with turmeric.[1]
-</p>
-  </p>
-</div>
-      </div>
+     <Tabs value="html">
+  <TabsHeader>
+    {data.map(({ label, value }) => (
+      <Tab key={value} value={value}>
+      <b>{label}</b>
+      </Tab>
+    ))}
+  </TabsHeader>
+  <TabsBody>
+    {data.map(({ value, desc }) => (
+      <TabPanel key={value} value={value}>
+        {desc}
+      </TabPanel>
+    ))}
+  </TabsBody>
+</Tabs>
     </React.Fragment>
   )
 }

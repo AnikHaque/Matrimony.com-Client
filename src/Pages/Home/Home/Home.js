@@ -14,11 +14,11 @@ const Home = () => {
   const darkMode = theme.state.darkMode;
   return (
     <div style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }}>
-      <NavBar></NavBar>
+      <NavBar></NavBar> 
       <Banner></Banner>
-    <CategoriesHome></CategoriesHome>
+     <CategoriesHome></CategoriesHome>
    
-     <TopProfile></TopProfile>
+     {/* <TopProfile></TopProfile> */}
       {/* <FindSoleMate></FindSoleMate> */}
       {/* <MeetNewPeople></MeetNewPeople> */}
       <Anexecutive></Anexecutive>

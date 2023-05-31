@@ -482,7 +482,7 @@ table tbody tr {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 468px) {
     .analytics6 {
         grid-template-columns: 100%;
     }
