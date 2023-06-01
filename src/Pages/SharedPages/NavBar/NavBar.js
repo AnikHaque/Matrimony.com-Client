@@ -55,19 +55,19 @@ const englishHandler = () => {
     {
         id: 1,
         to: "/home",
-        icon: home,
+        icon: 'https://png.pngtree.com/png-clipart/20220510/original/pngtree-home-logo-design-free-vector-png-png-image_7693226.png',
         tooltip: "Home"
        
     },
-    { id: 2, to: "/categories", icon:categories, tooltip: "Categories" },
-    { id: 7, to: "/kazi", icon: kazi, tooltip: "Kazi" },
+    { id: 2, to: "/categories", icon:'https://www.seekpng.com/png/detail/311-3113352_world-wide-web-logo-png-website-image-without.png', tooltip: "Categories" },
+    { id: 7, to: "/kazi", icon:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjW0y7tjg9nigQEDo13O_Ag1bLnyAlMshIXA&usqp=CAU', tooltip: "Kazi" },
     { id: 5, to: '/shop', icon: shop, tooltip: "Shop" },
-    { id: 6, to: "/lawyer", icon: kazi, tooltip: "Lawyer" },
+    { id: 6, to: "/lawyer", icon: 'https://w1.pngwing.com/pngs/249/775/png-transparent-lawyer-symbol-court-advocate-judge-logo-bar-association-law-firm-justice.png', tooltip: "Lawyer" },
     { id: 3, to: "/blog", icon: blog, tooltip: "Blog" },
 
     { id: 8, to: "/agent", icon: kazi, tooltip: "Agent" },
-    { id: 8, to: "/social", icon: kazi, tooltip: "Social Media" },
-    { id: 9, to: "/dashboard", icon: kazi, tooltip: "Dashboard" },
+    { id: 8, to: "/social", icon: 'https://www.pngfind.com/pngs/m/30-307761_social-media-circle-hd-png-download.png', tooltip: "Social Media" },
+    { id: 9, to: "/dashboard", icon: 'https://w7.pngwing.com/pngs/502/794/png-transparent-white-arrow-going-up-computer-icons-dashboard-car-symbol-dashboard-icon-miscellaneous-angle-logo.png', tooltip: "Dashboard" },
 ];
  
 
@@ -89,11 +89,11 @@ const englishHandler = () => {
                         <NavLink to={menu.to} className={({ isActive }) => (isActive ? "" : `${NavBarCSS.hasTooltip}`)}>
                             <div style={{ marginLeft: "20px",fontWeight:"600" }} className="flex flex-col pb-8 items-center">
                                 <img
-                                    className="hover:rotate-[360deg] duration-[2000ms] w-[50px] h-[75px]"
+                                    className="hover:rotate-[360deg] duration-[2000ms] w-[40px] h-[40px] mb-4 rounded-full"
                                     src={menu.icon}
                                     alt="Not Available"
                                 />
-                                <h1 className=" mt-[-20px]">{menu.tooltip}</h1>
+                                <h1 className=" mt-[-15px]">{menu.tooltip}</h1>
                                
                             </div>
                         </NavLink>

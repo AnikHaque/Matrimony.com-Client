@@ -18,82 +18,74 @@ const Blogs = () => {
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
     return (
-        <div className='py-9'>
-            <p style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="bg-gradient-to-r text-transparent bg-clip-text from-green-400 via-green-500 to-green-600 font-semibold pb-2 text-center" >Our Recent Blogs</p>
-            <h1 className='text-3xl mb-3 px-3  md:text-4xl font-semibold text-black text-center' style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }}>Check Out Our Recent Blogs<br /> From Here Now</h1>
-
-            <div className='pt-9' >
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-10 md:px-24">
-                       
-                        <div className="blogs">
-                        {/* event--->1 */}
-                            <div className="flex  mb-10 items-center flex-col md:flex-row lg:flex-row  drop-shadow-lg text-gray-700" style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }}>
-                                <div>
-                                <img className='rounded imgSize' src='https://i.ibb.co/wJxs9fQ/event-1-jpg.webp' alt='tree image 1'/>
-                                </div>
-                                <div className="pt-3 md:pt-0 pb-5 max-w-xs text-center md:text-left md:pb-0 md:pl-4" style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }}>
-                                <h3 className="text-xl mb-2 font-medium">It may be our eternal hope, that with whom</h3>
-                                <p style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="text-gray-600 text-sm">1 January 2023</p>
-                                <p style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="text-gray-600 text-sm">Dhaka, Bangladesh</p>
-                                </div>
-                                
-                            </div>
-                        {/* event--->2 */}
-                            <div className="flex mb-10 items-center flex-col md:flex-row  drop-shadow-lg text-gray-700" style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }}>
-                                <div>
-                                <img className='rounded imgSize' src='https://i.ibb.co/D587NTx/event-2-jpg.webp' alt='tree image 2'/>
-                                </div>
-                                <div className="pt-3 md:pt-0 max-w-xs text-center md:text-left pb-5 md:pb-0 md:pl-4" style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }}>
-                                <h3 className="text-xl mb-2 font-medium">Donation is hope and give without remembering.</h3>
-                                <p style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="text-gray-600 text-sm">10 July 2023</p>
-                                <p style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="text-gray-600 text-sm">Dhaka, Bangladesh</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                      
-                        <div className="blogs">
-                        {/* event--->3 */}
-                            <div className="flex mb-10 items-center flex-col md:flex-row  drop-shadow-lg text-gray-700" style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }}>
-                                <div>
-                                <img className='rounded imgSize' src='https://i.ibb.co/pvNSp78/event-3-jpg.webp' alt='tree image 1'/>
-                                </div>
-                                <div style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="pt-3 md:pt-0 max-w-xs text-center md:text-left pb-5 md:pb-0 md:pl-4 ">
-                                <h3 style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="text-xl mb-2 font-medium">It would be hardly have been easy for you.</h3>
-                                <p style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="text-gray-600 text-sm">15 August 2023</p>
-                                <p style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="text-gray-600 text-sm">Dhaka, Bangladesh</p>
-                                </div>
-                                
-                            </div>
-                        {/* event--->4 */}
-                            <div className="flex items-center flex-col md:flex-row  drop-shadow-lg text-gray-800" style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }}>
-                                <div>
-                                <img className='rounded imgSize' src='https://i.ibb.co/gVjwWW6/event-4-jpg.webp' alt='tree image 2'/>
-                                </div>
-                                <div style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="pt-3 md:pt-0 max-w-xs text-center md:text-left pb-5 md:pb-0 md:pl-4">
-                                <h2 style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="text-xl pb-2 font-medium">A hand for children, always help for children</h2>
-                                <p style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="text-gray-600 text-sm">10 December 2023</p>
-                                <p style={{ background: darkMode ? "black" : "", color: darkMode ? "white" : "black" }} className="text-gray-600 text-sm">Dhaka, Bangladesh</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>     
-                <br />
-            </div>
-            <div className='text-center '>
-            <Link
-                  to='/allevents'
-                  style={ styleObject.button }
-                  type="button"
-                  className="text-white bg-gray-600 hover:text-white focus:ring-4  font-medium rounded-lg text-sm px-5 py-3 mr-2 mb-2 "
-                >
-                  View ALL Events
-
-                </Link>
-            </div>
-      <br />
-        </div>
+       <div>
+        <section className="py-6 sm:py-12 bg-gray-100 text-gray-800">
+	<div className="container p-6 mx-auto space-y-8">
+		<div className="space-y-2 text-center">
+			<h2 className="text-3xl font-bold">See Our Recent Blogs</h2>
+			<p className="font-serif text-sm text-gray-600">Read and follow the blogs that we do for a better knowledge</p>
+		</div>
+		<div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+			<article className="flex flex-col bg-gray-50">
+				<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
+					<img alt="" className="object-cover w-full h-52 bg-gray-500" src="https://source.unsplash.com/200x200/?fashion?1" />
+				</a>
+				<div className="flex flex-col flex-1 p-6">
+					<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></a>
+					<a rel="noopener noreferrer" href="#" className="text-xs tracking-wider uppercase hover:underline text-rose-600">Convenire</a>
+					<h3 className="flex-1 py-2 text-lg font-semibold leading-snug">Te nulla oportere reprimique his dolorum</h3>
+					<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs text-gray-600">
+						<span>June 1, 2020</span>
+						<span>2.1K views</span>
+					</div>
+				</div>
+			</article>
+			<article className="flex flex-col bg-gray-50">
+				<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
+					<img alt="" className="object-cover w-full h-52 bg-gray-500" src="https://source.unsplash.com/200x200/?fashion?2" />
+				</a>
+				<div className="flex flex-col flex-1 p-6">
+					<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></a>
+					<a rel="noopener noreferrer" href="#" className="text-xs tracking-wider uppercase hover:underline text-rose-600">Convenire</a>
+					<h3 className="flex-1 py-2 text-lg font-semibold leading-snug">Te nulla oportere reprimique his dolorum</h3>
+					<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs text-gray-600">
+						<span>June 2, 2020</span>
+						<span>2.2K views</span>
+					</div>
+				</div>
+			</article>
+			<article className="flex flex-col bg-gray-50">
+				<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
+					<img alt="" className="object-cover w-full h-52 bg-gray-500" src="https://source.unsplash.com/200x200/?fashion?3" />
+				</a>
+				<div className="flex flex-col flex-1 p-6">
+					<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></a>
+					<a rel="noopener noreferrer" href="#" className="text-xs tracking-wider uppercase hover:underline text-rose-600">Convenire</a>
+					<h3 className="flex-1 py-2 text-lg font-semibold leading-snug">Te nulla oportere reprimique his dolorum</h3>
+					<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs text-gray-600">
+						<span>June 3, 2020</span>
+						<span>2.3K views</span>
+					</div>
+				</div>
+			</article>
+			<article className="flex flex-col bg-gray-50">
+				<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
+					<img alt="" className="object-cover w-full h-52 bg-gray-500" src="https://source.unsplash.com/200x200/?fashion?4" />
+				</a>
+				<div className="flex flex-col flex-1 p-6">
+					<a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></a>
+					<a rel="noopener noreferrer" href="#" className="text-xs tracking-wider uppercase hover:underline text-rose-600">Convenire</a>
+					<h3 className="flex-1 py-2 text-lg font-semibold leading-snug">Te nulla oportere reprimique his dolorum</h3>
+					<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs text-gray-600">
+						<span>June 4, 2020</span>
+						<span>2.4K views</span>
+					</div>
+				</div>
+			</article>
+		</div>
+	</div>
+</section>
+       </div>
     );
 };
 
